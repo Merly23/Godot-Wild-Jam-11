@@ -1,4 +1,5 @@
 extends Sprite
+class_name Multiskin
 
 export(Texture) var other
 var state = false setget enter_state

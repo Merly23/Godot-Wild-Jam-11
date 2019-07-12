@@ -10,12 +10,18 @@ const RISE_FORCE = 50;
 
 var vel = Vector2.ZERO;
 
+enum form {HUMAN, FOX, XFORM};
+var state = form.HUMAN;
+
 func _ready():
 	pass
 
 var movement = Vector2.ZERO;
 
 func _physics_process(delta):
+	
+	if state == form.XFORM: return;
+	
 	movement = Vector2.ZERO;
 	movement.x += 1 if Input.is_action_pressed("ui_right") else 0;
 	movement.x += -1 if Input.is_action_pressed("ui_left") else 0;
@@ -51,8 +57,12 @@ func _process(delta):
 		sprite.flip_h = true;
 		sprite.offset.x = -abs(sprite.offset.x);
 	if sprite.animation == "idle":
-		if movement.x != 0:
+		if movement.x != 0 and abs(vel.x) > 1:
 			sprite.play("run_start");
+	elif sprite.animation == "xform" or sprite.animation == "fox_xform":
+		return
+	elif sprite.animation == "fox_idle":
+		return
 	else:
 		if movement == Vector2.ZERO and abs(vel.x) < 30:
 			sprite.play("idle");
@@ -60,3 +70,20 @@ func _process(delta):
 func _on_AnimatedSprite_animation_finished():
 	if sprite.animation == "run_start":
 		sprite.play("run");
+	if sprite.animation == "xform":
+		state = form.FOX;
+		sprite.play("fox_idle");
+	if sprite.animation == "fox_xform":
+		state = form.HUMAN;
+		sprite.play("idle");
+
+func transform(to_human):
+	if sprite.animation == "idle" and not to_human:
+		sprite.play("xform");
+		state = form.XFORM;
+		return true
+	elif sprite.animation == "fox_idle" and to_human:
+		sprite.play("fox_xform");
+		state = form.XFORM;
+		return true
+	return false
