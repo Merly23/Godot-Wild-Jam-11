@@ -13,7 +13,7 @@ func warp(focus):
 	var tex = ImageTexture.new();
 	var data = get_viewport().get_texture().get_data();
 	data.flip_y();
-	tex.create_from_image(data);
+	tex.create_from_image(data, 0);
 	texture = tex;
 	ani.stop();
 	ani.play("default");

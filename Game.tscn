@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://sprites/test.png" type="Texture" id=2]
@@ -47,22 +47,24 @@ code = "shader_type canvas_item;
 
 uniform vec2 center;
 uniform float progress;
+uniform float dim;
 uniform float aspect;
 
 void fragment(){
-	bool al = length(vec2(UV.x, UV.y / aspect) - center) > progress * 1.2;
+	float pos = length(vec2(UV.x, UV.y / aspect) - center);
 	
-	COLOR = texture(TEXTURE, UV);
+	COLOR = texture(TEXTURE, mix(UV, center, pow(progress / pos, 3.0)));
+	bool al = pos > progress * 1.2;
 	COLOR.a = al ? 1.0 : 0.0;
+	COLOR += vec4(1,1,1,1) * smoothstep(0, 1, abs(pos - progress * 1.2) * -30.0 + 1.0);
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/center = Vector2( 1, 0 )
+shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/progress = 1.0
+shader_param/dim = null
 shader_param/aspect = 1.778
-
-[sub_resource type="ImageTexture" id=3]
 
 [sub_resource type="Animation" id=4]
 resource_name = "default"
@@ -155,7 +157,7 @@ other = ExtResource( 4 )
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 3 )
+texture = ExtResource( 4 )
 script = ExtResource( 6 )
 animator_path = NodePath("../Transform")
 progress = 1.0
