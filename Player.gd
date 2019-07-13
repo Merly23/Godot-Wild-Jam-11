@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
-const GRAVITY = 1000;
-const FRICTION = 0.1;
-const FRICTION_AIR = 0.02;
-const RUN_FORCE = 1000;
-const FLY_FORCE = 300;
-const JUMP_FORCE = 30000;
-const RISE_FORCE = 50;
+var GRAVITY = 1000;
+var FRICTION = 0.1;
+var FRICTION_AIR = 0.02;
+var RUN_FORCE = 1000;
+var FLY_FORCE = 300;
+var JUMP_FORCE = 30000;
+var RISE_FORCE = 50;
 
 var vel = Vector2.ZERO;
 
@@ -80,7 +80,11 @@ func _process(delta):
 		"fox_xform":
 			return
 		"fox_idle":
-			return
+			if movement.x != 0 and abs(vel.x) > 1:
+				sprite.play("fox_run");
+		"fox_run":
+			if abs(vel.x) < 100:
+				sprite.play("fox_run_end");
 		"run":
 			if abs(vel.x) < 30 and abs(vel.y) < 1:
 				sprite.play("idle");
@@ -105,10 +109,13 @@ func _on_AnimatedSprite_animation_finished():
 		sprite.play("fall");
 	if sprite.animation == "land":
 		sprite.play("idle");
+	if sprite.animation == "fox_run_end":
+		sprite.play("fox_idle");
 	
 	if sprite.animation == "xform":
 		state = form.FOX;
 		sprite.play("fox_idle");
+		sprite.offset.x *= 2;
 	if sprite.animation == "fox_xform":
 		state = form.HUMAN;
 		sprite.play("idle");
@@ -117,9 +124,24 @@ func transform(to_human):
 	if sprite.animation == "idle" and not to_human:
 		sprite.play("xform");
 		state = form.XFORM;
+		GRAVITY = 800;
+		FRICTION = 0.1;
+		FRICTION_AIR = 0.02;
+		RUN_FORCE = 2000;
+		FLY_FORCE = 600;
+		JUMP_FORCE = 20000;
+		RISE_FORCE = 100;
 		return true
 	elif sprite.animation == "fox_idle" and to_human:
 		sprite.play("fox_xform");
 		state = form.XFORM;
+		GRAVITY = 1000;
+		FRICTION = 0.1;
+		FRICTION_AIR = 0.02;
+		RUN_FORCE = 1000;
+		FLY_FORCE = 300;
+		JUMP_FORCE = 30000;
+		RISE_FORCE = 50;
+		sprite.offset.x /= 2;
 		return true
 	return false
