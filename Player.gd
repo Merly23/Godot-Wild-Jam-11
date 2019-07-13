@@ -53,23 +53,59 @@ func _process(delta):
 	if vel.x > 0:
 		sprite.flip_h = false;
 		sprite.offset.x = abs(sprite.offset.x);
-	else:
+	elif vel.x < 0:
 		sprite.flip_h = true;
 		sprite.offset.x = -abs(sprite.offset.x);
-	if sprite.animation == "idle":
-		if movement.x != 0 and abs(vel.x) > 1:
-			sprite.play("run_start");
-	elif sprite.animation == "xform" or sprite.animation == "fox_xform":
-		return
-	elif sprite.animation == "fox_idle":
-		return
-	else:
-		if movement == Vector2.ZERO and abs(vel.x) < 30:
-			sprite.play("idle");
+	
+	match sprite.animation:
+		"idle":
+			if vel.y < 0:
+				sprite.animation = "jump";
+			elif movement.x != 0 and abs(vel.x) > 1:
+				sprite.play("run_start");
+		"rise":
+			if vel.y > 0:
+				sprite.animation = "fall_start";
+		"jump":
+			if vel.y > 0:
+				sprite.animation = "fall_start";
+		"fall":
+			if is_on_floor():
+				sprite.animation = "land";
+		"fall_start":
+			if is_on_floor():
+				sprite.animation = "land";
+		"xform":
+			return
+		"fox_xform":
+			return
+		"fox_idle":
+			return
+		"run":
+			if abs(vel.x) < 30 and abs(vel.y) < 1:
+				sprite.play("idle");
+			elif vel.y < 0:
+				sprite.play("jump");
+			elif vel.y > 0:
+				sprite.play("fall");
+		"run_start":
+			if abs(vel.x) < 30 and abs(vel.y) < 1:
+				sprite.play("idle");
+			elif vel.y < 0:
+				sprite.play("jump");
+			elif vel.y > 0:
+				sprite.play("fall");
 
 func _on_AnimatedSprite_animation_finished():
 	if sprite.animation == "run_start":
 		sprite.play("run");
+	if sprite.animation == "jump":
+		sprite.play("rise");
+	if sprite.animation == "fall_start":
+		sprite.play("fall");
+	if sprite.animation == "land":
+		sprite.play("idle");
+	
 	if sprite.animation == "xform":
 		state = form.FOX;
 		sprite.play("fox_idle");
