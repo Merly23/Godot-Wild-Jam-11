@@ -5,10 +5,11 @@ var FRICTION = 0.1;
 var FRICTION_AIR = 0.02;
 var RUN_FORCE = 1000;
 var FLY_FORCE = 300;
-var JUMP_FORCE = 30000;
-var RISE_FORCE = 50;
+var JUMP_FORCE = 15000;
+var RISE_FORCE = 2000;
 
 var vel = Vector2.ZERO;
+var air_time = 0;
 
 enum form {HUMAN, FOX, XFORM};
 var state = form.HUMAN;
@@ -29,19 +30,25 @@ func _physics_process(delta):
 	
 	if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
 		movement.y -= JUMP_FORCE;
-	if Input.is_action_pressed("ui_accept"):
-		movement.y -= RISE_FORCE;
+		air_time = 0;
+	elif Input.is_action_pressed("ui_accept"):
+		air_time += delta;
+		movement.y -= RISE_FORCE * pow(0.5, air_time * 7);
 	
 	
 	var accel = Vector2.ZERO;
 	
-	accel.y += GRAVITY * delta;
 	accel += movement * delta;
-	
-	accel -= vel * (FRICTION if is_on_floor() else FRICTION_AIR);
+	if is_on_floor():
+		if vel.length() < 100 and movement.x == 0:
+			accel -= vel
+		else:
+			accel -= vel * FRICTION
+	else:
+		accel -= vel * FRICTION_AIR
+	accel.y += GRAVITY * delta;
 	
 	vel += accel;
-	
 	vel = move_and_slide(vel, Vector2(0, -1));
 	
 	for i in range(1, get_slide_count()):
@@ -57,11 +64,13 @@ func _process(delta):
 		sprite.flip_h = true;
 		sprite.offset.x = -abs(sprite.offset.x);
 	
+	var VERT_THRESHOLD = 200;
+	var HORIZ_THRESHOLD = 30;
 	match sprite.animation:
 		"idle":
-			if vel.y < 0:
+			if movement.y != 0:
 				sprite.animation = "jump";
-			elif movement.x != 0 and abs(vel.x) > 1:
+			elif movement.x != 0:
 				sprite.play("run_start");
 		"rise":
 			if vel.y > 0:
@@ -75,6 +84,20 @@ func _process(delta):
 		"fall_start":
 			if is_on_floor():
 				sprite.animation = "land";
+		"run":
+			if abs(vel.x) < HORIZ_THRESHOLD and abs(vel.y) < 1:
+				sprite.play("idle");
+			elif vel.y < -VERT_THRESHOLD and not is_on_floor():
+				sprite.play("jump");
+			elif vel.y > VERT_THRESHOLD:
+				sprite.play("fall");
+		"run_start":
+			if abs(vel.x) < HORIZ_THRESHOLD and abs(vel.y) < 1:
+				sprite.play("idle");
+			elif vel.y < -VERT_THRESHOLD and not is_on_floor():
+				sprite.play("jump");
+			elif vel.y > VERT_THRESHOLD:
+				sprite.play("fall");
 		"xform":
 			return
 		"fox_xform":
@@ -85,20 +108,6 @@ func _process(delta):
 		"fox_run":
 			if abs(vel.x) < 100:
 				sprite.play("fox_run_end");
-		"run":
-			if abs(vel.x) < 30 and abs(vel.y) < 1:
-				sprite.play("idle");
-			elif vel.y < 0:
-				sprite.play("jump");
-			elif vel.y > 0:
-				sprite.play("fall");
-		"run_start":
-			if abs(vel.x) < 30 and abs(vel.y) < 1:
-				sprite.play("idle");
-			elif vel.y < 0:
-				sprite.play("jump");
-			elif vel.y > 0:
-				sprite.play("fall");
 
 func _on_AnimatedSprite_animation_finished():
 	if sprite.animation == "run_start":
@@ -131,6 +140,8 @@ func transform(to_human):
 		FLY_FORCE = 600;
 		JUMP_FORCE = 20000;
 		RISE_FORCE = 100;
+		$Human.disabled = true;
+		$Fox.disabled = false;
 		return true
 	elif sprite.animation == "fox_idle" and to_human:
 		sprite.play("fox_xform");
@@ -142,6 +153,8 @@ func transform(to_human):
 		FLY_FORCE = 300;
 		JUMP_FORCE = 30000;
 		RISE_FORCE = 50;
+		$Fox.disabled = true;
+		$Human.disabled = false;
 		sprite.offset.x /= 2;
 		return true
 	return false

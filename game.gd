@@ -7,8 +7,8 @@ func _process(delta):
 	var screen = $"ScreenBuffer".rect_size;
 	$"Level/Camera".reposition(screen, focus);
 	
-	if Input.is_action_just_pressed("ui_down") and $"Stamina".decrement() and $"Level/Player".transform(state):
-		
+	if Input.is_action_just_pressed("ui_down") and $"Stamina".get_amount() > 0 and $"Level/Player".transform(state):
+		$"Stamina".decrement()
 		$"ScreenBuffer".warp(focus / screen.x);
 		
 		state = !state;

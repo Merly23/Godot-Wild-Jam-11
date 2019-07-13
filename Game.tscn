@@ -56,7 +56,7 @@ void fragment(){
 	COLOR = texture(TEXTURE, mix(UV, center, pow(progress / pos, 3.0)));
 	bool al = pos > progress * 1.2;
 	COLOR.a = al ? 1.0 : 0.0;
-	COLOR += vec4(1,1,1,1) * smoothstep(0, 1, abs(pos - progress * 1.2) * -30.0 + 1.0);
+	COLOR += vec4(1,1,1,1) * smoothstep(0, 1, abs(pos - progress * 1.2) * -300.0 + 1.0);
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
