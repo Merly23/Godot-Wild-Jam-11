@@ -4,7 +4,7 @@ onready var level = get_parent();
 
 func reposition(screen, focus):
 	focus.y -= 50;
-	focus.x += 150 * -1 if $"../Player".sprite.flip_h else 1
+	focus.x += -50 if $"../Player".sprite.flip_h else 50
 	focus = extents_past_rectangle(focus.x, focus.y, screen.x * 2/5, screen.y * 2/5, screen.x * 3/5, screen.y * 3/5);
 	level.position -= focus * 0.3;
 	
