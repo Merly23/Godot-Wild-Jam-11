@@ -5,22 +5,23 @@ onready var buf = $"ScreenBuffer";
 
 func _process(delta):
 	var focus = $"Level/Player".get_global_transform().origin;
-	if Input.is_action_just_pressed("ui_down"):
-		if $"Level/Player".transform(state):
-			var tex = ImageTexture.new();
-			var data = get_viewport().get_texture().get_data();
-			data.flip_y();
-			tex.create_from_image(data);
-			buf.texture = tex;
-			$Transform.stop();
-			$Transform.play("default");
-			
-			buf.center = focus / buf.rect_size.x;
-			
-			state = !state;
-			for node in get_tree().get_nodes_in_group("Multiskin"):
-				if node is Multiskin:
-					node.enter_state(state);
+	if Input.is_action_just_pressed("ui_down") and $"Stamina".animation != "0" and $"Level/Player".transform(state):
+		var tex = ImageTexture.new();
+		var data = get_viewport().get_texture().get_data();
+		data.flip_y();
+		tex.create_from_image(data);
+		buf.texture = tex;
+		$Transform.stop();
+		$Transform.play("default");
+		
+		buf.center = focus / buf.rect_size.x;
+		
+		state = !state;
+		for node in get_tree().get_nodes_in_group("Multiskin"):
+			if node is Multiskin:
+				node.enter_state(state);
+		
+		$Stamina.playing = true;
 	
 	focus.y -= 50;
 	focus = extents_past_rectangle(focus.x, focus.y, 200, 120, buf.rect_size.x - 200, buf.rect_size.y - 120);
