@@ -14,3 +14,6 @@ func _process(delta):
 		state = !state;
 		for node in get_tree().get_nodes_in_group("Multiskin"):
 			node.enter_state(state);
+		
+		AudioServer.set_bus_mute(1, state);
+		AudioServer.set_bus_mute(2, not state);

@@ -15,7 +15,9 @@ enum form {HUMAN, FOX, XFORM};
 var state = form.HUMAN;
 
 func _ready():
-	pass
+	transform(true);
+	sprite.play("fox_idle");
+	state = form.FOX;
 
 var movement = Vector2.ZERO;
 
@@ -40,7 +42,7 @@ func _physics_process(delta):
 	
 	accel += movement * delta;
 	if is_on_floor():
-		if vel.length() < 100 and movement.x == 0:
+		if vel.length() < 30 and movement.x == 0:
 			accel -= vel
 		else:
 			accel -= vel * FRICTION
@@ -49,7 +51,7 @@ func _physics_process(delta):
 	accel.y += GRAVITY * delta;
 	
 	vel += accel;
-	vel = move_and_slide(vel, Vector2(0, -1));
+	vel = move_and_slide(vel, Vector2(0, -1), true);
 	
 	for i in range(1, get_slide_count()):
 		pass
@@ -64,7 +66,7 @@ func _process(delta):
 		sprite.flip_h = true;
 		sprite.offset.x = -abs(sprite.offset.x);
 	
-	var VERT_THRESHOLD = 200;
+	var VERT_THRESHOLD = 250;
 	var HORIZ_THRESHOLD = 30;
 	match sprite.animation:
 		"idle":
@@ -129,21 +131,21 @@ func _on_AnimatedSprite_animation_finished():
 		state = form.HUMAN;
 		sprite.play("idle");
 
-func transform(to_human):
-	if sprite.animation == "idle" and not to_human:
+func transform(state):
+	if sprite.animation == "idle" and state:
 		sprite.play("xform");
 		state = form.XFORM;
 		GRAVITY = 800;
 		FRICTION = 0.1;
 		FRICTION_AIR = 0.02;
-		RUN_FORCE = 2000;
+		RUN_FORCE = 1700;
 		FLY_FORCE = 600;
 		JUMP_FORCE = 20000;
 		RISE_FORCE = 100;
 		$Human.disabled = true;
 		$Fox.disabled = false;
 		return true
-	elif sprite.animation == "fox_idle" and to_human:
+	elif sprite.animation == "fox_idle" and not state:
 		sprite.play("fox_xform");
 		state = form.XFORM;
 		GRAVITY = 1000;
@@ -151,8 +153,8 @@ func transform(to_human):
 		FRICTION_AIR = 0.02;
 		RUN_FORCE = 1000;
 		FLY_FORCE = 300;
-		JUMP_FORCE = 30000;
-		RISE_FORCE = 50;
+		JUMP_FORCE = 15000;
+		RISE_FORCE = 2000;
 		$Fox.disabled = true;
 		$Human.disabled = false;
 		sprite.offset.x /= 2;

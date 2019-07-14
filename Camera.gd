@@ -10,6 +10,8 @@ func reposition(screen, focus):
 	
 	level.position.x = clamp(level.position.x, -limit_right + screen.x, -limit_left);
 	level.position.y = clamp(level.position.y, -limit_bottom + screen.y, -limit_top);
+	
+	$"../Background".position = level.position * -0.2;
 
 
 func extents_past_rectangle(x, y, left, top, right, bottom) -> Vector2:
