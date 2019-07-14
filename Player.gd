@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 var GRAVITY = 1000;
 var FRICTION = 0.1;
@@ -10,20 +11,25 @@ var RISE_FORCE = 2000;
 
 var vel = Vector2.ZERO;
 var air_time = 0;
+var iframes = -1;
 
 enum form {HUMAN, FOX, XFORM};
 var state = form.HUMAN;
 
+var checkpoint : Vector2;
+
 func _ready():
-	transform(true);
+	transform(true, true);
 	sprite.play("fox_idle");
 	state = form.FOX;
+	checkpoint = position;
 
 var movement = Vector2.ZERO;
 
 func _physics_process(delta):
 	
 	if state == form.XFORM: return;
+	var accel = Vector2.ZERO;
 	
 	movement = Vector2.ZERO;
 	movement.x += 1 if Input.is_action_pressed("ui_right") else 0;
@@ -33,12 +39,11 @@ func _physics_process(delta):
 	if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
 		movement.y -= JUMP_FORCE;
 		air_time = 0;
+		accel += get_floor_velocity();
 	elif Input.is_action_pressed("ui_accept"):
 		air_time += delta;
 		movement.y -= RISE_FORCE * pow(0.5, air_time * 7);
 	
-	
-	var accel = Vector2.ZERO;
 	
 	accel += movement * delta;
 	if is_on_floor():
@@ -51,20 +56,30 @@ func _physics_process(delta):
 	accel.y += GRAVITY * delta;
 	
 	vel += accel;
-	vel = move_and_slide(vel, Vector2(0, -1), true);
+	vel = move_and_slide(vel + get_floor_velocity() * delta, Vector2(0, -1), true);
 	
-	for i in range(1, get_slide_count()):
-		pass
+	
+	if position.y > $"../Camera".limit_bottom + 50:
+		position = checkpoint;
+		vel = Vector2.ZERO;
+		hurt();
 
 onready var sprite = get_node("AnimatedSprite");
 
 func _process(delta):
-	if vel.x > 0:
-		sprite.flip_h = false;
-		sprite.offset.x = abs(sprite.offset.x);
-	elif vel.x < 0:
-		sprite.flip_h = true;
-		sprite.offset.x = -abs(sprite.offset.x);
+	if sprite.animation != "stunned":
+		if vel.x > 0:
+			sprite.flip_h = false;
+			sprite.offset.x = abs(sprite.offset.x);
+		elif vel.x < 0:
+			sprite.flip_h = true;
+			sprite.offset.x = -abs(sprite.offset.x);
+	
+	if iframes >= 0: iframes += delta;
+	if iframes > 1:
+		sprite.play("hitflash" if state == form.HUMAN else "fox_hitflash");
+		iblink(false);
+		iframes = -1;
 	
 	var VERT_THRESHOLD = 250;
 	var HORIZ_THRESHOLD = 30;
@@ -84,6 +99,9 @@ func _process(delta):
 			if is_on_floor():
 				sprite.animation = "land";
 		"fall_start":
+			if is_on_floor():
+				sprite.animation = "land";
+		"stunned":
 			if is_on_floor():
 				sprite.animation = "land";
 		"run":
@@ -112,27 +130,36 @@ func _process(delta):
 				sprite.play("fox_run_end");
 
 func _on_AnimatedSprite_animation_finished():
-	if sprite.animation == "run_start":
-		sprite.play("run");
-	if sprite.animation == "jump":
-		sprite.play("rise");
-	if sprite.animation == "fall_start":
-		sprite.play("fall");
-	if sprite.animation == "land":
-		sprite.play("idle");
-	if sprite.animation == "fox_run_end":
-		sprite.play("fox_idle");
-	
-	if sprite.animation == "xform":
-		state = form.FOX;
-		sprite.play("fox_idle");
-		sprite.offset.x *= 2;
-	if sprite.animation == "fox_xform":
-		state = form.HUMAN;
-		sprite.play("idle");
+	match sprite.animation:
+		"run_start":
+			sprite.play("run");
+		"jump":
+			sprite.play("rise");
+		"fall_start":
+			sprite.play("fall");
+		"land":
+			sprite.play("idle");
+		"fox_run_end":
+			sprite.play("fox_idle");
+		
+		"hitflash":
+			sprite.play("stunned");
+			iblink(true);
+		"fox_hitflash":
+			sprite.play("fox_idle");
+			iblink(true);
+		
+		"xform":
+			state = form.FOX;
+			sprite.play("fox_idle");
+			sprite.offset.x *= 2;
+		"fox_xform":
+			state = form.HUMAN;
+			sprite.play("idle");
 
-func transform(state):
-	if sprite.animation == "idle" and state:
+func transform(switch, force):
+	if iframes >= 0: return
+	if (sprite.animation == "idle" or force) and switch:
 		sprite.play("xform");
 		state = form.XFORM;
 		GRAVITY = 800;
@@ -144,8 +171,10 @@ func transform(state):
 		RISE_FORCE = 100;
 		$Human.disabled = true;
 		$Fox.disabled = false;
+		collision_layer = 1;
+		collision_mask = 1;
 		return true
-	elif sprite.animation == "fox_idle" and not state:
+	elif (sprite.animation == "fox_idle" or force) and not switch:
 		sprite.play("fox_xform");
 		state = form.XFORM;
 		GRAVITY = 1000;
@@ -157,6 +186,29 @@ func transform(state):
 		RISE_FORCE = 2000;
 		$Fox.disabled = true;
 		$Human.disabled = false;
+		collision_layer = 2;
+		collision_mask = 2;
+		
 		sprite.offset.x /= 2;
 		return true
 	return false
+
+func hurt():
+	if iframes > 0: return
+	$"../../Health".decrement();
+	if state == form.FOX:
+		sprite.play("fox_hitflash");
+	else:
+		sprite.play("hitflash");
+	
+	iframes = 0;
+
+func knock(direction):
+	if iframes > 0: return
+	direction.y -= 1;
+	direction *= 300;
+	vel += direction;
+
+func iblink(on):
+	if iframes >= 0:
+		sprite.material.set_shader_param("enabled", on)
