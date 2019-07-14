@@ -13,5 +13,4 @@ func _process(delta):
 		
 		state = !state;
 		for node in get_tree().get_nodes_in_group("Multiskin"):
-			if node is Multiskin:
-				node.enter_state(state);
+			node.enter_state(state);

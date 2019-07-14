@@ -7,6 +7,6 @@ func enter_state(on):
 	if state != on:
 		state = on
 		
-		var temp = texture
-		texture = other
+		var temp = texture.atlas
+		texture.atlas = other
 		other = temp

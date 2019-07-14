@@ -1,125 +1,129 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://sprites/props/Bamboo.png" type="Texture" id=1]
-[ext_resource path="res://sprites/tiles/grass-stone.png" type="Texture" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Camera.gd" type="Script" id=4]
-[ext_resource path="res://audio/Happy_Forest_v4.ogg" type="AudioStream" id=5]
+[ext_resource path="res://multiskin_atlas.gd" type="Script" id=2]
+[ext_resource path="res://sprites/props/Bamboo-2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/tiles/grass-stone.png" type="Texture" id=4]
+[ext_resource path="res://multiskin_tilemap.gd" type="Script" id=5]
+[ext_resource path="res://sprites/tiles/grass-stone-2.png" type="Texture" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Camera.gd" type="Script" id=8]
+[ext_resource path="res://audio/Happy_Forest_v4.ogg" type="AudioStream" id=9]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 68, 53, 11, 9 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 68, 62, 12, 38 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 76, 0, 18, 30 )
 
-[sub_resource type="ConvexPolygonShape2D" id=47]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 16, 8, 8, 8, 8, 0, 16, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=48]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 8, 8, 8, 8, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=49]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=50]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=51]
+[sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 8, 8, 16, 8, 16, 16, 8, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=52]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 16, 0, 16, 8, 8, 8, 8, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=53]
+[sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 8, 16, 0, 16, 0, 8, 8, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=54]
+[sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 16, 0, 16, 16, 8, 16, 8, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=55]
+[sub_resource type="ConvexPolygonShape2D" id=12]
 points = PoolVector2Array( 8, 0, 8, 16, 0, 16, 0, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=56]
+[sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=57]
+[sub_resource type="ConvexPolygonShape2D" id=14]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=58]
+[sub_resource type="ConvexPolygonShape2D" id=15]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 8, 16, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=59]
+[sub_resource type="ConvexPolygonShape2D" id=16]
 points = PoolVector2Array( 16, 16, 8, 16, 8, 8, 16, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=60]
+[sub_resource type="ConvexPolygonShape2D" id=17]
 points = PoolVector2Array( 16, 0, 16, 8, 0, 8, 0, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=61]
+[sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 8, 8, 8, 16, 0, 16, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=62]
+[sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 16, 8, 16, 16, 0, 16, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=63]
+[sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 8, 0, 8, 8, 0, 8, 0, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=64]
+[sub_resource type="ConvexPolygonShape2D" id=21]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=65]
+[sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( 16, 8, 16, 16, 8, 16, 8, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=66]
+[sub_resource type="ConvexPolygonShape2D" id=23]
 points = PoolVector2Array( 0, 8, 16, 8, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=67]
+[sub_resource type="ConvexPolygonShape2D" id=24]
 points = PoolVector2Array( 16, 0, 16, 8, 8, 8, 8, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=69]
+[sub_resource type="ConvexPolygonShape2D" id=25]
 points = PoolVector2Array( 8, 8, 16, 12, 16, 16, 0, 16, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=70]
+[sub_resource type="ConvexPolygonShape2D" id=26]
 points = PoolVector2Array( 0, 12, 8, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=71]
+[sub_resource type="ConvexPolygonShape2D" id=27]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=72]
+[sub_resource type="ConvexPolygonShape2D" id=28]
 points = PoolVector2Array( 0, 0, 8, 0, 16, 4, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=73]
+[sub_resource type="ConvexPolygonShape2D" id=29]
 points = PoolVector2Array( 0, 4, 8, 8, 16, 8, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=74]
+[sub_resource type="ConvexPolygonShape2D" id=30]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 4, 16, 12 )
 
-[sub_resource type="ConvexPolygonShape2D" id=75]
+[sub_resource type="ConvexPolygonShape2D" id=31]
 points = PoolVector2Array( 0, 12, 16, 4, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=76]
+[sub_resource type="ConvexPolygonShape2D" id=32]
 points = PoolVector2Array( 0, 8, 8, 8, 16, 4, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=77]
+[sub_resource type="ConvexPolygonShape2D" id=33]
 points = PoolVector2Array( 0, 4, 8, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=78]
+[sub_resource type="ConvexPolygonShape2D" id=34]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=79]
+[sub_resource type="ConvexPolygonShape2D" id=35]
 points = PoolVector2Array( 16, 16, 8, 16, 16, 12 )
 
-[sub_resource type="ConvexPolygonShape2D" id=80]
+[sub_resource type="ConvexPolygonShape2D" id=36]
 points = PoolVector2Array( 0, 12, 8, 8, 16, 8, 16, 16, 0, 16 )
 
-[sub_resource type="TileSet" id=68]
-0/name = "grass-stone.png 0"
-0/texture = ExtResource( 2 )
+[sub_resource type="TileSet" id=37]
+0/name = "grass"
+0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
@@ -139,132 +143,132 @@ points = PoolVector2Array( 0, 12, 8, 8, 16, 8, 16, 16, 0, 16 )
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 47 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 48 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 49 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 50 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 51 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 52 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 53 ),
+"shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 54 ),
+"shape": SubResource( 11 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 55 ),
+"shape": SubResource( 12 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 56 ),
+"shape": SubResource( 13 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 57 ),
+"shape": SubResource( 14 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 58 ),
+"shape": SubResource( 15 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 59 ),
+"shape": SubResource( 16 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 60 ),
+"shape": SubResource( 17 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 61 ),
+"shape": SubResource( 18 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 62 ),
+"shape": SubResource( 19 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 63 ),
+"shape": SubResource( 20 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 64 ),
+"shape": SubResource( 21 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 65 ),
+"shape": SubResource( 22 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 66 ),
+"shape": SubResource( 23 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 67 ),
+"shape": SubResource( 24 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
-1/name = "grass-stone.png 1"
-1/texture = ExtResource( 2 )
+1/name = "grass ramp"
+1/texture = ExtResource( 4 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 64, 0, 64, 64 )
@@ -281,86 +285,86 @@ points = PoolVector2Array( 0, 12, 8, 8, 16, 8, 16, 16, 0, 16 )
 "autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 69 ),
+"shape": SubResource( 25 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 70 ),
+"shape": SubResource( 26 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 71 ),
+"shape": SubResource( 27 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 72 ),
+"shape": SubResource( 28 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 73 ),
+"shape": SubResource( 29 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 74 ),
+"shape": SubResource( 30 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 75 ),
+"shape": SubResource( 31 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 76 ),
+"shape": SubResource( 32 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 77 ),
+"shape": SubResource( 33 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 78 ),
+"shape": SubResource( 34 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 79 ),
+"shape": SubResource( 35 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 80 ),
+"shape": SubResource( 36 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 1 )
 region = Rect2( 115, 68, 11, 9 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 1 )
 region = Rect2( 84, 62, 14, 38 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 1 )
 region = Rect2( 55, 0, 18, 30 )
 
@@ -373,85 +377,97 @@ editor/display_folded = true
 editor/display_folded = true
 position = Vector2( 178, 0 )
 
-[node name="Sprite6" type="Sprite" parent="Background/Node2D3"]
+[node name="Sprite6" type="Sprite" parent="Background/Node2D3" groups=[
+"Multiskin",
+]]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Background/Node2D3"]
-texture = SubResource( 11 )
+[node name="Sprite" type="Sprite" parent="Background/Node2D3" groups=[
+"Multiskin",
+]]
+texture = SubResource( 2 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
-[node name="Sprite7" type="Sprite" parent="Background/Node2D3"]
+[node name="Sprite7" type="Sprite" parent="Background/Node2D3" groups=[
+"Multiskin",
+]]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D3"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D8" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -459,83 +475,83 @@ position = Vector2( 479, -8 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D8"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D8"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D4" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -543,83 +559,83 @@ position = Vector2( 193, -27 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D4"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D4"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D11" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -627,83 +643,83 @@ position = Vector2( 410, -12 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D11"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D11"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D5" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -711,83 +727,83 @@ position = Vector2( 215, -139 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D5"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D5"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D9" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -795,83 +811,83 @@ position = Vector2( 432, -124 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D9"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D9"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D6" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -879,83 +895,83 @@ position = Vector2( 276, -107 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D6"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D6"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D10" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -963,83 +979,83 @@ position = Vector2( 493, -92 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D10"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D10"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D7" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -1047,83 +1063,83 @@ position = Vector2( 294, -136 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D7"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D7"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Node2D12" type="Node2D" parent="Background"]
 editor/display_folded = true
@@ -1131,91 +1147,95 @@ position = Vector2( 511, -121 )
 
 [node name="Sprite6" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, -23 )
-texture = SubResource( 10 )
+texture = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Background/Node2D12"]
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite12" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 190 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite18" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 380 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 38 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite13" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 228 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite17" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 418 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 76 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite9" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 266 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite15" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 456 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 114 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite11" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 304 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite14" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 494 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite5" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 152 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite10" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 342 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite16" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 0, 532 )
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( -7, 1.52588e-05 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite20" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( -3, 70 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 12, 27 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
 [node name="Sprite19" type="Sprite" parent="Background/Node2D12"]
 position = Vector2( 6, 118 )
-texture = SubResource( 12 )
+texture = SubResource( 3 )
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 68 )
+[node name="TileMap" type="TileMap" parent="." groups=[
+"Multiskin",
+]]
+tile_set = SubResource( 37 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 458763, 1, 131074, 458764, 1, 131075, 458765, 0, 131075, 458766, 0, 1, 524297, 0, 0, 524298, 1, 196609, 524299, 1, 196610, 524300, 1, 196611, 524301, 0, 131074, 524302, 0, 196608, 524303, 0, 131075, 524304, 0, 131075, 524305, 0, 131075, 524306, 0, 1, 589833, 0, 65536, 589834, 0, 196610, 589835, 0, 196610, 589836, 0, 196610, 589837, 0, 196610, 589838, 0, 196610, 589839, 0, 131073, 589840, 0, 131074, 589841, 0, 131074, 589842, 0, 65539, 655375, 0, 65536, 655376, 0, 196610, 655377, 0, 196610, 655378, 0, 65537, 851970, 0, 0, 851971, 0, 131075, 851972, 0, 131075, 851973, 0, 131075, 851974, 0, 131075, 851975, 0, 131075, 851976, 0, 131075, 851977, 1, 1, 851978, 1, 2, 983039, 0, 0, 917504, 0, 131075, 917505, 0, 131075, 917506, 0, 196609, 917507, 0, 131074, 917508, 0, 131074, 917509, 0, 131074, 917510, 0, 131074, 917511, 0, 131074, 917512, 0, 131074, 917513, 1, 65537, 917514, 1, 65538, 917515, 1, 65536, 917516, 1, 2, 1048575, 0, 65538, 983040, 0, 131074, 983041, 0, 131074, 983042, 0, 131074, 983043, 0, 131074, 983044, 0, 131074, 983045, 0, 131074, 983046, 0, 131074, 983047, 0, 131074, 983048, 0, 131074, 983049, 0, 131074, 983050, 0, 131074, 983051, 1, 65537, 983052, 1, 65538, 983053, 1, 65539, 983054, 0, 131075, 983055, 0, 1, 1114111, 0, 65538, 1048576, 0, 131074, 1048577, 0, 131074, 1048578, 0, 131074, 1048579, 0, 131074, 1048580, 0, 131074, 1048581, 0, 131074, 1048582, 0, 131074, 1048583, 0, 131074, 1048584, 0, 131074, 1048585, 0, 131074, 1048586, 0, 131074, 1048587, 0, 131074, 1048588, 0, 131074, 1048589, 0, 131074, 1048590, 0, 131074, 1048591, 0, 65539, 1048603, 0, 0, 1048604, 0, 131075, 1048605, 0, 131075, 1048606, 0, 131075, 1048607, 0, 131075, 1048608, 0, 131075, 1048609, 0, 1, 1179647, 0, 65538, 1114112, 0, 131074, 1114113, 0, 131074, 1114114, 0, 131074, 1114115, 0, 131074, 1114116, 0, 131074, 1114117, 0, 131074, 1114118, 0, 131074, 1114119, 0, 131074, 1114120, 0, 131074, 1114121, 0, 131074, 1114122, 0, 131074, 1114123, 0, 131074, 1114124, 0, 131074, 1114125, 0, 131074, 1114126, 0, 131074, 1114127, 0, 196608, 1114128, 0, 131075, 1114129, 0, 131075, 1114130, 0, 131075, 1114131, 0, 131075, 1114132, 0, 131075, 1114133, 0, 131075, 1114134, 0, 131075, 1114135, 0, 131075, 1114136, 0, 131075, 1114137, 0, 131075, 1114138, 0, 131075, 1114139, 0, 196609, 1114140, 0, 131074, 1114141, 0, 131074, 1114142, 0, 131074, 1114143, 0, 131074, 1114144, 0, 131074, 1114145, 0, 65539, 1245183, 0, 65538, 1179648, 0, 131074, 1179649, 0, 131074, 1179650, 0, 131074, 1179651, 0, 131074, 1179652, 0, 131074, 1179653, 0, 131074, 1179654, 0, 131074, 1179655, 0, 131074, 1179656, 0, 131074, 1179657, 0, 131074, 1179658, 0, 131074, 1179659, 0, 131074, 1179660, 0, 131074, 1179661, 0, 131074, 1179662, 0, 131074, 1179663, 0, 131074, 1179664, 0, 131074, 1179665, 0, 131074, 1179666, 0, 131074, 1179667, 0, 131074, 1179668, 0, 131074, 1179669, 0, 131074, 1179670, 0, 131074, 1179671, 0, 131074, 1179672, 0, 131074, 1179673, 0, 131074, 1179674, 0, 131074, 1179675, 0, 131074, 1179676, 0, 131074, 1179677, 0, 131074, 1179678, 0, 131074, 1179679, 0, 131074, 1179680, 0, 131074, 1179681, 0, 65539, 1310719, 0, 65536, 1245184, 0, 196610, 1245185, 0, 196610, 1245186, 0, 196610, 1245187, 0, 196610, 1245188, 0, 196610, 1245189, 0, 196610, 1245190, 0, 196610, 1245191, 0, 196610, 1245192, 0, 196610, 1245193, 0, 196610, 1245194, 0, 196610, 1245195, 0, 196610, 1245196, 0, 196610, 1245197, 0, 196610, 1245198, 0, 196610, 1245199, 0, 196610, 1245200, 0, 196610, 1245201, 0, 196610, 1245202, 0, 196610, 1245203, 0, 196610, 1245204, 0, 196610, 1245205, 0, 196610, 1245206, 0, 196610, 1245207, 0, 196610, 1245208, 0, 196610, 1245209, 0, 196610, 1245210, 0, 196610, 1245211, 0, 196610, 1245212, 0, 196610, 1245213, 0, 196610, 1245214, 0, 196610, 1245215, 0, 196610, 1245216, 0, 196610, 1245217, 0, 65537 )
+script = ExtResource( 5 )
+other = ExtResource( 6 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 229, 234 )
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -1226,45 +1246,58 @@ limit_bottom = 300
 smoothing_enabled = true
 editor_draw_screen = false
 editor_draw_limits = true
-script = ExtResource( 4 )
+script = ExtResource( 8 )
 
 [node name="Foreground" type="Node2D" parent="."]
 editor/display_folded = true
 
 [node name="Node2D" type="Node2D" parent="Foreground"]
+editor/display_folded = true
 position = Vector2( 73, 146 )
 
-[node name="Sprite6" type="Sprite" parent="Foreground/Node2D"]
+[node name="Sprite6" type="Sprite" parent="Foreground/Node2D" groups=[
+"Multiskin",
+]]
 position = Vector2( 0, -23 )
-texture = SubResource( 8 )
+texture = SubResource( 38 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Foreground/Node2D"]
-texture = SubResource( 7 )
+[node name="Sprite" type="Sprite" parent="Foreground/Node2D" groups=[
+"Multiskin",
+]]
+texture = SubResource( 39 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="Foreground/Node2D"]
 position = Vector2( 0, 38 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite3" type="Sprite" parent="Foreground/Node2D"]
 position = Vector2( 0, 76 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite4" type="Sprite" parent="Foreground/Node2D"]
 position = Vector2( 0, 114 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite5" type="Sprite" parent="Foreground/Node2D"]
 position = Vector2( 0, 152 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite7" type="Sprite" parent="Foreground/Node2D"]
 position = Vector2( -7, 1.52588e-05 )
 scale = Vector2( -1, 1 )
-texture = SubResource( 9 )
+texture = SubResource( 40 )
 
-[node name="Sprite8" type="Sprite" parent="Foreground/Node2D"]
+[node name="Sprite8" type="Sprite" parent="Foreground/Node2D" groups=[
+"Multiskin",
+]]
 position = Vector2( 6, 29 )
-texture = SubResource( 9 )
+texture = SubResource( 40 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
 
 [node name="Node2D2" type="Node2D" parent="Foreground"]
 editor/display_folded = true
@@ -1272,39 +1305,39 @@ position = Vector2( 97, 80 )
 
 [node name="Sprite6" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, -23 )
-texture = SubResource( 8 )
+texture = SubResource( 38 )
 
 [node name="Sprite" type="Sprite" parent="Foreground/Node2D2"]
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite2" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, 38 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite3" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, 76 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite4" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, 114 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite5" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, 152 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite7" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, 190 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite9" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, 228 )
-texture = SubResource( 7 )
+texture = SubResource( 39 )
 
 [node name="Sprite8" type="Sprite" parent="Foreground/Node2D2"]
 position = Vector2( 0, 4.99998 )
-texture = SubResource( 9 )
+texture = SubResource( 40 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 9 )
 autoplay = true
