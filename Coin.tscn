@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Coin.gd" type="Script" id=1]
 [ext_resource path="res://sprites/props/coin1.png" type="Texture" id=2]
@@ -9,6 +9,23 @@
 [ext_resource path="res://sprites/props/coin6.png" type="Texture" id=7]
 [ext_resource path="res://sprites/props/coin7.png" type="Texture" id=8]
 [ext_resource path="res://sprites/props/coin8.png" type="Texture" id=9]
+[ext_resource path="res://sprites/props/flash1.png" type="Texture" id=10]
+[ext_resource path="res://sprites/props/flash2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/props/flash3.png" type="Texture" id=12]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+uniform bool enabled;
+
+void fragment()
+{
+	COLOR = texture(TEXTURE, UV);
+	if(enabled) COLOR *= vec4(0.0,0.0,0.0, 0.8   - length(SCREEN_UV - vec2(0.5, 0.3)));
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/enabled = false
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,6 +33,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "collect",
+"speed": 15.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -25,8 +47,10 @@ radius = 9.0
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 4 )
 frames = SubResource( 1 )
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

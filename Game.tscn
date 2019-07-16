@@ -154,6 +154,7 @@ other = ExtResource( 4 )
 [node name="Level" parent="." instance=ExtResource( 5 )]
 
 [node name="ScreenBuffer" type="TextureRect" parent="."]
+pause_mode = 2
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -163,15 +164,18 @@ animator_path = NodePath("../Transform")
 progress = 1.0
 
 [node name="Transform" type="AnimationPlayer" parent="."]
+pause_mode = 2
 anims/default = SubResource( 3 )
 
 [node name="Stamina" type="AnimatedSprite" parent="."]
+pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
 frames = SubResource( 4 )
 animation = "4"
 script = ExtResource( 24 )
 
 [node name="Health" type="AnimatedSprite" parent="."]
+pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
 frames = SubResource( 5 )
 animation = "4"

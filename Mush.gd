@@ -8,7 +8,8 @@ func _ready():
 	home = position.x;
 
 func enter_state(on):
-	visible = on;
+	#visible = on;
+	$Sprite.material.set_shader_param("enabled", not on);
 	#$"CollisionShape2D".disabled = true;
 	#$"Cap/CollisionShape2D".disabled = true;
 

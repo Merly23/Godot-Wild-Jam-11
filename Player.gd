@@ -12,6 +12,7 @@ var RISE_FORCE = 2000;
 var vel = Vector2.ZERO;
 var air_time = 0;
 var iframes = -1;
+var terminal_velocity = false;
 
 enum form {HUMAN, FOX, XFORM};
 var state = form.HUMAN;
@@ -36,10 +37,19 @@ func _physics_process(delta):
 	movement.x += -1 if Input.is_action_pressed("ui_left") else 0;
 	movement *= RUN_FORCE if is_on_floor() else FLY_FORCE;
 	
-	if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
-		movement.y -= JUMP_FORCE;
-		air_time = 0;
-		accel += get_floor_velocity();
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_on_floor():
+			movement.y -= JUMP_FORCE;
+			if state == form.FOX: movement.x *= 3;
+			accel += get_floor_velocity();
+			air_time = 0;
+		elif wallsliding() and wall != 0 and state == form.HUMAN:
+			movement.x = -wall * 0.7;
+			movement.y = -0.8;
+			movement *= JUMP_FORCE;
+			air_time = 0;
+			vel = Vector2.ZERO;
+	
 	elif Input.is_action_pressed("ui_accept"):
 		air_time += delta;
 		movement.y -= RISE_FORCE * pow(0.5, air_time * 7);
@@ -50,23 +60,52 @@ func _physics_process(delta):
 		if vel.length() < 30 and movement.x == 0:
 			accel -= vel
 		else:
-			accel -= vel * FRICTION
+			accel -= vel * FRICTION;
+	elif wallsliding() and state == form.HUMAN:
+		accel -= vel * FRICTION;
+		#if movement.x == 0:
+		movement.x = wall * FLY_FORCE * 5
 	else:
-		accel -= vel * FRICTION_AIR
+		accel -= vel * FRICTION_AIR;
 	accel.y += GRAVITY * delta;
 	
 	vel += accel;
-	vel = move_and_slide(vel + get_floor_velocity() * delta, Vector2(0, -1), true);
+	var new_vel = move_and_slide(vel + get_floor_velocity() * delta, Vector2(0, -1), true);
 	
+	if wallsliding():
+		if wall == 0:
+			wall = sign(vel.x)
+			print_debug("Wall hit")
+	else:
+		wall = 0;
+	vel = new_vel
 	
 	if position.y > $"../Camera".limit_bottom + 50:
 		position = checkpoint;
 		vel = Vector2.ZERO;
 		hurt();
+	
+	if vel.y > 500:
+		terminal_velocity = true;
+	if terminal_velocity and wallsliding():
+		terminal_velocity = false;
+	if terminal_velocity and is_on_floor():
+		hurt();
+		terminal_velocity = false;
+
+var was_on_wall = 0;
+var wall = 0;
+func wallsliding():
+	if is_on_wall(): was_on_wall = 3;
+	if is_on_floor(): was_on_wall = 0;
+	return was_on_wall > 0;
 
 onready var sprite = get_node("AnimatedSprite");
 
 func _process(delta):
+	
+	was_on_wall = max(0, was_on_wall - 1);
+	
 	if sprite.animation != "stunned":
 		if vel.x > 0:
 			sprite.flip_h = false;
@@ -83,17 +122,21 @@ func _process(delta):
 	
 	var VERT_THRESHOLD = 250;
 	var HORIZ_THRESHOLD = 30;
+	
+	if wallsliding() and state == form.HUMAN:
+		sprite.play("wallslide");
+	
 	match sprite.animation:
 		"idle":
 			if movement.y != 0:
 				sprite.animation = "jump";
-			elif movement.x != 0:
+			elif movement.x != 0 and abs(vel.x) > 1:
 				sprite.play("run_start");
 		"rise":
-			if vel.y > 0:
+			if vel.y >= 0:
 				sprite.animation = "fall_start";
 		"jump":
-			if vel.y > 0:
+			if vel.y >= 0:
 				sprite.animation = "fall_start";
 		"fall":
 			if is_on_floor():
@@ -104,6 +147,9 @@ func _process(delta):
 		"stunned":
 			if is_on_floor():
 				sprite.animation = "land";
+		"wallslide":
+			if not wallsliding():
+				sprite.play("jump");
 		"run":
 			if abs(vel.x) < HORIZ_THRESHOLD and abs(vel.y) < 1:
 				sprite.play("idle");
@@ -143,8 +189,13 @@ func _on_AnimatedSprite_animation_finished():
 			sprite.play("fox_idle");
 		
 		"hitflash":
-			sprite.play("stunned");
-			iblink(true);
+			if iframes >= 0:
+				sprite.play("stunned");
+				iblink(true);
+			elif is_on_floor():
+				sprite.play("idle");
+			else:
+				sprite.play("rise");
 		"fox_hitflash":
 			sprite.play("fox_idle");
 			iblink(true);
@@ -152,20 +203,25 @@ func _on_AnimatedSprite_animation_finished():
 		"xform":
 			state = form.FOX;
 			sprite.play("fox_idle");
+			get_tree().paused = false;
 			sprite.offset.x *= 2;
 		"fox_xform":
 			state = form.HUMAN;
 			sprite.play("idle");
+			get_tree().paused = false;
 
 func transform(switch, force):
-	if iframes >= 0: return
+	if iframes >= 0: return false
+	if len($scan.get_overlapping_bodies()) > 1:
+		hurt()
+		return false
 	if (sprite.animation == "idle" or force) and switch:
 		sprite.play("xform");
 		state = form.XFORM;
 		GRAVITY = 800;
 		FRICTION = 0.1;
 		FRICTION_AIR = 0.02;
-		RUN_FORCE = 1700;
+		RUN_FORCE = 1300;
 		FLY_FORCE = 600;
 		JUMP_FORCE = 20000;
 		RISE_FORCE = 100;

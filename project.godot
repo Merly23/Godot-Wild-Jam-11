@@ -30,11 +30,11 @@ settings/fps/force_fps=60
 
 [display]
 
-window/size/width=1366
-window/size/height=768
+window/size/width=910
+window/size/height=512
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-window/stretch/shrink=3.0
+window/stretch/aspect="keep"
+window/stretch/shrink=2.0
 
 [rendering]
 

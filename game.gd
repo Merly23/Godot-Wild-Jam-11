@@ -4,11 +4,11 @@ var state = false;
 
 func _process(delta):
 	var focus = $"Level/Player".get_global_transform().origin;
-	var screen = $"ScreenBuffer".rect_size;
+	var screen = Vector2(455, 256);#$"ScreenBuffer".rect_size;
 	$"Level/Camera".reposition(screen, focus);
 	
 	if Input.is_action_just_pressed("ui_down") and $"Stamina".get_amount() > 0 and $"Level/Player".transform(state, false):
-		#$"Stamina".decrement()
+		$"Stamina".decrement()
 		$"ScreenBuffer".warp(focus / screen.x);
 		
 		state = !state;
@@ -17,3 +17,5 @@ func _process(delta):
 		
 		AudioServer.set_bus_mute(1, state);
 		AudioServer.set_bus_mute(2, not state);
+		
+		get_tree().paused = true;
