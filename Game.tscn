@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background1.png" type="Texture" id=2]
@@ -41,6 +41,8 @@
 [ext_resource path="res://sprites/health/health14.png" type="Texture" id=39]
 [ext_resource path="res://sprites/health/health15.png" type="Texture" id=40]
 [ext_resource path="res://sprites/health/health16.png" type="Texture" id=41]
+[ext_resource path="res://audio/Transition-Light-Dark.wav" type="AudioStream" id=42]
+[ext_resource path="res://audio/Transition-Dark-Light.wav" type="AudioStream" id=43]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -68,7 +70,7 @@ shader_param/aspect = 1.778
 
 [sub_resource type="Animation" id=3]
 resource_name = "default"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScreenBuffer:progress")
 tracks/0/interp = 1
@@ -76,7 +78,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -180,5 +182,13 @@ position = Vector2( 40.2215, 37.1702 )
 frames = SubResource( 5 )
 animation = "4"
 script = ExtResource( 24 )
+
+[node name="AltTo" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 42 )
+
+[node name="AltFrom" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 43 )
 [connection signal="animation_finished" from="Stamina" to="Stamina" method="_on_meter_animation_finished"]
 [connection signal="animation_finished" from="Health" to="Health" method="_on_meter_animation_finished"]
