@@ -728,7 +728,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 5.65685, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
 }
@@ -740,7 +740,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0.225313, 1 ),
 "update": 0,
 "values": [ -80.0, 0.0 ]
 }
@@ -772,7 +772,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0.183011, 1 ),
 "update": 0,
 "values": [ -80.0, 0.0 ]
 }
@@ -784,7 +784,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 5.27803, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
 }
@@ -2268,32 +2268,34 @@ position = Vector2( 968, 100 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Foreground/lanterns"]
 frames = SubResource( 73 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 17, 0 )
 frames = SubResource( 73 )
+frame = 2
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 193, -288 )
 frames = SubResource( 73 )
+frame = 2
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 241, 64 )
 frames = SubResource( 73 )
-frame = 9
+frame = 1
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( -176, -336 )
 frames = SubResource( 73 )
-frame = 9
+frame = 1
 speed_scale = 1.03
 playing = true
 
@@ -2758,6 +2760,7 @@ position = Vector2( 0, 456 )
 texture = SubResource( 3 )
 
 [node name="Special" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Checkpoint" type="Area2D" parent="Special"]
 position = Vector2( 494, 244 )
@@ -2819,8 +2822,10 @@ shape = SubResource( 76 )
 position = Vector2( 2421.37, -230.037 )
 
 [node name="Music" type="Node" parent="."]
+pause_mode = 2
 
 [node name="tween" type="AnimationPlayer" parent="Music"]
+pause_mode = 2
 anims/dark = SubResource( 77 )
 anims/dark_off = SubResource( 78 )
 anims/light = SubResource( 79 )

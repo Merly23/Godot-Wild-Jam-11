@@ -4,44 +4,100 @@
 [ext_resource path="res://sprites/background1.png" type="Texture" id=2]
 [ext_resource path="res://levels/multiskin_sprite.gd" type="Script" id=3]
 [ext_resource path="res://sprites/background2.png" type="Texture" id=4]
-[ext_resource path="res://ScreenBuffer.gd" type="Script" id=5]
-[ext_resource path="res://sprites/health/stamina17.png" type="Texture" id=6]
-[ext_resource path="res://sprites/health/stamina09.png" type="Texture" id=7]
-[ext_resource path="res://sprites/health/stamina10.png" type="Texture" id=8]
-[ext_resource path="res://sprites/health/stamina11.png" type="Texture" id=9]
-[ext_resource path="res://sprites/health/stamina12.png" type="Texture" id=10]
-[ext_resource path="res://sprites/health/stamina05.png" type="Texture" id=11]
-[ext_resource path="res://sprites/health/stamina06.png" type="Texture" id=12]
-[ext_resource path="res://sprites/health/stamina07.png" type="Texture" id=13]
-[ext_resource path="res://sprites/health/stamina08.png" type="Texture" id=14]
-[ext_resource path="res://sprites/health/stamina01.png" type="Texture" id=15]
-[ext_resource path="res://sprites/health/stamina02.png" type="Texture" id=16]
-[ext_resource path="res://sprites/health/stamina03.png" type="Texture" id=17]
-[ext_resource path="res://sprites/health/stamina04.png" type="Texture" id=18]
-[ext_resource path="res://sprites/health/stamina13.png" type="Texture" id=19]
-[ext_resource path="res://sprites/health/stamina14.png" type="Texture" id=20]
-[ext_resource path="res://sprites/health/stamina15.png" type="Texture" id=21]
-[ext_resource path="res://sprites/health/stamina16.png" type="Texture" id=22]
-[ext_resource path="res://Meter.gd" type="Script" id=23]
-[ext_resource path="res://sprites/health/health17.png" type="Texture" id=24]
-[ext_resource path="res://sprites/health/health09.png" type="Texture" id=25]
-[ext_resource path="res://sprites/health/health10.png" type="Texture" id=26]
-[ext_resource path="res://sprites/health/health11.png" type="Texture" id=27]
-[ext_resource path="res://sprites/health/health12.png" type="Texture" id=28]
-[ext_resource path="res://sprites/health/health05.png" type="Texture" id=29]
-[ext_resource path="res://sprites/health/health06.png" type="Texture" id=30]
-[ext_resource path="res://sprites/health/health07.png" type="Texture" id=31]
-[ext_resource path="res://sprites/health/health08.png" type="Texture" id=32]
-[ext_resource path="res://sprites/health/health01.png" type="Texture" id=33]
-[ext_resource path="res://sprites/health/health02.png" type="Texture" id=34]
-[ext_resource path="res://sprites/health/health03.png" type="Texture" id=35]
-[ext_resource path="res://sprites/health/health04.png" type="Texture" id=36]
-[ext_resource path="res://sprites/health/health13.png" type="Texture" id=37]
-[ext_resource path="res://sprites/health/health14.png" type="Texture" id=38]
-[ext_resource path="res://sprites/health/health15.png" type="Texture" id=39]
-[ext_resource path="res://sprites/health/health16.png" type="Texture" id=40]
+[ext_resource path="res://sprites/health/stamina17.png" type="Texture" id=5]
+[ext_resource path="res://sprites/health/stamina09.png" type="Texture" id=6]
+[ext_resource path="res://sprites/health/stamina10.png" type="Texture" id=7]
+[ext_resource path="res://sprites/health/stamina11.png" type="Texture" id=8]
+[ext_resource path="res://sprites/health/stamina12.png" type="Texture" id=9]
+[ext_resource path="res://sprites/health/stamina05.png" type="Texture" id=10]
+[ext_resource path="res://sprites/health/stamina06.png" type="Texture" id=11]
+[ext_resource path="res://sprites/health/stamina07.png" type="Texture" id=12]
+[ext_resource path="res://sprites/health/stamina08.png" type="Texture" id=13]
+[ext_resource path="res://sprites/health/stamina01.png" type="Texture" id=14]
+[ext_resource path="res://sprites/health/stamina02.png" type="Texture" id=15]
+[ext_resource path="res://sprites/health/stamina03.png" type="Texture" id=16]
+[ext_resource path="res://sprites/health/stamina04.png" type="Texture" id=17]
+[ext_resource path="res://sprites/health/stamina13.png" type="Texture" id=18]
+[ext_resource path="res://sprites/health/stamina14.png" type="Texture" id=19]
+[ext_resource path="res://sprites/health/stamina15.png" type="Texture" id=20]
+[ext_resource path="res://sprites/health/stamina16.png" type="Texture" id=21]
+[ext_resource path="res://Meter.gd" type="Script" id=22]
+[ext_resource path="res://sprites/health/health17.png" type="Texture" id=23]
+[ext_resource path="res://sprites/health/health09.png" type="Texture" id=24]
+[ext_resource path="res://sprites/health/health10.png" type="Texture" id=25]
+[ext_resource path="res://sprites/health/health11.png" type="Texture" id=26]
+[ext_resource path="res://sprites/health/health12.png" type="Texture" id=27]
+[ext_resource path="res://sprites/health/health05.png" type="Texture" id=28]
+[ext_resource path="res://sprites/health/health06.png" type="Texture" id=29]
+[ext_resource path="res://sprites/health/health07.png" type="Texture" id=30]
+[ext_resource path="res://sprites/health/health08.png" type="Texture" id=31]
+[ext_resource path="res://sprites/health/health01.png" type="Texture" id=32]
+[ext_resource path="res://sprites/health/health02.png" type="Texture" id=33]
+[ext_resource path="res://sprites/health/health03.png" type="Texture" id=34]
+[ext_resource path="res://sprites/health/health04.png" type="Texture" id=35]
+[ext_resource path="res://sprites/health/health13.png" type="Texture" id=36]
+[ext_resource path="res://sprites/health/health14.png" type="Texture" id=37]
+[ext_resource path="res://sprites/health/health15.png" type="Texture" id=38]
+[ext_resource path="res://sprites/health/health16.png" type="Texture" id=39]
+[ext_resource path="res://ScreenBuffer.gd" type="Script" id=40]
 [ext_resource path="res://audio/Transition-Light-Dark.wav" type="AudioStream" id=41]
 [ext_resource path="res://audio/Transition-Dark-Light.wav" type="AudioStream" id=42]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "2",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "3",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "4",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "1",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "2",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "3",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "4",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "1",
+"speed": 10.0
+} ]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -82,62 +138,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "2",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "4",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "1",
-"speed": 10.0
-} ]
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "2",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
-"loop": true,
-"name": "3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
-"loop": true,
-"name": "4",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
-"loop": true,
-"name": "1",
-"speed": 10.0
-} ]
 
 [sub_resource type="Animation" id=6]
 resource_name = "default"
@@ -181,33 +181,33 @@ texture = ExtResource( 2 )
 script = ExtResource( 3 )
 other = ExtResource( 4 )
 
-[node name="ScreenBuffer" type="TextureRect" parent="."]
-pause_mode = 2
-material = SubResource( 2 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
-animator_path = NodePath("../Transform")
-progress = 1.0
-
-[node name="Transform" type="AnimationPlayer" parent="."]
-pause_mode = 2
-anims/default = SubResource( 3 )
-
 [node name="Stamina" type="AnimatedSprite" parent="."]
 pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
 frames = SubResource( 4 )
 animation = "4"
-script = ExtResource( 23 )
+script = ExtResource( 22 )
 
 [node name="Health" type="AnimatedSprite" parent="."]
 pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
 frames = SubResource( 5 )
 animation = "4"
-script = ExtResource( 23 )
+script = ExtResource( 22 )
+
+[node name="ScreenBuffer" type="TextureRect" parent="."]
+pause_mode = 2
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+script = ExtResource( 40 )
+animator_path = NodePath("../Transform")
+progress = 1.0
+
+[node name="Transform" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/default = SubResource( 3 )
 
 [node name="AltTo" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

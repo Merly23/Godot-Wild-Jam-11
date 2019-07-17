@@ -20,10 +20,7 @@ var state = form.HUMAN;
 var checkpoint : Vector2;
 
 func _ready():
-	transform(true, true);
-	sprite.play("fox_idle");
-	state = form.FOX;
-	checkpoint = position;
+	pass
 
 var movement = Vector2.ZERO;
 
@@ -220,8 +217,8 @@ var girlsteps = [preload("res://audio/Footsteps_Girl1.wav"), preload("res://audi
 
 func _on_AnimatedSprite_frame_changed():
 	if sprite.animation == "run" and (sprite.frame == 0 or sprite.frame == 4):
-		$audio/GirlStep.play();
 		$audio/GirlStep.stream = girlsteps[randi() % len(girlsteps)];
+		$audio/GirlStep.play();
 
 
 func transform(switch, force):
@@ -287,3 +284,8 @@ func iblink(on):
 func _on_leaving_body_entered(body, to_right):
 	if not body == self: return;
 	$"../..".level_transition(to_right);
+	
+	if state == form.FOX:
+		$"../Music/tween".play("light_off");
+	else:
+		$"../Music/tween".play("dark_off");

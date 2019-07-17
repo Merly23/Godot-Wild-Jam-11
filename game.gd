@@ -15,12 +15,12 @@ func _process(delta):
 		for node in get_tree().get_nodes_in_group("Multiskin"):
 			node.enter_state(state);
 		
-		AudioServer.set_bus_mute(1, state);
-		AudioServer.set_bus_mute(2, not state);
 		if state:
 			$AltTo.play();
+			$"Level/Music/tween".play("dark")
 		else:
 			$AltFrom.play();
+			$"Level/Music/tween".play("light")
 		
 		get_tree().paused = true;
 
@@ -29,6 +29,7 @@ var current = 1;
 
 func _ready():
 	add_child_below_node($Background, levels[current].instance());
+	swap_level();
 
 func level_transition(pointer):
 	if $wipe/AnimationPlayer.is_playing(): return
@@ -52,8 +53,15 @@ func swap_level():
 		$Level/Player.state = $Level/Player.form.HUMAN;
 		for node in get_tree().get_nodes_in_group("Multiskin"):
 			node.enter_state(true);
+		$"Level/Music/tween".play("dark", -1, 100)
+	else:
+		$Level/Player.transform(true, true);
+		$Level/Player.sprite.play("fox_idle");
+		$Level/Player.state = $Level/Player.form.FOX;
+		$"Level/Music/tween".play("light", -1, 100)
 	
 	if $wipe.scale.x == -1:
 		$Level/Player.position = $Level/right_entry.position;
 		$Level/Player.vel.x = -10
+	$Level/Player.checkpoint = $Level/Player.position;
 	get_tree().paused = false;
