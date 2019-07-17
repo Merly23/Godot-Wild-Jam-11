@@ -174,9 +174,29 @@ func _process(delta):
 		"fox_idle":
 			if movement.x != 0 and abs(vel.x) > 1:
 				sprite.play("fox_run");
+			if movement.y != 0:
+				sprite.play("fox_jump");
 		"fox_run":
 			if abs(vel.x) < 100:
 				sprite.play("fox_run_end");
+			if movement.y != 0:
+				sprite.play("fox_jump");
+			elif vel.y > 0:
+				sprite.play("fox_fall");
+		"fox_jump":
+			if vel.y > 0:
+				sprite.play("fox_fall");
+			if is_on_floor():
+				if abs(vel.x) < 100:
+					sprite.play("fox_idle");
+				else:
+					sprite.play("fox_run");
+		"fox_fall":
+			if is_on_floor():
+				if abs(vel.x) < 100:
+					sprite.play("fox_idle");
+				else:
+					sprite.play("fox_run");
 
 func _on_AnimatedSprite_animation_finished():
 	match sprite.animation:
@@ -283,7 +303,7 @@ func iblink(on):
 
 func _on_leaving_body_entered(body, to_right):
 	if not body == self: return;
-	$"../..".level_transition(to_right);
+	if not $"../..".level_transition(to_right): return;
 	
 	if state == form.FOX:
 		$"../Music/tween".play("light_off");

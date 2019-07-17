@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/all18.png" type="Texture" id=2]
@@ -67,9 +67,12 @@
 [ext_resource path="res://sprites/player/stun.png" type="Texture" id=65]
 [ext_resource path="res://sprites/player/all07.png" type="Texture" id=66]
 [ext_resource path="res://sprites/player/all08.png" type="Texture" id=67]
-[ext_resource path="res://audio/Footsteps_Girl1.wav" type="AudioStream" id=68]
-[ext_resource path="res://audio/Jump_Girl1.wav" type="AudioStream" id=69]
-[ext_resource path="res://audio/Land_Girl1.wav" type="AudioStream" id=70]
+[ext_resource path="res://sprites/player/fox_fall.png" type="Texture" id=68]
+[ext_resource path="res://sprites/player/fox_jump_2.png" type="Texture" id=69]
+[ext_resource path="res://sprites/player/fox_jump_3.png" type="Texture" id=70]
+[ext_resource path="res://audio/Footsteps_Girl1.wav" type="AudioStream" id=71]
+[ext_resource path="res://audio/Jump_Girl1.wav" type="AudioStream" id=72]
+[ext_resource path="res://audio/Land_Girl1.wav" type="AudioStream" id=73]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -176,6 +179,16 @@ animations = [ {
 "loop": false,
 "name": "run_start",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 68 ) ],
+"loop": false,
+"name": "fox_fall",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 69 ), ExtResource( 70 ) ],
+"loop": false,
+"name": "fox_jump",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -188,10 +201,10 @@ extents = Vector2( 11, 10 )
 extents = Vector2( 6, 14 )
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
-audio_stream = ExtResource( 69 )
+audio_stream = ExtResource( 72 )
 
 [sub_resource type="AudioStreamRandomPitch" id=8]
-audio_stream = ExtResource( 70 )
+audio_stream = ExtResource( 73 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 230, 200 )
@@ -202,7 +215,7 @@ pause_mode = 2
 material = SubResource( 2 )
 position = Vector2( 0, -28 )
 frames = SubResource( 3 )
-animation = "idle"
+animation = "fox_fall"
 playing = true
 offset = Vector2( 3, 0 )
 
@@ -230,7 +243,7 @@ shape = SubResource( 6 )
 [node name="audio" type="Node" parent="."]
 
 [node name="GirlStep" type="AudioStreamPlayer" parent="audio"]
-stream = ExtResource( 68 )
+stream = ExtResource( 71 )
 
 [node name="GirlJump" type="AudioStreamPlayer" parent="audio"]
 stream = SubResource( 7 )

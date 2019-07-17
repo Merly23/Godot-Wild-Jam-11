@@ -8,7 +8,7 @@ func _process(delta):
 	$"Level/Camera".reposition(screen, focus);
 	
 	if Input.is_action_just_pressed("ui_down") and $"Stamina".get_amount() > 0 and $"Level/Player".transform(state, false):
-		#$"Stamina".decrement()
+		$"Stamina".decrement()
 		$"ScreenBuffer".warp(focus / screen.x);
 		
 		state = !state;
@@ -25,18 +25,19 @@ func _process(delta):
 		get_tree().paused = true;
 
 var levels = [preload("res://levels/cave.tscn"), preload("res://levels/cliffs.tscn"), ];
-var current = 1;
+var current = 0;
 
 func _ready():
 	add_child_below_node($Background, levels[current].instance());
 	swap_level();
 
 func level_transition(pointer):
-	if $wipe/AnimationPlayer.is_playing(): return
+	if $wipe/AnimationPlayer.is_playing(): return false
 	var val = 1 if pointer else -1;
 	current += val;
 	$wipe/AnimationPlayer.play("default");
 	$wipe.scale.x = val
+	return true
 
 func swap_level():
 	get_tree().paused = true;
