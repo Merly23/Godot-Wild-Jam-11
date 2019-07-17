@@ -75,7 +75,6 @@ func _physics_process(delta):
 	if wallsliding():
 		if wall == 0:
 			wall = sign(vel.x)
-			print_debug("Wall hit")
 	else:
 		wall = 0;
 	vel = new_vel
@@ -115,8 +114,8 @@ func _process(delta):
 			sprite.offset.x = -abs(sprite.offset.x);
 	
 	if iframes >= 0: iframes += delta;
-	if iframes > 1:
-		sprite.play("hitflash" if state == form.HUMAN else "fox_hitflash");
+	if iframes > 1.5:
+		#sprite.play("hitflash" if state == form.HUMAN else "fox_hitflash");
 		iblink(false);
 		iframes = -1;
 	
@@ -129,32 +128,38 @@ func _process(delta):
 	match sprite.animation:
 		"idle":
 			if movement.y != 0:
-				sprite.animation = "jump";
+				sprite.play("jump");
+				$audio/GirlJump.play();
 			elif movement.x != 0 and abs(vel.x) > 1:
 				sprite.play("run_start");
 		"rise":
 			if vel.y >= 0:
-				sprite.animation = "fall_start";
+				sprite.play("fall_start");
 		"jump":
 			if vel.y >= 0:
-				sprite.animation = "fall_start";
+				sprite.play("fall_start");
 		"fall":
 			if is_on_floor():
-				sprite.animation = "land";
+				sprite.play("land");
+				$audio/GirlLand.play();
 		"fall_start":
 			if is_on_floor():
-				sprite.animation = "land";
+				sprite.play("land");
+				$audio/GirlLand.play();
 		"stunned":
 			if is_on_floor():
-				sprite.animation = "land";
+				sprite.play("land");
 		"wallslide":
 			if not wallsliding():
 				sprite.play("jump");
+				if vel.y < 50:
+					$audio/GirlJump.play();
 		"run":
 			if abs(vel.x) < HORIZ_THRESHOLD and abs(vel.y) < 1:
 				sprite.play("idle");
 			elif vel.y < -VERT_THRESHOLD and not is_on_floor():
 				sprite.play("jump");
+				$audio/GirlJump.play();
 			elif vel.y > VERT_THRESHOLD:
 				sprite.play("fall");
 		"run_start":
@@ -162,6 +167,7 @@ func _process(delta):
 				sprite.play("idle");
 			elif vel.y < -VERT_THRESHOLD and not is_on_floor():
 				sprite.play("jump");
+				$audio/GirlJump.play();
 			elif vel.y > VERT_THRESHOLD:
 				sprite.play("fall");
 		"xform":
@@ -209,6 +215,14 @@ func _on_AnimatedSprite_animation_finished():
 			state = form.HUMAN;
 			sprite.play("idle");
 			get_tree().paused = false;
+
+var girlsteps = [preload("res://audio/Footsteps_Girl1.wav"), preload("res://audio/Footsteps_Girl2.wav"), preload("res://audio/Footsteps_Girl3.wav"), preload("res://audio/Footsteps_Girl4.wav"), preload("res://audio/Footsteps_Girl5.wav"), preload("res://audio/Footsteps_Girl6.wav"), preload("res://audio/Footsteps_Girl7.wav"), ]
+
+func _on_AnimatedSprite_frame_changed():
+	if sprite.animation == "run" and (sprite.frame == 0 or sprite.frame == 4):
+		$audio/GirlStep.play();
+		$audio/GirlStep.stream = girlsteps[randi() % len(girlsteps)];
+
 
 func transform(switch, force):
 	if iframes >= 0: return false
@@ -268,3 +282,8 @@ func knock(direction):
 func iblink(on):
 	if iframes >= 0:
 		sprite.material.set_shader_param("enabled", on)
+
+
+func _on_leaving_body_entered(body, to_right):
+	if not body == self: return;
+	$"../..".level_transition(to_right);
