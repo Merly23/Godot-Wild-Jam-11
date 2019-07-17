@@ -7,7 +7,7 @@ func _process(delta):
 	var screen = Vector2(455, 256);#$"ScreenBuffer".rect_size;
 	$"Level/Camera".reposition(screen, focus);
 	
-	if Input.is_action_just_pressed("ui_down") and $"Stamina".get_amount() > 0 and $"Level/Player".transform(state, false):
+	if Input.is_action_just_pressed("player_transform") and $"Stamina".get_amount() > 0 and $"Level/Player".transform(state, false):
 		$"Stamina".decrement()
 		$"ScreenBuffer".warp(focus / screen.x);
 		
@@ -25,7 +25,7 @@ func _process(delta):
 		get_tree().paused = true;
 
 var levels = [preload("res://levels/cave.tscn"), preload("res://levels/cliffs.tscn"), ];
-var current = 0;
+var current = 1;
 
 func _ready():
 	add_child_below_node($Background, levels[current].instance());

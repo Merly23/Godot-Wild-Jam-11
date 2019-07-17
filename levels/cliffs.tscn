@@ -2115,7 +2115,6 @@ position = Vector2( 1163, 121 )
 radius = 90
 
 [node name="coins" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Node2D" type="Node2D" parent="coins"]
 position = Vector2( 476, 240 )
@@ -2267,34 +2266,34 @@ position = Vector2( 968, 100 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Foreground/lanterns"]
 frames = SubResource( 73 )
-frame = 7
+frame = 9
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 17, 0 )
 frames = SubResource( 73 )
-frame = 4
+frame = 6
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 193, -288 )
 frames = SubResource( 73 )
-frame = 4
+frame = 6
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 241, 64 )
 frames = SubResource( 73 )
-frame = 3
+frame = 5
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( -176, -336 )
 frames = SubResource( 73 )
-frame = 3
+frame = 5
 speed_scale = 1.03
 playing = true
 

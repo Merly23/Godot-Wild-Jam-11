@@ -30,11 +30,11 @@ func _physics_process(delta):
 	var accel = Vector2.ZERO;
 	
 	movement = Vector2.ZERO;
-	movement.x += 1 if Input.is_action_pressed("ui_right") else 0;
-	movement.x += -1 if Input.is_action_pressed("ui_left") else 0;
+	movement.x += 1 if Input.is_action_pressed("player_right") else 0;
+	movement.x += -1 if Input.is_action_pressed("player_left") else 0;
 	movement *= RUN_FORCE if is_on_floor() else FLY_FORCE;
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("player_jump"):
 		if is_on_floor():
 			movement.y -= JUMP_FORCE;
 			if state == form.FOX: movement.x *= 3;
@@ -47,7 +47,7 @@ func _physics_process(delta):
 			air_time = 0;
 			vel = Vector2.ZERO;
 	
-	elif Input.is_action_pressed("ui_accept"):
+	elif Input.is_action_pressed("player_jump"):
 		air_time += delta;
 		movement.y -= RISE_FORCE * pow(0.5, air_time * 7);
 	
