@@ -1,8 +1,9 @@
 extends Control
 
-var state = false;
+var state = true;
 
 func _process(delta):
+	if get_node_or_null("Level/Player") == null: return
 	var focus = $"Level/Player".get_global_transform().origin;
 	var screen = Vector2(455, 256);#$"ScreenBuffer".rect_size;
 	$"Level/Camera".reposition(screen, focus);
@@ -25,11 +26,10 @@ func _process(delta):
 		get_tree().paused = true;
 
 var levels = [preload("res://levels/cave.tscn"), preload("res://levels/cliffs.tscn"), ];
-var current = 1;
+var current = -1;
 
 func _ready():
-	add_child_below_node($Background, levels[current].instance());
-	swap_level();
+	pass
 
 func level_transition(pointer):
 	if $wipe/AnimationPlayer.is_playing(): return false

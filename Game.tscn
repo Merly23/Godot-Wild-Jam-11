@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background1.png" type="Texture" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://ScreenBuffer.gd" type="Script" id=40]
 [ext_resource path="res://audio/Transition-Light-Dark.wav" type="AudioStream" id=41]
 [ext_resource path="res://audio/Transition-Dark-Light.wav" type="AudioStream" id=42]
+[ext_resource path="res://Title.tscn" type="PackedScene" id=43]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -226,5 +227,7 @@ polygon = PoolVector2Array( 0, 0, 600, 0, 500, 300, -100, 300 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wipe"]
 anims/default = SubResource( 6 )
+
+[node name="Level" parent="." instance=ExtResource( 43 )]
 [connection signal="animation_finished" from="Stamina" to="Stamina" method="_on_meter_animation_finished"]
 [connection signal="animation_finished" from="Health" to="Health" method="_on_meter_animation_finished"]
