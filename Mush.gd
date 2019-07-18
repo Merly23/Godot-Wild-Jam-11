@@ -27,8 +27,8 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body is Player:
-		body.hurt();
 		body.knock(Vector2.LEFT if position.x > body.position.x else Vector2.RIGHT);
+		body.hurt();
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "turn":

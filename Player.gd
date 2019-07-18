@@ -16,40 +16,38 @@ var terminal_velocity = false;
 
 enum form {HUMAN, FOX, XFORM};
 var state = form.HUMAN;
+var dead = false;
 
 var checkpoint : Vector2;
-
-func _ready():
-	pass
 
 var movement = Vector2.ZERO;
 
 func _physics_process(delta):
 	
-	if state == form.XFORM: return;
+	if state == form.XFORM or sprite.animation == "death": return;
 	var accel = Vector2.ZERO;
 	
 	movement = Vector2.ZERO;
-	movement.x += 1 if Input.is_action_pressed("player_right") else 0;
-	movement.x += -1 if Input.is_action_pressed("player_left") else 0;
-	movement *= RUN_FORCE if is_on_floor() else FLY_FORCE;
-	
-	if Input.is_action_just_pressed("player_jump"):
-		if is_on_floor():
-			movement.y -= JUMP_FORCE;
-			if state == form.FOX: movement.x *= 3;
-			accel += get_floor_velocity();
-			air_time = 0;
-		elif wallsliding() and wall != 0 and state == form.HUMAN:
-			movement.x = -wall * 0.7;
-			movement.y = -0.8;
-			movement *= JUMP_FORCE;
-			air_time = 0;
-			vel = Vector2.ZERO;
-	
-	elif Input.is_action_pressed("player_jump"):
-		air_time += delta;
-		movement.y -= RISE_FORCE * pow(0.5, air_time * 7);
+	if not dead:
+		movement.x += 1 if Input.is_action_pressed("player_right") else 0;
+		movement.x += -1 if Input.is_action_pressed("player_left") else 0;
+		movement *= RUN_FORCE if is_on_floor() else FLY_FORCE;
+		
+		if Input.is_action_just_pressed("player_jump"):
+			if is_on_floor():
+				movement.y -= JUMP_FORCE;
+				if state == form.FOX: movement.x *= 3;
+				accel += get_floor_velocity();
+				air_time = 0;
+			elif wallsliding() and wall != 0 and state == form.HUMAN:
+				movement.x = -wall * 0.7;
+				movement.y = -0.8;
+				movement *= JUMP_FORCE;
+				air_time = 0;
+				vel = Vector2.ZERO;
+		elif Input.is_action_pressed("player_jump"):
+			air_time += delta;
+			movement.y -= RISE_FORCE * pow(0.5, air_time * 7);
 	
 	
 	accel += movement * delta;
@@ -77,17 +75,19 @@ func _physics_process(delta):
 	vel = new_vel
 	
 	if position.y > $"../Camera".limit_bottom + 50:
-		position = checkpoint;
+		hurt();
 		vel = Vector2.ZERO;
-		hurt();
+		if not dead:
+			position = checkpoint;
 	
-	if vel.y > 500:
-		terminal_velocity = true;
-	if terminal_velocity and wallsliding():
-		terminal_velocity = false;
-	if terminal_velocity and is_on_floor():
-		hurt();
-		terminal_velocity = false;
+	if state == form.HUMAN:
+		if vel.y > 500:
+			terminal_velocity = true;
+		if terminal_velocity and wallsliding():
+			terminal_velocity = false;
+		if terminal_velocity and is_on_floor():
+			hurt();
+			terminal_velocity = false;
 
 var was_on_wall = 0;
 var wall = 0;
@@ -119,8 +119,12 @@ func _process(delta):
 	var VERT_THRESHOLD = 250;
 	var HORIZ_THRESHOLD = 30;
 	
-	if wallsliding() and state == form.HUMAN:
-		sprite.play("wallslide");
+	if state == form.HUMAN and sprite.animation != "hitflash":
+		if wallsliding() and vel.y > 10:
+			sprite.play("wallslide");
+		elif is_on_floor() and dead:
+			sprite.play("death");
+			$Human.disabled = true;
 	
 	match sprite.animation:
 		"idle":
@@ -227,7 +231,7 @@ func _on_AnimatedSprite_animation_finished():
 			state = form.FOX;
 			sprite.play("fox_idle");
 			get_tree().paused = false;
-			sprite.offset.x *= 2;
+			#sprite.offset.x *= -3;
 		"fox_xform":
 			state = form.HUMAN;
 			sprite.play("idle");
@@ -276,22 +280,26 @@ func transform(switch, force):
 		collision_layer = 2;
 		collision_mask = 2;
 		
-		sprite.offset.x /= 2;
+		#sprite.offset.x /= -3;
 		return true
 	return false
 
 func hurt():
-	if iframes > 0: return
-	$"../../Health".decrement();
+	if iframes > 0 or dead: return
+	if not $"../../Health".decrement():
+		dead = true;
+		stop_music();
+		
+	else:
+		iframes = 0;
 	if state == form.FOX:
 		sprite.play("fox_hitflash");
 	else:
 		sprite.play("hitflash");
 	
-	iframes = 0;
 
 func knock(direction):
-	if iframes > 0: return
+	if iframes > 0 or dead: return
 	direction.y -= 1;
 	direction *= 300;
 	vel += direction;
@@ -304,7 +312,9 @@ func iblink(on):
 func _on_leaving_body_entered(body, to_right):
 	if not body == self: return;
 	if not $"../..".level_transition(to_right): return;
-	
+	stop_music();
+
+func stop_music():
 	if state == form.FOX:
 		$"../Music/tween".play("light_off");
 	else:

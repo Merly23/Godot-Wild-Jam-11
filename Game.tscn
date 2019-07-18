@@ -43,7 +43,7 @@
 [ext_resource path="res://audio/Transition-Light-Dark.wav" type="AudioStream" id=41]
 [ext_resource path="res://audio/Transition-Dark-Light.wav" type="AudioStream" id=42]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
@@ -71,7 +71,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
@@ -99,7 +99,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 uniform vec2 center;
@@ -116,15 +116,14 @@ void fragment(){
 	COLOR += vec4(1,1,1,1) * smoothstep(0, 1, abs(pos - progress * 1.2) * -300.0 + 1.0);
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/progress = 1.0
 shader_param/dim = null
 shader_param/aspect = 1.778
 
-[sub_resource type="Animation" id=3]
-resource_name = "default"
+[sub_resource type="Animation" id=5]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScreenBuffer:progress")
@@ -184,20 +183,20 @@ other = ExtResource( 4 )
 [node name="Stamina" type="AnimatedSprite" parent="."]
 pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
-frames = SubResource( 4 )
+frames = SubResource( 1 )
 animation = "4"
 script = ExtResource( 22 )
 
 [node name="Health" type="AnimatedSprite" parent="."]
 pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "4"
 script = ExtResource( 22 )
 
 [node name="ScreenBuffer" type="TextureRect" parent="."]
 pause_mode = 2
-material = SubResource( 2 )
+material = SubResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
@@ -207,7 +206,7 @@ progress = 1.0
 
 [node name="Transform" type="AnimationPlayer" parent="."]
 pause_mode = 2
-anims/default = SubResource( 3 )
+anims/default = SubResource( 5 )
 
 [node name="AltTo" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

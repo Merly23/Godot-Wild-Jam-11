@@ -8,7 +8,7 @@ func _on_meter_animation_finished():
 
 func decrement():
 	playing = true;
-	return animation != "0"
+	return int(animation) > 1;
 
 func get_amount():
 	return int(animation);
