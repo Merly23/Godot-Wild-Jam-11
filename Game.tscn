@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background1.png" type="Texture" id=2]
@@ -43,6 +43,9 @@
 [ext_resource path="res://audio/Transition-Light-Dark.wav" type="AudioStream" id=41]
 [ext_resource path="res://audio/Transition-Dark-Light.wav" type="AudioStream" id=42]
 [ext_resource path="res://Title.tscn" type="PackedScene" id=43]
+[ext_resource path="res://pause.gd" type="Script" id=44]
+[ext_resource path="res://sprites/pause_text.png" type="Texture" id=45]
+[ext_resource path="res://sprites/arrow.png" type="Texture" id=46]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -218,6 +221,7 @@ pause_mode = 2
 stream = ExtResource( 42 )
 
 [node name="wipe" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 227, 0 )
 
 [node name="Polygon2D" type="Polygon2D" parent="wipe"]
@@ -229,5 +233,25 @@ polygon = PoolVector2Array( 0, 0, 600, 0, 500, 300, -100, 300 )
 anims/default = SubResource( 6 )
 
 [node name="Level" parent="." instance=ExtResource( 43 )]
+
+[node name="pause" type="Node2D" parent="."]
+pause_mode = 2
+visible = false
+script = ExtResource( 44 )
+
+[node name="ColorRect" type="ColorRect" parent="pause"]
+margin_left = -15.4328
+margin_top = -13.718
+margin_right = 486.567
+margin_bottom = 281.282
+color = Color( 0, 0, 0, 0.584314 )
+
+[node name="Sprite" type="Sprite" parent="pause"]
+position = Vector2( 227, 128 )
+texture = ExtResource( 45 )
+
+[node name="arrow" type="Sprite" parent="pause"]
+position = Vector2( 186, 128 )
+texture = ExtResource( 46 )
 [connection signal="animation_finished" from="Stamina" to="Stamina" method="_on_meter_animation_finished"]
 [connection signal="animation_finished" from="Health" to="Health" method="_on_meter_animation_finished"]

@@ -4,9 +4,8 @@ var select = 0;
 
 func _process(delta):
 	
-	if OS.is_debug_build():
-		if Input.is_action_just_pressed("ui_cancel"):
-			$"..".level_transition(1);
+	if Input.is_action_just_pressed("ui_end"):
+		$"..".level_transition(1);
 	
 	if Input.is_action_just_pressed("ui_up"):
 		select -= 1;

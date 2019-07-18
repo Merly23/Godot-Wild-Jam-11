@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://sprites/tiles/bg1-cave.png" type="Texture" id=1]
 [ext_resource path="res://levels/multiskin_tilemap.gd" type="Script" id=2]
@@ -7,10 +7,13 @@
 [ext_resource path="res://sprites/tiles/bg2.png" type="Texture" id=5]
 [ext_resource path="res://sprites/tiles/grass-stone.png" type="Texture" id=6]
 [ext_resource path="res://sprites/tiles/grass-stone-2.png" type="Texture" id=7]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Camera.gd" type="Script" id=9]
-[ext_resource path="res://audio/Smells_Like_Childhood_v1.ogg" type="AudioStream" id=10]
-[ext_resource path="res://audio/Earn_Your_Tomorrow_Alt.ogg" type="AudioStream" id=11]
+[ext_resource path="res://sprites/props/button-hint.png" type="Texture" id=8]
+[ext_resource path="res://levels/multiskin_sprite.gd" type="Script" id=9]
+[ext_resource path="res://sprites/props/button-hint-2.png" type="Texture" id=10]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Camera.gd" type="Script" id=12]
+[ext_resource path="res://audio/Smells_Like_Childhood_v1.ogg" type="AudioStream" id=13]
+[ext_resource path="res://audio/Earn_Your_Tomorrow_Alt.ogg" type="AudioStream" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stone"
@@ -958,6 +961,12 @@ extents = Vector2( 116, 101 )
 [sub_resource type="RectangleShape2D" id=91]
 extents = Vector2( 53.502, 71.0083 )
 
+[sub_resource type="RectangleShape2D" id=96]
+extents = Vector2( 100.788, 146.235 )
+
+[sub_resource type="RectangleShape2D" id=97]
+extents = Vector2( 162.799, 146.235 )
+
 [sub_resource type="Animation" id=92]
 resource_name = "dark"
 length = 0.4
@@ -1082,7 +1091,13 @@ tile_data = PoolIntArray( -262037, 0, 0, -262036, 0, 1, -131094, 5, 0, -196505, 
 script = ExtResource( 2 )
 other = ExtResource( 7 )
 
-[node name="Player" parent="." instance=ExtResource( 8 )]
+[node name="hint" type="Sprite" parent="."]
+position = Vector2( 1446.62, 123.677 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+other = ExtResource( 10 )
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
 position = Vector2( 152.769, 255.988 )
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -1093,9 +1108,11 @@ limit_bottom = 300
 smoothing_enabled = true
 editor_draw_screen = false
 editor_draw_limits = true
-script = ExtResource( 9 )
+script = ExtResource( 12 )
 
 [node name="Special" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
 
 [node name="Checkpoint" type="Area2D" parent="Special"]
 position = Vector2( 680.15, 241.784 )
@@ -1148,9 +1165,27 @@ shape = SubResource( 90 )
 
 [node name="Reveal" type="Area2D" parent="Special"]
 position = Vector2( -46.4269, 226.433 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Special/Reveal"]
 shape = SubResource( 91 )
+
+[node name="Reveal2" type="Area2D" parent="Special"]
+position = Vector2( -46.4269, 226.433 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Special/Reveal2"]
+shape = SubResource( 96 )
+
+[node name="Reveal3" type="Area2D" parent="Special"]
+position = Vector2( 1305.49, 221.398 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Special/Reveal3"]
+shape = SubResource( 97 )
 
 [node name="right_entry" type="Node2D" parent="."]
 position = Vector2( 1992.1, 217.545 )
@@ -1167,13 +1202,13 @@ anims/light_off = SubResource( 95 )
 
 [node name="Music1" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
-stream = ExtResource( 10 )
+stream = ExtResource( 13 )
 autoplay = true
 bus = "Music"
 
 [node name="Music2" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
-stream = ExtResource( 11 )
+stream = ExtResource( 14 )
 volume_db = -80.0
 autoplay = true
 bus = "Music"
@@ -1182,4 +1217,7 @@ bus = "Music"
 [connection signal="body_entered" from="Special/Checkpoint3" to="Special/Checkpoint3" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="Special/Checkpoint4" to="Special/Checkpoint4" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="Special/Right" to="Player" method="_on_leaving_body_entered" binds= [ true ]]
-[connection signal="area_entered" from="Special/Reveal" to="Camera" method="_on_Reveal_area_entered"]
+[connection signal="body_entered" from="Special/Reveal" to="Camera" method="_on_Reveal_body_entered" binds= [ Vector2( -46, 500 ) ]]
+[connection signal="body_exited" from="Special/Reveal2" to="Camera" method="_on_Reveal2_body_exited"]
+[connection signal="body_entered" from="Special/Reveal3" to="Camera" method="_on_Reveal_body_entered" binds= [ Vector2( 1305, 500 ) ]]
+[connection signal="body_exited" from="Special/Reveal3" to="Camera" method="_on_Reveal2_body_exited"]

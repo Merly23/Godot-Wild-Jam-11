@@ -17,65 +17,65 @@
 [ext_resource path="res://sprites/player/all04.png" type="Texture" id=15]
 [ext_resource path="res://sprites/player/all05.png" type="Texture" id=16]
 [ext_resource path="res://sprites/player/all06.png" type="Texture" id=17]
-[ext_resource path="res://sprites/player/hurt4.png" type="Texture" id=18]
-[ext_resource path="res://sprites/player/hurt5.png" type="Texture" id=19]
-[ext_resource path="res://sprites/player/hurt6.png" type="Texture" id=20]
-[ext_resource path="res://sprites/player/hurt7.png" type="Texture" id=21]
-[ext_resource path="res://sprites/player/wallslide.png" type="Texture" id=22]
-[ext_resource path="res://sprites/player/all43.png" type="Texture" id=23]
-[ext_resource path="res://sprites/player/all44.png" type="Texture" id=24]
-[ext_resource path="res://sprites/player/all45.png" type="Texture" id=25]
-[ext_resource path="res://sprites/player/fox01.png" type="Texture" id=26]
-[ext_resource path="res://sprites/player/fox02.png" type="Texture" id=27]
-[ext_resource path="res://sprites/player/fox03.png" type="Texture" id=28]
-[ext_resource path="res://sprites/player/fox04.png" type="Texture" id=29]
-[ext_resource path="res://sprites/player/fox05.png" type="Texture" id=30]
-[ext_resource path="res://sprites/player/fox06.png" type="Texture" id=31]
-[ext_resource path="res://sprites/player/fox07.png" type="Texture" id=32]
-[ext_resource path="res://sprites/player/fox08.png" type="Texture" id=33]
-[ext_resource path="res://sprites/player/all46.png" type="Texture" id=34]
-[ext_resource path="res://sprites/player/all47.png" type="Texture" id=35]
-[ext_resource path="res://sprites/player/all48.png" type="Texture" id=36]
-[ext_resource path="res://sprites/player/all49.png" type="Texture" id=37]
-[ext_resource path="res://sprites/player/all09.png" type="Texture" id=38]
-[ext_resource path="res://sprites/player/all10.png" type="Texture" id=39]
-[ext_resource path="res://sprites/player/all11.png" type="Texture" id=40]
-[ext_resource path="res://sprites/player/all12.png" type="Texture" id=41]
-[ext_resource path="res://sprites/player/all13.png" type="Texture" id=42]
-[ext_resource path="res://sprites/player/all14.png" type="Texture" id=43]
-[ext_resource path="res://sprites/player/all15.png" type="Texture" id=44]
-[ext_resource path="res://sprites/player/all16.png" type="Texture" id=45]
-[ext_resource path="res://sprites/player/all39.png" type="Texture" id=46]
-[ext_resource path="res://sprites/player/all40.png" type="Texture" id=47]
-[ext_resource path="res://sprites/player/all41.png" type="Texture" id=48]
-[ext_resource path="res://sprites/player/all42.png" type="Texture" id=49]
-[ext_resource path="res://sprites/player/fox15.png" type="Texture" id=50]
-[ext_resource path="res://sprites/player/fox16.png" type="Texture" id=51]
-[ext_resource path="res://sprites/player/fox17.png" type="Texture" id=52]
-[ext_resource path="res://sprites/player/fox18.png" type="Texture" id=53]
-[ext_resource path="res://sprites/player/fox09.png" type="Texture" id=54]
-[ext_resource path="res://sprites/player/fox10.png" type="Texture" id=55]
-[ext_resource path="res://sprites/player/fox11.png" type="Texture" id=56]
-[ext_resource path="res://sprites/player/fox12.png" type="Texture" id=57]
-[ext_resource path="res://sprites/player/fox13.png" type="Texture" id=58]
-[ext_resource path="res://sprites/player/fox14.png" type="Texture" id=59]
-[ext_resource path="res://sprites/player/fox_xform_substitution.png" type="Texture" id=60]
-[ext_resource path="res://sprites/player/xform10.png" type="Texture" id=61]
-[ext_resource path="res://sprites/player/xform11.png" type="Texture" id=62]
-[ext_resource path="res://sprites/player/xform12.png" type="Texture" id=63]
-[ext_resource path="res://sprites/player/xform13.png" type="Texture" id=64]
-[ext_resource path="res://sprites/player/xform14.png" type="Texture" id=65]
-[ext_resource path="res://sprites/player/xform15.png" type="Texture" id=66]
-[ext_resource path="res://sprites/player/xform16.png" type="Texture" id=67]
-[ext_resource path="res://sprites/player/xform17.png" type="Texture" id=68]
-[ext_resource path="res://sprites/player/xform18.png" type="Texture" id=69]
-[ext_resource path="res://sprites/player/hurt2.png" type="Texture" id=70]
-[ext_resource path="res://sprites/player/hurt3.png" type="Texture" id=71]
-[ext_resource path="res://sprites/player/all07.png" type="Texture" id=72]
-[ext_resource path="res://sprites/player/all08.png" type="Texture" id=73]
-[ext_resource path="res://sprites/player/fox_fall.png" type="Texture" id=74]
-[ext_resource path="res://sprites/player/fox_jump_2.png" type="Texture" id=75]
-[ext_resource path="res://sprites/player/fox_jump_3.png" type="Texture" id=76]
+[ext_resource path="res://sprites/player/wallslide.png" type="Texture" id=18]
+[ext_resource path="res://sprites/player/all43.png" type="Texture" id=19]
+[ext_resource path="res://sprites/player/all44.png" type="Texture" id=20]
+[ext_resource path="res://sprites/player/all45.png" type="Texture" id=21]
+[ext_resource path="res://sprites/player/fox01.png" type="Texture" id=22]
+[ext_resource path="res://sprites/player/fox02.png" type="Texture" id=23]
+[ext_resource path="res://sprites/player/fox03.png" type="Texture" id=24]
+[ext_resource path="res://sprites/player/fox04.png" type="Texture" id=25]
+[ext_resource path="res://sprites/player/fox05.png" type="Texture" id=26]
+[ext_resource path="res://sprites/player/fox06.png" type="Texture" id=27]
+[ext_resource path="res://sprites/player/fox07.png" type="Texture" id=28]
+[ext_resource path="res://sprites/player/fox08.png" type="Texture" id=29]
+[ext_resource path="res://sprites/player/all46.png" type="Texture" id=30]
+[ext_resource path="res://sprites/player/all47.png" type="Texture" id=31]
+[ext_resource path="res://sprites/player/all48.png" type="Texture" id=32]
+[ext_resource path="res://sprites/player/all49.png" type="Texture" id=33]
+[ext_resource path="res://sprites/player/all09.png" type="Texture" id=34]
+[ext_resource path="res://sprites/player/all10.png" type="Texture" id=35]
+[ext_resource path="res://sprites/player/all11.png" type="Texture" id=36]
+[ext_resource path="res://sprites/player/all12.png" type="Texture" id=37]
+[ext_resource path="res://sprites/player/all13.png" type="Texture" id=38]
+[ext_resource path="res://sprites/player/all14.png" type="Texture" id=39]
+[ext_resource path="res://sprites/player/all15.png" type="Texture" id=40]
+[ext_resource path="res://sprites/player/all16.png" type="Texture" id=41]
+[ext_resource path="res://sprites/player/all39.png" type="Texture" id=42]
+[ext_resource path="res://sprites/player/all40.png" type="Texture" id=43]
+[ext_resource path="res://sprites/player/all41.png" type="Texture" id=44]
+[ext_resource path="res://sprites/player/all42.png" type="Texture" id=45]
+[ext_resource path="res://sprites/player/fox15.png" type="Texture" id=46]
+[ext_resource path="res://sprites/player/fox16.png" type="Texture" id=47]
+[ext_resource path="res://sprites/player/fox17.png" type="Texture" id=48]
+[ext_resource path="res://sprites/player/fox18.png" type="Texture" id=49]
+[ext_resource path="res://sprites/player/fox09.png" type="Texture" id=50]
+[ext_resource path="res://sprites/player/fox10.png" type="Texture" id=51]
+[ext_resource path="res://sprites/player/fox11.png" type="Texture" id=52]
+[ext_resource path="res://sprites/player/fox12.png" type="Texture" id=53]
+[ext_resource path="res://sprites/player/fox13.png" type="Texture" id=54]
+[ext_resource path="res://sprites/player/fox14.png" type="Texture" id=55]
+[ext_resource path="res://sprites/player/fox_xform_substitution.png" type="Texture" id=56]
+[ext_resource path="res://sprites/player/xform10.png" type="Texture" id=57]
+[ext_resource path="res://sprites/player/xform11.png" type="Texture" id=58]
+[ext_resource path="res://sprites/player/xform12.png" type="Texture" id=59]
+[ext_resource path="res://sprites/player/xform13.png" type="Texture" id=60]
+[ext_resource path="res://sprites/player/xform14.png" type="Texture" id=61]
+[ext_resource path="res://sprites/player/xform15.png" type="Texture" id=62]
+[ext_resource path="res://sprites/player/xform16.png" type="Texture" id=63]
+[ext_resource path="res://sprites/player/xform17.png" type="Texture" id=64]
+[ext_resource path="res://sprites/player/xform18.png" type="Texture" id=65]
+[ext_resource path="res://sprites/player/hurt2.png" type="Texture" id=66]
+[ext_resource path="res://sprites/player/hurt3.png" type="Texture" id=67]
+[ext_resource path="res://sprites/player/all07.png" type="Texture" id=68]
+[ext_resource path="res://sprites/player/all08.png" type="Texture" id=69]
+[ext_resource path="res://sprites/player/fox_fall.png" type="Texture" id=70]
+[ext_resource path="res://sprites/player/fox_jump_2.png" type="Texture" id=71]
+[ext_resource path="res://sprites/player/fox_jump_3.png" type="Texture" id=72]
+[ext_resource path="res://sprites/player/hurt4.png" type="Texture" id=73]
+[ext_resource path="res://sprites/player/hurt5.png" type="Texture" id=74]
+[ext_resource path="res://sprites/player/hurt6.png" type="Texture" id=75]
+[ext_resource path="res://sprites/player/hurt7.png" type="Texture" id=76]
 [ext_resource path="res://audio/Footsteps_Girl1.wav" type="AudioStream" id=77]
 [ext_resource path="res://audio/Jump_Girl1.wav" type="AudioStream" id=78]
 [ext_resource path="res://audio/Land_Girl1.wav" type="AudioStream" id=79]
@@ -111,67 +111,62 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "death",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 22 ) ],
+"frames": [ ExtResource( 18 ) ],
 "loop": false,
 "name": "wallslide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ) ],
+"frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "rise",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "fall_start",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "fox_idle",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "fall",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 32 ), ExtResource( 33 ) ],
 "loop": false,
 "name": "land",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
+"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
 "loop": false,
 "name": "jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
 "loop": true,
 "name": "fox_run_end",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 50 ) ],
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "fox_run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ) ],
+"frames": [ ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ) ],
 "loop": false,
 "name": "fox_xform",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 60 ) ],
+"frames": [ ExtResource( 56 ) ],
 "loop": false,
 "name": "fox_hitflash",
 "speed": 10.0
@@ -181,24 +176,29 @@ animations = [ {
 "name": "hitflash",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 70 ), ExtResource( 71 ) ],
+"frames": [ ExtResource( 66 ), ExtResource( 67 ) ],
 "loop": false,
 "name": "stunned",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 72 ), ExtResource( 73 ) ],
+"frames": [ ExtResource( 68 ), ExtResource( 69 ) ],
 "loop": false,
 "name": "run_start",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 74 ) ],
+"frames": [ ExtResource( 70 ) ],
 "loop": false,
 "name": "fox_fall",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 75 ), ExtResource( 76 ) ],
+"frames": [ ExtResource( 71 ), ExtResource( 72 ) ],
 "loop": false,
 "name": "fox_jump",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ) ],
+"loop": false,
+"name": "death",
 "speed": 10.0
 } ]
 
