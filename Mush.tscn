@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Mush.gd" type="Script" id=1]
 [ext_resource path="res://sprites/mush/walk03.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://sprites/mush/walk14.png" type="Texture" id=13]
 [ext_resource path="res://sprites/mush/walk02.png" type="Texture" id=14]
 [ext_resource path="res://sprites/mush/walk01.png" type="Texture" id=15]
+[ext_resource path="res://audio/MushroomMan/Footsteps_MushroomMan1.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 12 )
@@ -90,8 +91,16 @@ material = SubResource( 5 )
 position = Vector2( 0, -25 )
 frames = SubResource( 6 )
 animation = "walk"
-frame = 9
+frame = 11
 playing = true
 offset = Vector2( -1, 0 )
+
+[node name="step" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+volume_db = 2.0
+max_distance = 400.0
+attenuation = 0.517633
+bus = "DePan"
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]

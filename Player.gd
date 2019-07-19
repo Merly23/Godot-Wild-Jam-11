@@ -95,7 +95,9 @@ func _physics_process(delta):
 
 var was_on_wall = 0;
 var wall = 0;
+
 func wallsliding():
+	if was_on_wall == -1: return;
 	if is_on_wall(): was_on_wall = 3;
 	if is_on_floor(): was_on_wall = 0;
 	return was_on_wall > 0 and vel.y > 0;
@@ -105,6 +107,7 @@ onready var sprite = get_node("AnimatedSprite");
 func _process(delta):
 	
 	was_on_wall = max(0, was_on_wall - 1);
+	if is_on_floor(): was_on_wall = 0;
 	
 	if sprite.animation != "stunned":
 		if vel.x > 0:
@@ -126,6 +129,8 @@ func _process(delta):
 	if state == form.HUMAN and sprite.animation != "hitflash":
 		if wallsliding() and vel.y > 10:
 			sprite.play("wallslide");
+			if not $audio/Wallslide.playing:
+				$audio/Wallslide.play();
 		elif is_on_floor() and dead:
 			sprite.play("death");
 			$Human.disabled = true;
@@ -160,6 +165,7 @@ func _process(delta):
 		"wallslide":
 			if not wallsliding():
 				sprite.play("jump");
+				$audio/Wallslide.stop();
 				if vel.y < 50:
 					if dirty: $audio/GirlJumpDirt.play();
 					else: $audio/GirlJump.play();
@@ -190,6 +196,8 @@ func _process(delta):
 				sprite.play("fox_run");
 			if movement.y != 0:
 				sprite.play("fox_jump");
+				if dirty: $audio/FoxJumpDirt.play();
+				else: $audio/FoxJump.play();
 		"fox_run":
 			if abs(vel.x) < 100:
 				sprite.play("fox_run_end");
@@ -207,6 +215,8 @@ func _process(delta):
 					sprite.play("fox_run");
 		"fox_fall":
 			if is_on_floor():
+				if dirty: $audio/FoxStep.play();
+				else: $audio/FoxLand.play();
 				if abs(vel.x) < 100:
 					sprite.play("fox_idle");
 				else:
@@ -352,3 +362,6 @@ func _on_Dirt_body_entered(body):
 func _on_Dirt_body_exited(body):
 	if body == self:
 		dirty = false;
+
+func _on_Wallslide_finished():
+	was_on_wall = -1;

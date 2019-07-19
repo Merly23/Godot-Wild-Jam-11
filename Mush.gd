@@ -36,3 +36,10 @@ func _on_AnimatedSprite_animation_finished():
 		$AnimatedSprite.play("turn2");
 	elif $AnimatedSprite.animation == "turn2":
 		$AnimatedSprite.play("walk");
+
+var steps = [preload("res://audio/MushroomMan/Footsteps_MushroomMan1.wav"), preload("res://audio/MushroomMan/Footsteps_MushroomMan2.wav"), preload("res://audio/MushroomMan/Footsteps_MushroomMan3.wav"), preload("res://audio/MushroomMan/Footsteps_MushroomMan4.wav"), preload("res://audio/MushroomMan/Footsteps_MushroomMan5.wav"), ]
+
+func _on_AnimatedSprite_frame_changed():
+	if $AnimatedSprite.animation == "walk" and ($AnimatedSprite.frame == 1 or $AnimatedSprite.frame == 7):
+		$step.stream = steps[randi() % len(steps)];
+		$step.play();

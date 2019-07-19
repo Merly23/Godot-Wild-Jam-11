@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/all18.png" type="Texture" id=2]
@@ -76,12 +76,13 @@
 [ext_resource path="res://sprites/player/hurt6.png" type="Texture" id=74]
 [ext_resource path="res://sprites/player/hurt7.png" type="Texture" id=75]
 [ext_resource path="res://sprites/player/wallslide.png" type="Texture" id=76]
-[ext_resource path="res://audio/Footsteps_Girl1.wav" type="AudioStream" id=77]
-[ext_resource path="res://audio/Fox/Footsteps_Fox1.wav" type="AudioStream" id=78]
+[ext_resource path="res://audio/Footsteps_Girl_Dirt1.wav" type="AudioStream" id=77]
+[ext_resource path="res://audio/Fox/Footsteps_Fox_v2_1 Dirt.wav" type="AudioStream" id=78]
 [ext_resource path="res://audio/Jump_Girl1.wav" type="AudioStream" id=79]
 [ext_resource path="res://audio/Land_Girl_Dirt.wav" type="AudioStream" id=80]
 [ext_resource path="res://audio/Land_Girl1.wav" type="AudioStream" id=81]
 [ext_resource path="res://audio/Player_Hurt.wav" type="AudioStream" id=82]
+[ext_resource path="res://audio/Wallslide.wav" type="AudioStream" id=83]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -230,7 +231,7 @@ material = SubResource( 2 )
 position = Vector2( 0, -28 )
 frames = SubResource( 3 )
 animation = "fox_run"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 3, 0 )
 
@@ -292,5 +293,10 @@ volume_db = -5.0
 [node name="Hurt" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource( 82 )
 volume_db = -5.0
+
+[node name="Wallslide" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 83 )
+volume_db = -8.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="finished" from="audio/Wallslide" to="." method="_on_Wallslide_finished"]
