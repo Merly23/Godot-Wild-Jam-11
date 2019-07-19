@@ -107,5 +107,8 @@ func swap_level():
 	for node in get_tree().get_nodes_in_group("Book"):
 		if my_game_data.books[node.num]:
 			node.get_parent().remove_child(node);
+	
 	save();
+	$Health.play("4");
+	$Health.playing = false;
 	get_tree().paused = false;

@@ -44,3 +44,4 @@ var pages = [
 
 func refresh():
 	$Sprite.texture = pages[select][count];
+	$turn.play();

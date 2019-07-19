@@ -13,6 +13,7 @@ var vel = Vector2.ZERO;
 var air_time = 0;
 var iframes = -1;
 var terminal_velocity = false;
+var dirty = false;
 
 enum form {HUMAN, FOX, XFORM};
 var state = form.HUMAN;
@@ -132,7 +133,8 @@ func _process(delta):
 		"idle":
 			if movement.y != 0:
 				sprite.play("jump");
-				$audio/GirlJump.play();
+				if dirty: $audio/GirlJumpDirt.play();
+				else: $audio/GirlJump.play();
 			elif movement.x != 0 and abs(vel.x) > 1:
 				sprite.play("run_start");
 		"rise":
@@ -144,11 +146,13 @@ func _process(delta):
 		"fall":
 			if is_on_floor():
 				sprite.play("land");
-				$audio/GirlLand.play();
+				if dirty: $audio/GirlStep.play();
+				else: $audio/GirlLand.play();
 		"fall_start":
 			if is_on_floor():
 				sprite.play("land");
-				$audio/GirlLand.play();
+				if dirty: $audio/GirlStep.play();
+				else: $audio/GirlLand.play();
 		"stunned":
 			if is_on_floor():
 				sprite.play("land");
@@ -156,13 +160,15 @@ func _process(delta):
 			if not wallsliding():
 				sprite.play("jump");
 				if vel.y < 50:
-					$audio/GirlJump.play();
+					if dirty: $audio/GirlJumpDirt.play();
+					else: $audio/GirlJump.play();
 		"run":
 			if abs(vel.x) < HORIZ_THRESHOLD and abs(vel.y) < 1:
 				sprite.play("idle");
 			elif vel.y < -VERT_THRESHOLD and not is_on_floor():
 				sprite.play("jump");
-				$audio/GirlJump.play();
+				if dirty: $audio/GirlJumpDirt.play();
+				else: $audio/GirlJump.play();
 			elif vel.y > VERT_THRESHOLD:
 				sprite.play("fall");
 		"run_start":
@@ -170,7 +176,8 @@ func _process(delta):
 				sprite.play("idle");
 			elif vel.y < -VERT_THRESHOLD and not is_on_floor():
 				sprite.play("jump");
-				$audio/GirlJump.play();
+				if dirty: $audio/GirlJumpDirt.play();
+				else: $audio/GirlJump.play();
 			elif vel.y > VERT_THRESHOLD:
 				sprite.play("fall");
 		"xform":
@@ -240,10 +247,17 @@ func _on_AnimatedSprite_animation_finished():
 			get_tree().paused = false;
 
 var girlsteps = [preload("res://audio/Footsteps_Girl1.wav"), preload("res://audio/Footsteps_Girl2.wav"), preload("res://audio/Footsteps_Girl3.wav"), preload("res://audio/Footsteps_Girl4.wav"), preload("res://audio/Footsteps_Girl5.wav"), preload("res://audio/Footsteps_Girl6.wav"), preload("res://audio/Footsteps_Girl7.wav"), ]
+var girlstepsdirt = [preload("res://audio/Footsteps_Girl_Dirt1.wav"), preload("res://audio/Footsteps_Girl_Dirt2.wav"), preload("res://audio/Footsteps_Girl_Dirt3.wav"), preload("res://audio/Footsteps_Girl_Dirt4.wav"), preload("res://audio/Footsteps_Girl_Dirt5.wav"), preload("res://audio/Footsteps_Girl_Dirt6.wav"), preload("res://audio/Footsteps_Girl_Dirt7.wav"), ]
+
+var foxsteps = [preload("res://audio/Fox/Footsteps_Fox1.wav"), preload("res://audio/Fox/Footsteps_Fox2.wav"), preload("res://audio/Fox/Footsteps_Fox3.wav"), preload("res://audio/Fox/Footsteps_Fox4.wav"), preload("res://audio/Fox/Footsteps_Fox5.wav"), preload("res://audio/Fox/Footsteps_Fox6.wav"), preload("res://audio/Fox/Footsteps_Fox7.wav"), ]
+var foxstepsdirt = [preload("res://audio/Fox/Footsteps_Fox_Dirt1.wav"), preload("res://audio/Fox/Footsteps_Fox_Dirt2.wav"), preload("res://audio/Fox/Footsteps_Fox_Dirt3.wav"), preload("res://audio/Fox/Footsteps_Fox_Dirt4.wav"), ]
 
 func _on_AnimatedSprite_frame_changed():
 	if sprite.animation == "run" and (sprite.frame == 0 or sprite.frame == 4):
-		$audio/GirlStep.stream = girlsteps[randi() % len(girlsteps)];
+		$audio/GirlStep.stream = girlstepsdirt[randi() % len(girlstepsdirt)] if dirty else girlsteps[randi() % len(girlsteps)];
+		$audio/GirlStep.play();
+	if (sprite.animation == "fox_run_end" and sprite.frame == 1) or sprite.animation == "fox_run" and (sprite.frame == 0 or sprite.frame == 2 or sprite.frame == 3 or sprite.frame == 6):
+		$audio/GirlStep.stream = foxstepsdirt[randi() % len(foxstepsdirt)] if dirty else foxsteps[randi() % len(foxsteps)];
 		$audio/GirlStep.play();
 	if dead and sprite.animation == "death" and sprite.frame == 3:
 		$"../..".level_transition(0);
@@ -298,6 +312,8 @@ func hurt():
 		iframes = 0;
 	if state == form.FOX:
 		sprite.play("fox_hitflash");
+		if dead:
+			$"../..".level_transition(0);
 	else:
 		sprite.play("hitflash");
 	
@@ -327,3 +343,11 @@ func stop_music():
 func collect_book(num):
 	$"../..".my_game_data.books[num] = true;
 	$"../..".update_orbs();
+
+func _on_Dirt_body_entered(body):
+	if body == self:
+		dirty = true;
+
+func _on_Dirt_body_exited(body):
+	if body == self:
+		dirty = false;

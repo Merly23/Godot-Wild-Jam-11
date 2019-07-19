@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background1.png" type="Texture" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://sprites/pause_text.png" type="Texture" id=34]
 [ext_resource path="res://sprites/arrow.png" type="Texture" id=35]
 [ext_resource path="res://story.gd" type="Script" id=36]
+[ext_resource path="res://audio/Page_Turn.wav" type="AudioStream" id=37]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -247,4 +248,7 @@ script = ExtResource( 36 )
 
 [node name="Sprite" type="Sprite" parent="story"]
 position = Vector2( 227, 128 )
+
+[node name="turn" type="AudioStreamPlayer" parent="story"]
+stream = ExtResource( 37 )
 [connection signal="animation_finished" from="Health" to="Health" method="_on_meter_animation_finished"]
