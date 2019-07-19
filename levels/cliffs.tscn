@@ -2104,7 +2104,6 @@ script = ExtResource( 6 )
 other = ExtResource( 9 )
 
 [node name="Enemies" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Mush" parent="Enemies" groups=[
 "Moving",
@@ -2113,8 +2112,8 @@ editor/display_folded = true
 [node name="Mush2" parent="Enemies" groups=[
 "Moving",
 ] instance=ExtResource( 10 )]
-position = Vector2( 1163, 121 )
-radius = 90
+position = Vector2( 1152.73, 121 )
+radius = 100
 
 [node name="coins" type="Node2D" parent="."]
 editor/display_folded = true
@@ -2277,32 +2276,34 @@ position = Vector2( 968, 100 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Foreground/lanterns"]
 frames = SubResource( 73 )
-frame = 7
+frame = 6
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 17, 0 )
 frames = SubResource( 73 )
-frame = 1
+frame = 5
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 193, -288 )
 frames = SubResource( 73 )
-frame = 1
+frame = 5
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 241, 64 )
 frames = SubResource( 73 )
+frame = 4
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( -176, -336 )
 frames = SubResource( 73 )
+frame = 4
 speed_scale = 1.03
 playing = true
 

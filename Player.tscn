@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/all18.png" type="Texture" id=2]
@@ -81,6 +81,7 @@
 [ext_resource path="res://audio/Jump_Girl1.wav" type="AudioStream" id=79]
 [ext_resource path="res://audio/Land_Girl_Dirt.wav" type="AudioStream" id=80]
 [ext_resource path="res://audio/Land_Girl1.wav" type="AudioStream" id=81]
+[ext_resource path="res://audio/Player_Hurt.wav" type="AudioStream" id=82]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -229,7 +230,7 @@ material = SubResource( 2 )
 position = Vector2( 0, -28 )
 frames = SubResource( 3 )
 animation = "fox_run"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 3, 0 )
 
@@ -286,6 +287,10 @@ volume_db = -5.0
 
 [node name="FoxLand" type="AudioStreamPlayer" parent="audio"]
 stream = SubResource( 8 )
+volume_db = -5.0
+
+[node name="Hurt" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 82 )
 volume_db = -5.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]

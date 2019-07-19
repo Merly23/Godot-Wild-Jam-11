@@ -3,6 +3,7 @@ class_name Player
 
 var GRAVITY = 1000;
 var FRICTION = 0.1;
+var FRICTION_WALL = 0.3;
 var FRICTION_AIR = 0.02;
 var RUN_FORCE = 1000;
 var FLY_FORCE = 300;
@@ -41,7 +42,7 @@ func _physics_process(delta):
 				accel += get_floor_velocity();
 				air_time = 0;
 			elif wallsliding() and wall != 0 and state == form.HUMAN:
-				movement.x = -wall * 0.7;
+				movement.x = -wall * 0.8;
 				movement.y = -0.8;
 				movement *= JUMP_FORCE;
 				air_time = 0;
@@ -58,7 +59,7 @@ func _physics_process(delta):
 		else:
 			accel -= vel * FRICTION;
 	elif wallsliding() and state == form.HUMAN:
-		accel -= vel * FRICTION;
+		accel -= vel * FRICTION_WALL;
 		#if movement.x == 0:
 		movement.x = wall * FLY_FORCE * 5
 	else:
@@ -97,7 +98,7 @@ var wall = 0;
 func wallsliding():
 	if is_on_wall(): was_on_wall = 3;
 	if is_on_floor(): was_on_wall = 0;
-	return was_on_wall > 0;
+	return was_on_wall > 0 and vel.y > 0;
 
 onready var sprite = get_node("AnimatedSprite");
 
@@ -304,10 +305,10 @@ func transform(switch, force):
 
 func hurt():
 	if iframes > 0 or dead: return
+	$audio/Hurt.play();
 	if not $"../../Health".decrement():
 		dead = true;
 		stop_music();
-		
 	else:
 		iframes = 0;
 	if state == form.FOX:
