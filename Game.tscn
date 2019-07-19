@@ -1,51 +1,41 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background1.png" type="Texture" id=2]
 [ext_resource path="res://levels/multiskin_sprite.gd" type="Script" id=3]
 [ext_resource path="res://sprites/background2.png" type="Texture" id=4]
-[ext_resource path="res://sprites/health/stamina17.png" type="Texture" id=5]
-[ext_resource path="res://sprites/health/stamina09.png" type="Texture" id=6]
-[ext_resource path="res://sprites/health/stamina10.png" type="Texture" id=7]
-[ext_resource path="res://sprites/health/stamina11.png" type="Texture" id=8]
-[ext_resource path="res://sprites/health/stamina12.png" type="Texture" id=9]
-[ext_resource path="res://sprites/health/stamina05.png" type="Texture" id=10]
-[ext_resource path="res://sprites/health/stamina06.png" type="Texture" id=11]
-[ext_resource path="res://sprites/health/stamina07.png" type="Texture" id=12]
-[ext_resource path="res://sprites/health/stamina08.png" type="Texture" id=13]
-[ext_resource path="res://sprites/health/stamina01.png" type="Texture" id=14]
-[ext_resource path="res://sprites/health/stamina02.png" type="Texture" id=15]
-[ext_resource path="res://sprites/health/stamina03.png" type="Texture" id=16]
-[ext_resource path="res://sprites/health/stamina04.png" type="Texture" id=17]
-[ext_resource path="res://sprites/health/stamina13.png" type="Texture" id=18]
-[ext_resource path="res://sprites/health/stamina14.png" type="Texture" id=19]
-[ext_resource path="res://sprites/health/stamina15.png" type="Texture" id=20]
-[ext_resource path="res://sprites/health/stamina16.png" type="Texture" id=21]
+[ext_resource path="res://sprites/health/health17.png" type="Texture" id=5]
+[ext_resource path="res://sprites/health/health09.png" type="Texture" id=6]
+[ext_resource path="res://sprites/health/health10.png" type="Texture" id=7]
+[ext_resource path="res://sprites/health/health11.png" type="Texture" id=8]
+[ext_resource path="res://sprites/health/health12.png" type="Texture" id=9]
+[ext_resource path="res://sprites/health/health05.png" type="Texture" id=10]
+[ext_resource path="res://sprites/health/health06.png" type="Texture" id=11]
+[ext_resource path="res://sprites/health/health07.png" type="Texture" id=12]
+[ext_resource path="res://sprites/health/health08.png" type="Texture" id=13]
+[ext_resource path="res://sprites/health/health01.png" type="Texture" id=14]
+[ext_resource path="res://sprites/health/health02.png" type="Texture" id=15]
+[ext_resource path="res://sprites/health/health03.png" type="Texture" id=16]
+[ext_resource path="res://sprites/health/health04.png" type="Texture" id=17]
+[ext_resource path="res://sprites/health/health13.png" type="Texture" id=18]
+[ext_resource path="res://sprites/health/health14.png" type="Texture" id=19]
+[ext_resource path="res://sprites/health/health15.png" type="Texture" id=20]
+[ext_resource path="res://sprites/health/health16.png" type="Texture" id=21]
 [ext_resource path="res://Meter.gd" type="Script" id=22]
-[ext_resource path="res://sprites/health/health17.png" type="Texture" id=23]
-[ext_resource path="res://sprites/health/health09.png" type="Texture" id=24]
-[ext_resource path="res://sprites/health/health10.png" type="Texture" id=25]
-[ext_resource path="res://sprites/health/health11.png" type="Texture" id=26]
-[ext_resource path="res://sprites/health/health12.png" type="Texture" id=27]
-[ext_resource path="res://sprites/health/health05.png" type="Texture" id=28]
-[ext_resource path="res://sprites/health/health06.png" type="Texture" id=29]
-[ext_resource path="res://sprites/health/health07.png" type="Texture" id=30]
-[ext_resource path="res://sprites/health/health08.png" type="Texture" id=31]
-[ext_resource path="res://sprites/health/health01.png" type="Texture" id=32]
-[ext_resource path="res://sprites/health/health02.png" type="Texture" id=33]
-[ext_resource path="res://sprites/health/health03.png" type="Texture" id=34]
-[ext_resource path="res://sprites/health/health04.png" type="Texture" id=35]
-[ext_resource path="res://sprites/health/health13.png" type="Texture" id=36]
-[ext_resource path="res://sprites/health/health14.png" type="Texture" id=37]
-[ext_resource path="res://sprites/health/health15.png" type="Texture" id=38]
-[ext_resource path="res://sprites/health/health16.png" type="Texture" id=39]
-[ext_resource path="res://ScreenBuffer.gd" type="Script" id=40]
-[ext_resource path="res://audio/Transition-Light-Dark.wav" type="AudioStream" id=41]
-[ext_resource path="res://audio/Transition-Dark-Light.wav" type="AudioStream" id=42]
-[ext_resource path="res://Title.tscn" type="PackedScene" id=43]
-[ext_resource path="res://pause.gd" type="Script" id=44]
-[ext_resource path="res://sprites/pause_text.png" type="Texture" id=45]
-[ext_resource path="res://sprites/arrow.png" type="Texture" id=46]
+[ext_resource path="res://sprites/health/stamina17.png" type="Texture" id=23]
+[ext_resource path="res://sprites/health/orb1.png" type="Texture" id=24]
+[ext_resource path="res://sprites/health/orb2.png" type="Texture" id=25]
+[ext_resource path="res://sprites/health/orb3.png" type="Texture" id=26]
+[ext_resource path="res://sprites/health/orb4.png" type="Texture" id=27]
+[ext_resource path="res://sprites/health/orb5.png" type="Texture" id=28]
+[ext_resource path="res://ScreenBuffer.gd" type="Script" id=29]
+[ext_resource path="res://audio/Transition-Light-Dark.wav" type="AudioStream" id=30]
+[ext_resource path="res://audio/Transition-Dark-Light.wav" type="AudioStream" id=31]
+[ext_resource path="res://Title.tscn" type="PackedScene" id=32]
+[ext_resource path="res://pause.gd" type="Script" id=33]
+[ext_resource path="res://sprites/pause_text.png" type="Texture" id=34]
+[ext_resource path="res://sprites/arrow.png" type="Texture" id=35]
+[ext_resource path="res://story.gd" type="Script" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -75,35 +65,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "2",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "4",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
-"loop": true,
-"name": "1",
-"speed": 10.0
-} ]
-
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
 uniform vec2 center;
@@ -120,14 +82,14 @@ void fragment(){
 	COLOR += vec4(1,1,1,1) * smoothstep(0, 1, abs(pos - progress * 1.2) * -300.0 + 1.0);
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/progress = 1.0
 shader_param/dim = null
 shader_param/aspect = 1.778
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScreenBuffer:progress")
@@ -142,7 +104,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "default"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -184,41 +146,64 @@ texture = ExtResource( 2 )
 script = ExtResource( 3 )
 other = ExtResource( 4 )
 
-[node name="Stamina" type="AnimatedSprite" parent="."]
+[node name="Health" type="AnimatedSprite" parent="."]
 pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
 frames = SubResource( 1 )
 animation = "4"
 script = ExtResource( 22 )
 
-[node name="Health" type="AnimatedSprite" parent="."]
+[node name="orbs" type="Sprite" parent="."]
 pause_mode = 2
 position = Vector2( 40.2215, 37.1702 )
-frames = SubResource( 2 )
-animation = "4"
-script = ExtResource( 22 )
+texture = ExtResource( 23 )
+
+[node name="orb1" type="Sprite" parent="orbs"]
+pause_mode = 2
+visible = false
+texture = ExtResource( 24 )
+
+[node name="orb2" type="Sprite" parent="orbs"]
+pause_mode = 2
+visible = false
+texture = ExtResource( 25 )
+
+[node name="orb3" type="Sprite" parent="orbs"]
+pause_mode = 2
+visible = false
+texture = ExtResource( 26 )
+
+[node name="orb4" type="Sprite" parent="orbs"]
+pause_mode = 2
+visible = false
+texture = ExtResource( 27 )
+
+[node name="orb5" type="Sprite" parent="orbs"]
+pause_mode = 2
+visible = false
+texture = ExtResource( 28 )
 
 [node name="ScreenBuffer" type="TextureRect" parent="."]
 pause_mode = 2
-material = SubResource( 4 )
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
-script = ExtResource( 40 )
+script = ExtResource( 29 )
 animator_path = NodePath("../Transform")
 progress = 1.0
 
 [node name="Transform" type="AnimationPlayer" parent="."]
 pause_mode = 2
-anims/default = SubResource( 5 )
+anims/default = SubResource( 4 )
 
 [node name="AltTo" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 41 )
+stream = ExtResource( 30 )
 
 [node name="AltFrom" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 42 )
+stream = ExtResource( 31 )
 
 [node name="wipe" type="Node2D" parent="."]
 editor/display_folded = true
@@ -230,14 +215,15 @@ color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 0, 0, 600, 0, 500, 300, -100, 300 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wipe"]
-anims/default = SubResource( 6 )
+anims/default = SubResource( 5 )
 
-[node name="Level" parent="." instance=ExtResource( 43 )]
+[node name="Level" parent="." instance=ExtResource( 32 )]
 
 [node name="pause" type="Node2D" parent="."]
 pause_mode = 2
+editor/display_folded = true
 visible = false
-script = ExtResource( 44 )
+script = ExtResource( 33 )
 
 [node name="ColorRect" type="ColorRect" parent="pause"]
 margin_left = -15.4328
@@ -248,10 +234,17 @@ color = Color( 0, 0, 0, 0.584314 )
 
 [node name="Sprite" type="Sprite" parent="pause"]
 position = Vector2( 227, 128 )
-texture = ExtResource( 45 )
+texture = ExtResource( 34 )
 
 [node name="arrow" type="Sprite" parent="pause"]
 position = Vector2( 186, 128 )
-texture = ExtResource( 46 )
-[connection signal="animation_finished" from="Stamina" to="Stamina" method="_on_meter_animation_finished"]
+texture = ExtResource( 35 )
+
+[node name="story" type="Node2D" parent="."]
+pause_mode = 2
+visible = false
+script = ExtResource( 36 )
+
+[node name="Sprite" type="Sprite" parent="story"]
+position = Vector2( 227, 128 )
 [connection signal="animation_finished" from="Health" to="Health" method="_on_meter_animation_finished"]

@@ -79,6 +79,8 @@ func _physics_process(delta):
 		vel = Vector2.ZERO;
 		if not dead:
 			position = checkpoint;
+		else:
+			$"../..".level_transition(0);
 	
 	if state == form.HUMAN:
 		if vel.y > 500:
@@ -243,6 +245,8 @@ func _on_AnimatedSprite_frame_changed():
 	if sprite.animation == "run" and (sprite.frame == 0 or sprite.frame == 4):
 		$audio/GirlStep.stream = girlsteps[randi() % len(girlsteps)];
 		$audio/GirlStep.play();
+	if dead and sprite.animation == "death" and sprite.frame == 3:
+		$"../..".level_transition(0);
 
 
 func transform(switch, force):
@@ -311,7 +315,7 @@ func iblink(on):
 
 func _on_leaving_body_entered(body, to_right):
 	if not body == self: return;
-	if not $"../..".level_transition(to_right): return;
+	if not $"../..".level_transition(1 if to_right else -1): return;
 	stop_music();
 
 func stop_music():
@@ -319,3 +323,7 @@ func stop_music():
 		$"../Music/tween".play("light_off");
 	else:
 		$"../Music/tween".play("dark_off");
+
+func collect_book(num):
+	$"../..".my_game_data.books[num] = true;
+	$"../..".update_orbs();

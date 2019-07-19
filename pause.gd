@@ -25,6 +25,9 @@ func _process(delta):
 				visible = false;
 				get_tree().paused = false;
 			1.0:
-				pass
+				visible = false;
+				$"../story".visible = true;
+				$"../story".select = 0;
+				$"../story".refresh();
 			2.0:
 				get_tree().quit();

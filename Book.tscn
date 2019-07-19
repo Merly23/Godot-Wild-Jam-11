@@ -1,0 +1,67 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Book.gd" type="Script" id=1]
+[ext_resource path="res://sprites/props/book1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/props/book2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/props/book3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/props/book4.png" type="Texture" id=5]
+[ext_resource path="res://sprites/props/book5.png" type="Texture" id=6]
+[ext_resource path="res://sprites/props/book6.png" type="Texture" id=7]
+[ext_resource path="res://sprites/props/book7.png" type="Texture" id=8]
+[ext_resource path="res://sprites/props/book8.png" type="Texture" id=9]
+[ext_resource path="res://sprites/props/flash1.png" type="Texture" id=10]
+[ext_resource path="res://sprites/props/flash2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/props/flash3.png" type="Texture" id=12]
+[ext_resource path="res://audio/Coin_Pickup1.wav" type="AudioStream" id=13]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform bool enabled;
+
+void fragment()
+{
+	COLOR = texture(TEXTURE, UV);
+	if(enabled) COLOR *= vec4(0.0,0.0,0.0, 0.8   - length(SCREEN_UV - vec2(0.5, 0.3)));
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/enabled = false
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "collect",
+"speed": 15.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 9.0
+
+[node name="Book" type="Area2D" groups=[
+"Book",
+]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 2 )
+frames = SubResource( 3 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.970604 )
+shape = SubResource( 4 )
+
+[node name="pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+[connection signal="body_entered" from="." to="." method="_on_Book_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

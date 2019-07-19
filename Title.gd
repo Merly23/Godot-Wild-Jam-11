@@ -4,8 +4,11 @@ var select = 0;
 
 func _process(delta):
 	
+	if $"../story".visible: return;
+	
 	if Input.is_action_just_pressed("ui_end"):
-		$"..".level_transition(1);
+		if $"..".my_game_data.level == -1:
+			$"..".level_transition(1);
 	
 	if Input.is_action_just_pressed("ui_up"):
 		select -= 1;
@@ -18,12 +21,17 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		match select:
 			0.0:
-				$text.visible = false
-				$textshadow.visible = false
-				$arrow.visible = false
-				$AnimationPlayer.play("default")
+				if $"..".my_game_data.level == -1:
+					$text.visible = false
+					$textshadow.visible = false
+					$arrow.visible = false
+					$AnimationPlayer.play("default")
+				else:
+					$"..".level_transition(0);
 			1.0:
-				pass
+				$"../story".visible = true;
+				$"../story".select = 0;
+				$"../story".refresh();
 			2.0:
 				get_tree().quit();
 
