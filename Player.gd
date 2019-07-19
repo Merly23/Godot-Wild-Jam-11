@@ -250,7 +250,7 @@ var girlsteps = [preload("res://audio/Footsteps_Girl1.wav"), preload("res://audi
 var girlstepsdirt = [preload("res://audio/Footsteps_Girl_Dirt1.wav"), preload("res://audio/Footsteps_Girl_Dirt2.wav"), preload("res://audio/Footsteps_Girl_Dirt3.wav"), preload("res://audio/Footsteps_Girl_Dirt4.wav"), preload("res://audio/Footsteps_Girl_Dirt5.wav"), preload("res://audio/Footsteps_Girl_Dirt6.wav"), preload("res://audio/Footsteps_Girl_Dirt7.wav"), ]
 
 var foxsteps = [preload("res://audio/Fox/Footsteps_Fox1.wav"), preload("res://audio/Fox/Footsteps_Fox2.wav"), preload("res://audio/Fox/Footsteps_Fox3.wav"), preload("res://audio/Fox/Footsteps_Fox4.wav"), preload("res://audio/Fox/Footsteps_Fox5.wav"), preload("res://audio/Fox/Footsteps_Fox6.wav"), preload("res://audio/Fox/Footsteps_Fox7.wav"), ]
-var foxstepsdirt = [preload("res://audio/Fox/Footsteps_Fox_Dirt1.wav"), preload("res://audio/Fox/Footsteps_Fox_Dirt2.wav"), preload("res://audio/Fox/Footsteps_Fox_Dirt3.wav"), preload("res://audio/Fox/Footsteps_Fox_Dirt4.wav"), ]
+var foxstepsdirt = [preload("res://audio/Fox/Footsteps_Fox_v2_1 Dirt.wav"), preload("res://audio/Fox/Footsteps_Fox_v2_2 Dirt.wav"), preload("res://audio/Fox/Footsteps_Fox_v2_3 Dirt.wav"), preload("res://audio/Fox/Footsteps_Fox_v2_4 Dirt.wav"), ]
 
 func _on_AnimatedSprite_frame_changed():
 	if sprite.animation == "run" and (sprite.frame == 0 or sprite.frame == 4):

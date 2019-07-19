@@ -229,7 +229,7 @@ material = SubResource( 2 )
 position = Vector2( 0, -28 )
 frames = SubResource( 3 )
 animation = "fox_run"
-frame = 5
+frame = 2
 playing = true
 offset = Vector2( 3, 0 )
 
