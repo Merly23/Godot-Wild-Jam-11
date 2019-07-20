@@ -670,8 +670,8 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
 } ]
 4/z_index = 0
 
-[sub_resource type="CircleShape2D" id=69]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id=80]
+extents = Vector2( 6, 5 )
 
 [sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 15 )
@@ -2277,11 +2277,9 @@ position = Vector2( 1264.76, -143.887 )
 num = 3
 
 [node name="pots" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 1116, 65 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="pots"]
-editor/display_folded = true
 position = Vector2( -96, 97 )
 collision_layer = 3
 collision_mask = 3
@@ -2290,10 +2288,9 @@ collision_mask = 3
 texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pots/StaticBody2D"]
-shape = SubResource( 69 )
+shape = SubResource( 80 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="pots"]
-editor/display_folded = true
 position = Vector2( 212, 209 )
 collision_layer = 3
 collision_mask = 3
@@ -2302,22 +2299,9 @@ collision_mask = 3
 texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pots/StaticBody2D2"]
-shape = SubResource( 69 )
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="pots"]
-editor/display_folded = true
-position = Vector2( -984, -159 )
-collision_layer = 3
-collision_mask = 3
-
-[node name="Sprite" type="Sprite" parent="pots/StaticBody2D4"]
-texture = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pots/StaticBody2D4"]
-shape = SubResource( 69 )
+shape = SubResource( 80 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="pots"]
-editor/display_folded = true
 position = Vector2( 90, -527 )
 collision_layer = 3
 collision_mask = 3
@@ -2326,7 +2310,7 @@ collision_mask = 3
 texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pots/StaticBody2D3"]
-shape = SubResource( 69 )
+shape = SubResource( 80 )
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
 position = Vector2( 72.708, 218.785 )
@@ -2370,7 +2354,7 @@ position = Vector2( 968, 100 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Foreground/lanterns"]
 frames = SubResource( 71 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Foreground/lanterns"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background1.png" type="Texture" id=2]
@@ -39,6 +39,8 @@
 [ext_resource path="res://sprites/arrow.png" type="Texture" id=37]
 [ext_resource path="res://story.gd" type="Script" id=38]
 [ext_resource path="res://audio/Page_Turn.wav" type="AudioStream" id=39]
+[ext_resource path="res://sprites/floppy.png" type="Texture" id=40]
+[ext_resource path="res://sprites/floppy_hidden.png" type="Texture" id=41]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -135,6 +137,19 @@ tracks/1/keys = {
 "method": "swap_level"
 } ]
 }
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": false,
+"name": "save",
+"speed": 3.0
+} ]
 
 [node name="Game" type="Control"]
 margin_right = 455.0
@@ -255,6 +270,7 @@ texture = ExtResource( 37 )
 
 [node name="story" type="Node2D" parent="."]
 pause_mode = 2
+editor/display_folded = true
 visible = false
 script = ExtResource( 38 )
 
@@ -263,4 +279,9 @@ position = Vector2( 227, 128 )
 
 [node name="turn" type="AudioStreamPlayer" parent="story"]
 stream = ExtResource( 39 )
+
+[node name="ticker" type="AnimatedSprite" parent="."]
+position = Vector2( 434.595, 235.562 )
+frames = SubResource( 6 )
+playing = true
 [connection signal="animation_finished" from="Health" to="Health" method="_on_meter_animation_finished"]

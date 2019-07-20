@@ -51,6 +51,8 @@ func save() -> void:
 	ResourceSaver.save("user://save_game.tres", save_game)
 	
 	update_orbs();
+	$ticker.play("default");
+	$ticker.play("save");
 
 func ld() -> void:
 	var save_game = load("user://save_game.tres")
