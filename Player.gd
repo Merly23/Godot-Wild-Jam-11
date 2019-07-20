@@ -203,7 +203,7 @@ func _process(delta):
 				sprite.play("fox_run_end");
 			if movement.y != 0:
 				sprite.play("fox_jump");
-			elif vel.y > 0:
+			elif vel.y > VERT_THRESHOLD / 2:
 				sprite.play("fox_fall");
 		"fox_jump":
 			if vel.y > 0:

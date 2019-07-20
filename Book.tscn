@@ -12,7 +12,7 @@
 [ext_resource path="res://sprites/props/flash1.png" type="Texture" id=10]
 [ext_resource path="res://sprites/props/flash2.png" type="Texture" id=11]
 [ext_resource path="res://sprites/props/flash3.png" type="Texture" id=12]
-[ext_resource path="res://audio/Book Pickup.wav" type="AudioStream" id=13]
+[ext_resource path="res://audio/Book_Pickup2.wav" type="AudioStream" id=13]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -54,7 +54,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )
 frames = SubResource( 3 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

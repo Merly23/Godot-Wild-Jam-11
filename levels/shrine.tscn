@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://sprites/props/Bamboo.png" type="Texture" id=1]
 [ext_resource path="res://levels/multiskin_atlas.gd" type="Script" id=2]
@@ -730,10 +730,10 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
 "loop": false,
 "name": "fade",
-"speed": 3.0
+"speed": 0.0
 } ]
 
 [sub_resource type="AtlasTexture" id=73]
@@ -749,6 +749,9 @@ extents = Vector2( 116, 101 )
 
 [sub_resource type="RectangleShape2D" id=76]
 extents = Vector2( 30, 293 )
+
+[sub_resource type="RectangleShape2D" id=92]
+extents = Vector2( 113, 71.0083 )
 
 [sub_resource type="Animation" id=77]
 length = 0.4
@@ -4513,7 +4516,7 @@ num = 4
 position = Vector2( 1737, -102 )
 frames = SubResource( 81 )
 animation = "idle"
-frame = 11
+frame = 17
 playing = true
 script = ExtResource( 54 )
 
@@ -4531,6 +4534,7 @@ editor_draw_limits = true
 script = ExtResource( 56 )
 
 [node name="Foreground" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="rocks" type="Node2D" parent="Foreground"]
 editor/display_folded = true
@@ -5058,6 +5062,14 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Special/Barrier"]
 shape = SubResource( 76 )
 
+[node name="Reveal" type="Area2D" parent="Special"]
+position = Vector2( 1737, -151 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Special/Reveal"]
+shape = SubResource( 92 )
+
 [node name="right_entry" type="Node2D" parent="."]
 position = Vector2( 2421.37, -230.037 )
 
@@ -5086,3 +5098,5 @@ bus = "Music"
 [connection signal="body_entered" from="Assets/Coin4" to="Assets/Coin4" method="_on_Coin_body_entered"]
 [connection signal="animation_finished" from="boy" to="boy" method="_on_boy_animation_finished"]
 [connection signal="body_entered" from="Special/Left" to="Player" method="_on_leaving_body_entered" binds= [ false ]]
+[connection signal="body_entered" from="Special/Reveal" to="Camera" method="_on_Reveal_body_entered" binds= [ Vector2( 1737, -151 ) ]]
+[connection signal="body_exited" from="Special/Reveal" to="Camera" method="_on_Reveal2_body_exited"]
