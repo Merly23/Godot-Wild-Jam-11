@@ -34,12 +34,12 @@ var pages = [
 		preload("res://sprites/story/2_4.png"),
 		preload("res://sprites/story/2_5.png"),
 	],[
-		preload("res://sprites/story/3.png"),
-		preload("res://sprites/story/3.png"),
-		preload("res://sprites/story/3.png"),
-		preload("res://sprites/story/3.png"),
-		preload("res://sprites/story/3.png"),
-		preload("res://sprites/story/3.png"),
+		preload("res://sprites/story/3_1.png"),
+		preload("res://sprites/story/3_2.png"),
+		preload("res://sprites/story/3_2.png"),
+		preload("res://sprites/story/3_3.png"),
+		preload("res://sprites/story/3_4.png"),
+		preload("res://sprites/story/3_5.png"),
 	]];
 
 func refresh():

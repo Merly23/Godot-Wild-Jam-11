@@ -26,7 +26,7 @@
 [ext_resource path="res://sprites/props/lantern9.png" type="Texture" id=24]
 [ext_resource path="res://sprites/props/lantern10.png" type="Texture" id=25]
 [ext_resource path="res://audio/Earn_Your_Tomorrow.ogg" type="AudioStream" id=26]
-[ext_resource path="res://audio/Earn_Your_Tomorrow_Alt.ogg" type="AudioStream" id=27]
+[ext_resource path="res://audio/Earn_Your_Tomorrow_alt.ogg" type="AudioStream" id=27]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -2354,32 +2354,34 @@ position = Vector2( 968, 100 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Foreground/lanterns"]
 frames = SubResource( 71 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 17, 0 )
 frames = SubResource( 71 )
-frame = 1
+frame = 8
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 193, -288 )
 frames = SubResource( 71 )
-frame = 1
+frame = 8
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( 241, 64 )
 frames = SubResource( 71 )
+frame = 7
 speed_scale = 1.03
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Foreground/lanterns"]
 position = Vector2( -176, -336 )
 frames = SubResource( 71 )
+frame = 7
 speed_scale = 1.03
 playing = true
 

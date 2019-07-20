@@ -100,14 +100,14 @@ func swap_level():
 		$Level/Player.transform(false, true);
 		$Level/Player.sprite.play("idle");
 		$Level/Player.state = $Level/Player.form.HUMAN;
-		for node in get_tree().get_nodes_in_group("Multiskin"):
-			node.enter_state(true);
 		$"Level/Music/tween".play("dark", -1, 100)
 	else:
 		$Level/Player.transform(true, true);
 		$Level/Player.sprite.play("fox_idle");
 		$Level/Player.state = $Level/Player.form.FOX;
 		$"Level/Music/tween".play("light", -1, 100)
+	for node in get_tree().get_nodes_in_group("Multiskin"):
+		node.enter_state(state);
 	
 	if my_game_data.from_right:
 		$Level/Player.position = $Level/right_entry.position;

@@ -29,8 +29,8 @@
 [ext_resource path="res://audio/Cave_Water_drop.wav" type="AudioStream" id=27]
 [ext_resource path="res://levels/drippy.gd" type="Script" id=28]
 [ext_resource path="res://Camera.gd" type="Script" id=29]
-[ext_resource path="res://audio/Smells_Like_Childhood_v2.ogg" type="AudioStream" id=30]
-[ext_resource path="res://audio/Smells_Like_Childhood_Alt_v1.ogg" type="AudioStream" id=31]
+[ext_resource path="res://audio/Smells_Like_Childhood.ogg" type="AudioStream" id=30]
+[ext_resource path="res://audio/Smells_Like_Childhood_alt.ogg" type="AudioStream" id=31]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stone"
