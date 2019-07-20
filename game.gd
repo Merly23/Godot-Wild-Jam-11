@@ -32,7 +32,7 @@ func _process(delta):
 		
 		get_tree().paused = true;
 
-var levels = [preload("res://levels/cave.tscn"), preload("res://levels/cliffs.tscn")];
+var levels = [preload("res://levels/cave.tscn"), preload("res://levels/cliffs.tscn"), preload("res://levels/shrine.tscn")];
 
 var my_game_data := {
 	"level": -1,
@@ -85,7 +85,7 @@ func swap_level():
 			node.enter_state(false);
 	
 	remove_child($Level);
-	add_child_below_node($Background, levels[my_game_data.level].instance());
+	add_child_below_node($"Background-high", levels[my_game_data.level].instance());
 	if state:
 		$Level/Player.transform(false, true);
 		$Level/Player.sprite.play("idle");
@@ -107,6 +107,7 @@ func swap_level():
 	for node in get_tree().get_nodes_in_group("Book"):
 		if my_game_data.books[node.num]:
 			node.get_parent().remove_child(node);
+	$"Background-high".visible = my_game_data.level == 2;
 	
 	save();
 	$Health.play("4");

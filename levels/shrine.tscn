@@ -1,0 +1,5015 @@
+[gd_scene load_steps=105 format=2]
+
+[ext_resource path="res://sprites/props/Bamboo.png" type="Texture" id=1]
+[ext_resource path="res://levels/multiskin_atlas.gd" type="Script" id=2]
+[ext_resource path="res://sprites/props/Bamboo-2.png" type="Texture" id=3]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/props/torii.png" type="Texture" id=5]
+[ext_resource path="res://sprites/props/statue.png" type="Texture" id=6]
+[ext_resource path="res://levels/multiskin_sprite.gd" type="Script" id=7]
+[ext_resource path="res://sprites/tiles/grass-stone.png" type="Texture" id=8]
+[ext_resource path="res://levels/multiskin_tilemap.gd" type="Script" id=9]
+[ext_resource path="res://sprites/tiles/grass-stone-2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/props/shrine_normal.png" type="Texture" id=11]
+[ext_resource path="res://sprites/props/shrine1.png" type="Texture" id=12]
+[ext_resource path="res://sprites/props/shrine2.png" type="Texture" id=13]
+[ext_resource path="res://sprites/props/shrine3.png" type="Texture" id=14]
+[ext_resource path="res://sprites/props/shrine4.png" type="Texture" id=15]
+[ext_resource path="res://sprites/props/shrine5.png" type="Texture" id=16]
+[ext_resource path="res://sprites/props/shrine6.png" type="Texture" id=17]
+[ext_resource path="res://sprites/props/shrine7.png" type="Texture" id=18]
+[ext_resource path="res://Book.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Camera.gd" type="Script" id=21]
+[ext_resource path="res://sprites/props/terrain.png" type="Texture" id=22]
+[ext_resource path="res://audio/Forest_ambiance1_Light.ogg" type="AudioStream" id=23]
+[ext_resource path="res://audio/Forest_ambiance1_Dark.ogg" type="AudioStream" id=24]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 55, 0, 18, 30 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 123, 80, 17, 20 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 62, 14, 38 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 115, 68, 11, 9 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 68, 53, 11, 9 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 68, 62, 12, 38 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 125, 29, 15, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 124, 47, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 99, 0, 18, 20 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 17, 30 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 68, 12, 10 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 30, 96 )
+
+[sub_resource type="RectangleShape2D" id=78]
+extents = Vector2( 47, 21 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 16, 8, 8, 8, 8, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 0, 8, 8, 8, 8, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 8, 8, 16, 8, 16, 16, 8, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 16, 0, 16, 8, 8, 8, 8, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 8, 16, 0, 16, 0, 8, 8, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 16, 0, 16, 16, 8, 16, 8, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 8, 0, 8, 16, 0, 16, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 8, 16, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+points = PoolVector2Array( 16, 16, 8, 16, 8, 8, 16, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+points = PoolVector2Array( 16, 0, 16, 8, 0, 8, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+points = PoolVector2Array( 8, 8, 8, 16, 0, 16, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 16, 8, 16, 16, 0, 16, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+points = PoolVector2Array( 8, 0, 8, 8, 0, 8, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=29]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 16, 8, 16, 16, 8, 16, 8, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 0, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 16, 0, 16, 8, 8, 8, 8, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 8, 8, 16, 12, 16, 16, 0, 16, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+points = PoolVector2Array( 0, 12, 8, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+points = PoolVector2Array( 0, 0, 8, 0, 16, 4, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+points = PoolVector2Array( 0, 4, 8, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 4, 16, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+points = PoolVector2Array( 0, 12, 16, 4, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+points = PoolVector2Array( 0, 8, 8, 8, 16, 4, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=41]
+points = PoolVector2Array( 0, 4, 8, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=42]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+points = PoolVector2Array( 16, 16, 8, 16, 16, 12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=44]
+points = PoolVector2Array( 0, 12, 8, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=45]
+points = PoolVector2Array( 16, 16, 8, 16, 8, 8, 16, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=46]
+points = PoolVector2Array( 0, 8, 8, 8, 8, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=47]
+points = PoolVector2Array( 16, 8, 8, 8, 8, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=48]
+points = PoolVector2Array( 8, 0, 8, 8, 0, 8, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=49]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=50]
+points = PoolVector2Array( 8, 8, 8, 16, 0, 16, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=51]
+points = PoolVector2Array( 8, 0, 8, 8, 0, 8, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=52]
+points = PoolVector2Array( 0, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=53]
+points = PoolVector2Array( 0, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=54]
+points = PoolVector2Array( 16, 0, 16, 8, 8, 8, 8, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=55]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=56]
+points = PoolVector2Array( 16, 8, 16, 16, 8, 16, 8, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=57]
+points = PoolVector2Array( 16, 0, 16, 16, 8, 16, 8, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=58]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=59]
+points = PoolVector2Array( 8, 0, 16, 0, 16, 16, 8, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=60]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=61]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=62]
+points = PoolVector2Array( 0, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=63]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=64]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=65]
+points = PoolVector2Array( 0, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=66]
+points = PoolVector2Array( 0, 8, 16, 8, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=67]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=68]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+
+[sub_resource type="TileSet" id=69]
+0/name = "grass"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 4, Vector2( 0, 2 ), 69, Vector2( 0, 3 ), 321, Vector2( 1, 0 ), 64, Vector2( 1, 1 ), 1, Vector2( 1, 2 ), 261, Vector2( 1, 3 ), 324, Vector2( 2, 0 ), 257, Vector2( 2, 1 ), 260, Vector2( 2, 2 ), 325, Vector2( 2, 3 ), 5, Vector2( 3, 0 ), 68, Vector2( 3, 1 ), 65, Vector2( 3, 2 ), 320 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 22 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 25 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 26 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 28 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 29 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "ramp"
+1/texture = ExtResource( 8 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 0, 64, 64 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 1 )
+1/autotile/tile_size = Vector2( 16, 16 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [ {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 34 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 35 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 36 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 37 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 38 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 39 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 40 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 41 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 42 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 43 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 44 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "stone"
+2/texture = ExtResource( 8 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 64, 80, 64 )
+2/tile_mode = 1
+2/autotile/bitmask_mode = 0
+2/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 4, Vector2( 0, 2 ), 69, Vector2( 0, 3 ), 321, Vector2( 1, 0 ), 64, Vector2( 1, 1 ), 1, Vector2( 1, 2 ), 261, Vector2( 1, 3 ), 324, Vector2( 2, 0 ), 68, Vector2( 2, 1 ), 260, Vector2( 2, 2 ), 260, Vector2( 2, 3 ), 320, Vector2( 3, 0 ), 257, Vector2( 3, 1 ), 65, Vector2( 3, 2 ), 65, Vector2( 3, 3 ), 5, Vector2( 4, 3 ), 325 ]
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 16, 16 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 45 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 46 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 47 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 48 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 49 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 50 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 51 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 52 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 53 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 54 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 55 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 56 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 57 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 58 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 59 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 60 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 62 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 63 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "fill"
+3/texture = ExtResource( 8 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 32, 32, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 64 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "trans"
+4/texture = ExtResource( 8 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 96, 64, 32, 32 )
+4/tile_mode = 2
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 16, 16 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/z_index_map = [  ]
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 65 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 66 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 67 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 68 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+
+[sub_resource type="AnimatedTexture" id=80]
+flags = 4
+frames = 7
+fps = 10.0
+frame_0/texture = ExtResource( 12 )
+frame_1/texture = ExtResource( 13 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 14 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 15 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 16 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 17 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 18 )
+frame_6/delay_sec = 0.0
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 22 )
+region = Rect2( 0, 121, 128, 7 )
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 30, 0, 75, 96 )
+
+[sub_resource type="RectangleShape2D" id=71]
+extents = Vector2( 116, 101 )
+
+[sub_resource type="RectangleShape2D" id=79]
+extents = Vector2( 30, 293 )
+
+[sub_resource type="Animation" id=72]
+resource_name = "dark"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 5.65685, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.225313, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=73]
+resource_name = "dark_off"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=74]
+resource_name = "light"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.183011, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 5.27803, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=75]
+resource_name = "light_off"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[node name="Level" type="Node2D"]
+
+[node name="Assets" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="Sprite11" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 79, 175 )
+texture = SubResource( 1 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite14" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 79, 175 )
+texture = SubResource( 2 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite10" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 73, 146 )
+texture = SubResource( 3 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 73, 123 )
+texture = SubResource( 4 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite21" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 178, -23 )
+texture = SubResource( 5 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite22" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 178, 0 )
+texture = SubResource( 6 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite8" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 341, 286 )
+texture = SubResource( 7 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite12" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 347, 274 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = SubResource( 8 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 355, 259 )
+texture = SubResource( 9 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite13" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 355, 259 )
+texture = SubResource( 10 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Sprite15" type="Sprite" parent="Assets" groups=[
+"Multiskin",
+]]
+position = Vector2( 355, 259 )
+texture = SubResource( 11 )
+script = ExtResource( 2 )
+other = ExtResource( 3 )
+
+[node name="Coin4" parent="Assets" groups=[
+"Multiskin",
+] instance=ExtResource( 4 )]
+position = Vector2( 353, 364 )
+
+[node name="Background" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Node2D3" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 412, 108.771 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D3"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D3"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D4" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 453, -7.229 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D4"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D4"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D5" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 470, 74.771 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D5"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D5"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D6" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 552, 60.771 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D6"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D6"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D7" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 799, 79.771 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( -11, 2.563e-06 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D7"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D7"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D8" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 714, -67.229 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D8"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D8"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D9" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 760, -2.229 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 9, 300 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D9"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D9"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D10" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 859, 65.771 )
+scale = Vector2( -1, 1 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( -12, 156 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( -12, 120 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D10"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D10"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D11" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1438, -30.229 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D11"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D11"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D17" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1180.82, -62.538 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D17"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D17"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D19" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 964.998, 12.4187 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D19"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D19"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D24" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1748.17, 39.5582 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D24"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D24"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D28" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1947.19, -23.767 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D28"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D28"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D32" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1507.79, -16.0131 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D32"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D32"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D36" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1766.26, -96.139 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D36"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D36"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D12" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1479, -146.229 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D12"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D12"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D18" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1264.47, -169.491 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D18"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D18"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D21" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 931.041, -62.226 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D21"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D21"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D23" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1606.94, -90.658 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D23"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D23"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D27" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1911.94, -93.242 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D27"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D27"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D31" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1555.25, -185 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D31"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D31"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D35" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1706.45, -134.598 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( -11, 118 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( -13, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 11, 183 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D35"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D35"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D13" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1496, -64.229 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D13"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D13"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D15" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1281.47, -87.491 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D15"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D15"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D20" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1023, -21.581 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D20"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D20"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D25" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1806.17, 5.5582 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D25"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D25"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D29" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 2005.19, -57.767 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D29"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D29"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D33" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1529.6, -55.182 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D33"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D33"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D37" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1723.45, -52.598 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( -21, -1 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D37"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D37"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D14" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1578, -78.229 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D14"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D14"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D16" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1363.47, -101.491 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D16"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D16"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D22" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1105, -35.581 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D22"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D22"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D26" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1888.17, -8.4418 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D26"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D26"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D30" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 2087.19, -71.767 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D30"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D30"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D34" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1647.79, -64.013 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D34"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D34"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="Node2D38" type="Node2D" parent="Background"]
+editor/display_folded = true
+position = Vector2( 1805.45, -66.598 )
+
+[node name="Sprite19" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( -12, 207 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite20" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( -13, 71 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite22" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 10, 69 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite21" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( -12, 23 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite23" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 18, 45 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite24" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 11, 128 )
+scale = Vector2( -1, -1 )
+texture = SubResource( 1 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, -23 )
+texture = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Node2D38"]
+texture = SubResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 190 )
+texture = SubResource( 6 )
+
+[node name="Sprite18" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 380 )
+texture = SubResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 38 )
+texture = SubResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 228 )
+texture = SubResource( 6 )
+
+[node name="Sprite17" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 418 )
+texture = SubResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 76 )
+texture = SubResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 266 )
+texture = SubResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 456 )
+texture = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 114 )
+texture = SubResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 304 )
+texture = SubResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 494 )
+texture = SubResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 152 )
+texture = SubResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 342 )
+texture = SubResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Background/Node2D38"]
+position = Vector2( 0, 532 )
+texture = SubResource( 6 )
+
+[node name="torii" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 966, -136 )
+
+[node name="torii-back" type="Sprite" parent="torii" groups=[
+"Multiskin",
+]]
+texture = SubResource( 76 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="torii"]
+position = Vector2( 38, -31 )
+shape = SubResource( 78 )
+
+[node name="statue" type="Sprite" parent="torii" groups=[
+"Multiskin",
+]]
+position = Vector2( -14, 32 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"Multiskin",
+]]
+tile_set = SubResource( 69 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 31
+collision_mask = 31
+format = 1
+tile_data = PoolIntArray( -393160, 1, 131074, -393159, 1, 131075, -393158, 0, 131075, -393157, 0, 131075, -393156, 0, 131075, -393155, 0, 131075, -393154, 0, 131075, -393153, 0, 131075, -393152, 0, 131075, -393151, 0, 131075, -393150, 0, 131075, -393149, 0, 131075, -393148, 0, 131075, -393147, 0, 131075, -393146, 0, 131075, -393145, 0, 131075, -393144, 0, 131075, -393143, 0, 131075, -393142, 0, 131075, -393141, 0, 131075, -393140, 0, 131075, -393139, 0, 131075, -393138, 0, 131075, -393137, 0, 131075, -393136, 0, 131075, -393135, 0, 131075, -393134, 0, 131075, -393133, 0, 131075, -393132, 0, 131075, -393131, 0, 131075, -393130, 0, 131075, -393129, 0, 131075, -393128, 0, 131075, -393127, 0, 131075, -393126, 0, 131075, -393125, 0, 131075, -393124, 0, 131075, -393123, 0, 131075, -393122, 0, 131075, -393121, 0, 131075, -393120, 0, 131075, -393119, 0, 131075, -393118, 0, 131075, -393117, 0, 131075, -393116, 4, 0, -393115, 2, 196610, -393114, 2, 196610, -393113, 2, 196610, -393112, 2, 196610, -393111, 2, 196610, -393110, 4, 1, -393109, 2, 196610, -393108, 2, 196610, -393107, 2, 196610, -393106, 0, 131075, -393105, 2, 196610, -393104, 2, 196610, -393103, 2, 196610, -393102, 2, 196610, -393101, 4, 0, -393100, 2, 196610, -393099, 0, 131075, -393098, 0, 131075, -393097, 0, 131075, -393096, 0, 131075, -393095, 0, 131075, -393094, 0, 131075, -393093, 0, 131075, -393092, 0, 131075, -393091, 0, 131075, -393090, 0, 131075, -393089, 0, 131075, -393088, 0, 131075, -393087, 0, 131075, -393086, 0, 131075, -393085, 0, 131075, -393084, 0, 131075, -393083, 0, 131075, -393082, 0, 131075, -393081, 0, 131075, -393080, 0, 131075, -393079, 0, 131075, -393078, 0, 131075, -393077, 0, 131075, -393076, 0, 131075, -393075, 0, 131075, -393074, 0, 131075, -393073, 0, 131075, -393072, 0, 131075, -393071, 0, 131075, -393070, 0, 131075, -393069, 0, 131075, -393068, 0, 131075, -393067, 0, 131075, -393066, 0, 131075, -393065, 0, 131075, -393064, 0, 131075, -393063, 0, 131075, -393062, 0, 131075, -393061, 0, 131075, -393060, 0, 131075, -393059, 0, 131075, -393058, 0, 131075, -393057, 0, 131075, -393056, 0, 131075, -393055, 0, 131075, -327626, 1, 131074, -327625, 1, 131072, -327624, 1, 196610, -327623, 1, 196611, -327622, 0, 131074, -327621, 0, 131074, -327620, 0, 131074, -327619, 0, 131074, -327618, 0, 131074, -327617, 0, 131074, -327616, 0, 131074, -327615, 0, 131074, -327614, 0, 131074, -327613, 0, 131074, -327612, 0, 131074, -327611, 0, 131074, -327610, 0, 131074, -327609, 0, 131074, -327608, 0, 131074, -327607, 0, 131074, -327606, 0, 131074, -327605, 0, 131074, -327604, 0, 131074, -327603, 0, 131074, -327602, 0, 131074, -327601, 0, 131074, -327600, 0, 131074, -327599, 0, 131074, -327598, 0, 131074, -327597, 0, 131074, -327596, 0, 131074, -327595, 0, 131074, -327594, 0, 131074, -327593, 0, 131074, -327592, 0, 131074, -327591, 0, 131074, -327590, 0, 131074, -327589, 0, 131074, -327588, 0, 131074, -327587, 0, 131074, -327586, 0, 131074, -327585, 0, 131074, -327584, 0, 131074, -327583, 0, 131074, -327582, 0, 131074, -327581, 0, 131074, -327580, 0, 131074, -327579, 0, 131074, -327578, 0, 131074, -327577, 0, 131074, -327576, 0, 131074, -327575, 0, 131074, -327574, 0, 131074, -327573, 0, 131074, -327572, 0, 131074, -327571, 0, 131074, -327570, 0, 131074, -327569, 0, 131074, -327568, 0, 131074, -327567, 0, 131074, -327566, 0, 131074, -327565, 0, 131074, -327564, 0, 131074, -327563, 0, 131074, -327562, 0, 131074, -327561, 0, 131074, -327560, 0, 131074, -327559, 0, 131074, -327558, 0, 131074, -327557, 0, 131074, -327556, 0, 131074, -327555, 0, 131074, -327554, 0, 131074, -327553, 0, 131074, -327552, 0, 131074, -327551, 0, 131074, -327550, 0, 131074, -327549, 0, 131074, -327548, 0, 131074, -327547, 0, 131074, -327546, 0, 131074, -327545, 0, 131074, -327544, 0, 131074, -327543, 0, 131074, -327542, 0, 131074, -327541, 0, 131074, -327540, 0, 131074, -327539, 0, 131074, -327538, 0, 131074, -327537, 0, 131074, -327536, 0, 131074, -327535, 0, 131074, -327534, 0, 131074, -327533, 0, 131074, -327532, 0, 131074, -327531, 0, 131074, -327530, 0, 131074, -327529, 0, 131074, -327528, 0, 131074, -327527, 0, 131074, -327526, 0, 131074, -327525, 0, 131074, -327524, 0, 131074, -327523, 0, 131074, -327522, 0, 131074, -327521, 0, 131074, -327520, 0, 131074, -327519, 0, 131074, -327518, 3, 0, -327517, 3, 0, -327516, 3, 0, -327515, 3, 0, -327514, 3, 0, -327513, 3, 0, -327512, 3, 0, -327511, 3, 0, -327510, 3, 0, -327509, 3, 0, -327508, 3, 0, -327507, 3, 0, -327506, 3, 0, -327505, 3, 0, -262092, 1, 131074, -262091, 1, 131072, -262090, 1, 196610, -262089, 1, 196611, -262088, 3, 0, -262087, 3, 0, -262086, 0, 131074, -262085, 0, 131074, -262084, 0, 131074, -262083, 0, 131074, -262082, 0, 131074, -262081, 0, 131074, -262080, 0, 131074, -262079, 0, 131074, -262078, 0, 131074, -262077, 0, 131074, -262076, 0, 131074, -262075, 0, 131074, -262074, 0, 131074, -262073, 0, 131074, -262072, 0, 131074, -262071, 0, 131074, -262070, 0, 131074, -262069, 0, 131074, -262068, 0, 131074, -262067, 0, 131074, -262066, 0, 131074, -262065, 0, 131074, -262064, 0, 131074, -262063, 0, 131074, -262062, 0, 131074, -262061, 0, 131074, -262060, 0, 131074, -262059, 0, 131074, -262058, 0, 131074, -262057, 0, 131074, -262056, 0, 131074, -262055, 0, 131074, -262054, 0, 131074, -262053, 0, 131074, -262052, 0, 131074, -262051, 0, 131074, -262050, 0, 131074, -262049, 0, 131074, -262048, 0, 131074, -262047, 0, 131074, -262046, 0, 131074, -262045, 0, 131074, -262044, 0, 131074, -262043, 0, 131074, -262042, 0, 131074, -262041, 0, 131074, -262040, 0, 131074, -262039, 0, 131074, -262038, 0, 131074, -262037, 0, 131074, -262036, 0, 131074, -262035, 0, 131074, -262034, 0, 131074, -262033, 0, 131074, -262032, 0, 131074, -262031, 0, 131074, -262030, 0, 131074, -262029, 0, 131074, -262028, 0, 131074, -262027, 0, 131074, -262026, 0, 131074, -262025, 0, 131074, -262024, 0, 131074, -262023, 0, 131074, -262022, 0, 131074, -262021, 0, 131074, -262020, 0, 131074, -262019, 0, 131074, -262018, 0, 131074, -262017, 0, 131074, -262016, 0, 131074, -262015, 0, 131074, -262014, 0, 131074, -262013, 0, 131074, -262012, 0, 131074, -262011, 0, 131074, -262010, 0, 131074, -262009, 0, 131074, -262008, 0, 131074, -262007, 0, 131074, -262006, 0, 131074, -262005, 0, 131074, -262004, 0, 131074, -262003, 0, 131074, -262002, 0, 131074, -262001, 0, 131074, -262000, 0, 131074, -261999, 0, 131074, -261998, 0, 131074, -261997, 0, 131074, -261996, 0, 131074, -261995, 0, 131074, -261994, 0, 131074, -261993, 0, 131074, -261992, 0, 131074, -261991, 0, 131074, -261990, 0, 131074, -261989, 0, 131074, -261988, 0, 131074, -261987, 0, 131074, -261986, 0, 131074, -261985, 0, 131074, -261984, 0, 131074, -261983, 0, 131074, -261982, 3, 0, -261981, 3, 0, -261980, 3, 0, -261979, 3, 0, -261978, 3, 0, -261977, 3, 0, -261976, 3, 0, -261975, 3, 0, -261974, 3, 0, -261973, 3, 0, -261972, 3, 0, -261971, 3, 0, -261970, 3, 0, -261969, 3, 0, -196558, 1, 131074, -196557, 1, 131072, -196556, 1, 196610, -196555, 1, 196611, -196554, 3, 0, -196553, 3, 0, -196552, 3, 0, -196551, 3, 0, -196550, 0, 131074, -196549, 0, 131074, -196548, 0, 131074, -196547, 0, 131074, -196546, 0, 131074, -196545, 0, 131074, -196544, 0, 131074, -196543, 0, 131074, -196542, 0, 131074, -196541, 0, 131074, -196540, 0, 131074, -196539, 0, 131074, -196538, 0, 131074, -196537, 3, 0, -196536, 3, 0, -196535, 3, 0, -196534, 3, 0, -196533, 3, 0, -196532, 3, 0, -196531, 3, 0, -196530, 3, 0, -196529, 3, 0, -196528, 0, 131074, -196527, 3, 0, -196526, 3, 0, -196525, 3, 0, -196524, 3, 0, -196523, 3, 0, -196522, 3, 0, -196521, 3, 0, -196520, 3, 0, -196519, 3, 0, -196518, 3, 0, -196517, 3, 0, -196516, 3, 0, -196515, 3, 0, -196514, 3, 0, -196513, 3, 0, -196512, 3, 0, -196511, 3, 0, -196510, 3, 0, -196509, 3, 0, -196508, 3, 0, -196507, 3, 0, -196506, 3, 0, -196505, 3, 0, -196504, 0, 131074, -196503, 3, 0, -196502, 3, 0, -196501, 3, 0, -196500, 3, 0, -196499, 3, 0, -196498, 3, 0, -196497, 3, 0, -196496, 3, 0, -196495, 3, 0, -196494, 3, 0, -196493, 3, 0, -196492, 3, 0, -196491, 3, 0, -196490, 3, 0, -196489, 3, 0, -196488, 3, 0, -196487, 3, 0, -196486, 3, 0, -196485, 3, 0, -196484, 3, 0, -196483, 3, 0, -196482, 3, 0, -196481, 3, 0, -196480, 0, 131074, -196479, 3, 0, -196478, 3, 0, -196477, 3, 0, -196476, 3, 0, -196475, 3, 0, -196474, 3, 0, -196473, 3, 0, -196472, 3, 0, -196471, 3, 0, -196470, 3, 0, -196469, 3, 0, -196468, 3, 0, -196467, 3, 0, -196466, 3, 0, -196465, 3, 0, -196464, 3, 0, -196463, 3, 0, -196462, 3, 0, -196461, 3, 0, -196460, 3, 0, -196459, 3, 0, -196458, 3, 0, -196457, 3, 0, -196456, 0, 131074, -196455, 3, 0, -196454, 3, 0, -196453, 3, 0, -196452, 3, 0, -196451, 3, 0, -196450, 3, 0, -196449, 3, 0, -196448, 3, 0, -196447, 3, 0, -196446, 3, 0, -196445, 3, 0, -196444, 3, 0, -196443, 3, 0, -196442, 3, 0, -196441, 3, 0, -196440, 3, 0, -196439, 3, 0, -196438, 3, 0, -196437, 3, 0, -196436, 3, 0, -196435, 3, 0, -196434, 3, 0, -196433, 3, 0, -131024, 1, 131074, -131023, 1, 131072, -131022, 1, 196610, -131021, 1, 196611, -131020, 3, 0, -131019, 3, 0, -131018, 3, 0, -131017, 3, 0, -131016, 3, 0, -131015, 3, 0, -131014, 3, 0, -131013, 3, 0, -131012, 3, 0, -131011, 3, 0, -131010, 3, 0, -131009, 3, 0, -131008, 3, 0, -131007, 3, 0, -131006, 3, 0, -131005, 3, 0, -131004, 3, 0, -131003, 3, 0, -131002, 3, 0, -131001, 3, 0, -131000, 3, 0, -130999, 3, 0, -130998, 3, 0, -130997, 3, 0, -130996, 3, 0, -130995, 3, 0, -130994, 3, 0, -130993, 3, 0, -130992, 3, 0, -130991, 3, 0, -130990, 3, 0, -130989, 3, 0, -130988, 3, 0, -130987, 3, 0, -130986, 3, 0, -130985, 3, 0, -130984, 3, 0, -130983, 3, 0, -130982, 3, 0, -130981, 3, 0, -130980, 3, 0, -130979, 3, 0, -130978, 3, 0, -130977, 3, 0, -130976, 3, 0, -130975, 3, 0, -130974, 3, 0, -130973, 3, 0, -130972, 3, 0, -130971, 3, 0, -130970, 3, 0, -130969, 3, 0, -130968, 3, 0, -130967, 3, 0, -130966, 3, 0, -130965, 3, 0, -130964, 3, 0, -130963, 3, 0, -130962, 3, 0, -130961, 3, 0, -130960, 3, 0, -130959, 3, 0, -130958, 3, 0, -130957, 3, 0, -130956, 3, 0, -130955, 3, 0, -130954, 3, 0, -130953, 3, 0, -130952, 3, 0, -130951, 3, 0, -130950, 3, 0, -130949, 3, 0, -130948, 3, 0, -130947, 3, 0, -130946, 3, 0, -130945, 3, 0, -130944, 3, 0, -130943, 3, 0, -130942, 3, 0, -130941, 3, 0, -130940, 3, 0, -130939, 3, 0, -130938, 3, 0, -130937, 3, 0, -130936, 3, 0, -130935, 3, 0, -130934, 3, 0, -130933, 3, 0, -130932, 3, 0, -130931, 3, 0, -130930, 3, 0, -130929, 3, 0, -130928, 3, 0, -130927, 3, 0, -130926, 3, 0, -130925, 3, 0, -130924, 3, 0, -130923, 3, 0, -130922, 3, 0, -130921, 3, 0, -130920, 3, 0, -130919, 3, 0, -130918, 3, 0, -130917, 3, 0, -130916, 3, 0, -130915, 3, 0, -130914, 3, 0, -130913, 3, 0, -130912, 3, 0, -130911, 3, 0, -130910, 3, 0, -130909, 3, 0, -130908, 3, 0, -130907, 3, 0, -130906, 3, 0, -130905, 3, 0, -130904, 3, 0, -130903, 3, 0, -130902, 3, 0, -130901, 3, 0, -130900, 3, 0, -130899, 3, 0, -130898, 3, 0, -130897, 3, 0, -65493, 1, 131074, -65492, 1, 131075, -65491, 0, 131075, -65490, 0, 131075, -65489, 1, 196609, -65488, 1, 196610, -65487, 1, 196611, -65486, 3, 0, -65485, 3, 0, -65484, 3, 0, -65483, 3, 0, -65482, 3, 0, -65481, 3, 0, -65480, 3, 0, -65479, 3, 0, -65478, 3, 0, -65477, 3, 0, -65476, 3, 0, -65475, 3, 0, -65474, 3, 0, -65473, 3, 0, -65472, 3, 0, -65471, 3, 0, -65470, 3, 0, -65469, 3, 0, -65468, 3, 0, -65467, 3, 0, -65466, 3, 0, -65465, 3, 0, -65464, 3, 0, -65463, 0, 131074, -65462, 0, 131074, -65461, 3, 0, -65460, 3, 0, -65459, 3, 0, -65458, 3, 0, -65457, 3, 0, -65456, 3, 0, -65455, 3, 0, -65454, 3, 0, -65453, 3, 0, -65452, 3, 0, -65451, 3, 0, -65450, 3, 0, -65449, 3, 0, -65448, 3, 0, -65447, 3, 0, -65446, 3, 0, -65445, 3, 0, -65444, 3, 0, -65443, 3, 0, -65442, 3, 0, -65441, 3, 0, -65440, 3, 0, -65439, 0, 131074, -65438, 0, 131074, -65437, 3, 0, -65436, 3, 0, -65435, 3, 0, -65434, 3, 0, -65433, 3, 0, -65432, 3, 0, -65431, 3, 0, -65430, 3, 0, -65429, 3, 0, -65428, 3, 0, -65427, 3, 0, -65426, 3, 0, -65425, 3, 0, -65424, 3, 0, -65423, 3, 0, -65422, 3, 0, -65421, 3, 0, -65420, 3, 0, -65419, 3, 0, -65418, 3, 0, -65417, 3, 0, -65416, 3, 0, -65415, 0, 131074, -65414, 0, 131074, -65413, 3, 0, -65412, 3, 0, -65411, 3, 0, -65410, 3, 0, -65409, 3, 0, -65408, 3, 0, -65407, 3, 0, -65406, 3, 0, -65405, 3, 0, -65404, 3, 0, -65403, 3, 0, -65402, 3, 0, -65401, 3, 0, -65400, 3, 0, -65399, 3, 0, -65398, 3, 0, -65397, 3, 0, -65396, 3, 0, -65395, 3, 0, -65394, 3, 0, -65393, 3, 0, -65392, 3, 0, -65391, 0, 131074, -65390, 0, 131074, -65389, 3, 0, -65388, 3, 0, -65387, 3, 0, -65386, 3, 0, -65385, 3, 0, -65384, 3, 0, -65383, 3, 0, -65382, 3, 0, -65381, 3, 0, -65380, 3, 0, -65379, 3, 0, -65378, 3, 0, -65377, 3, 0, -65376, 3, 0, -65375, 3, 0, -65374, 3, 0, -65373, 3, 0, -65372, 3, 0, -65371, 3, 0, -65370, 3, 0, -65369, 3, 0, -65368, 3, 0, -65367, 0, 131074, -65366, 0, 131074, -65365, 3, 0, -65364, 3, 0, -65363, 3, 0, -65362, 3, 0, -65361, 3, 0, 41, 1, 131074, 42, 1, 131072, 43, 1, 196610, 44, 1, 196611, 45, 3, 0, 46, 3, 0, 47, 3, 0, 48, 3, 0, 49, 3, 0, 50, 3, 0, 51, 3, 0, 52, 3, 0, 53, 3, 0, 54, 3, 0, 55, 3, 0, 56, 3, 0, 57, 3, 0, 58, 3, 0, 59, 3, 0, 60, 3, 0, 61, 3, 0, 62, 3, 0, 63, 3, 0, 64, 3, 0, 65, 3, 0, 66, 3, 0, 67, 3, 0, 68, 3, 0, 69, 3, 0, 70, 3, 0, 71, 3, 0, 72, 3, 0, 73, 3, 0, 74, 3, 0, 75, 3, 0, 76, 3, 0, 77, 3, 0, 78, 3, 0, 79, 3, 0, 80, 3, 0, 81, 3, 0, 82, 3, 0, 83, 3, 0, 84, 3, 0, 85, 3, 0, 86, 3, 0, 87, 3, 0, 88, 3, 0, 89, 3, 0, 90, 3, 0, 91, 3, 0, 92, 3, 0, 93, 3, 0, 94, 3, 0, 95, 3, 0, 96, 3, 0, 97, 3, 0, 98, 3, 0, 99, 3, 0, 100, 3, 0, 101, 3, 0, 102, 3, 0, 103, 3, 0, 104, 3, 0, 105, 3, 0, 106, 3, 0, 107, 3, 0, 108, 3, 0, 109, 3, 0, 110, 3, 0, 111, 3, 0, 112, 3, 0, 113, 3, 0, 114, 3, 0, 115, 3, 0, 116, 3, 0, 117, 3, 0, 118, 3, 0, 119, 3, 0, 120, 3, 0, 121, 3, 0, 122, 3, 0, 123, 3, 0, 124, 3, 0, 125, 3, 0, 126, 3, 0, 127, 3, 0, 128, 3, 0, 129, 3, 0, 130, 3, 0, 131, 3, 0, 132, 3, 0, 133, 3, 0, 134, 3, 0, 135, 3, 0, 136, 3, 0, 137, 3, 0, 138, 3, 0, 139, 3, 0, 140, 3, 0, 141, 3, 0, 142, 3, 0, 143, 3, 0, 144, 3, 0, 145, 3, 0, 146, 3, 0, 147, 3, 0, 148, 3, 0, 149, 3, 0, 150, 3, 0, 151, 3, 0, 152, 3, 0, 153, 3, 0, 154, 3, 0, 155, 3, 0, 156, 3, 0, 157, 3, 0, 158, 3, 0, 159, 3, 0, 160, 3, 0, 161, 3, 0, 162, 3, 0, 163, 3, 0, 164, 3, 0, 165, 3, 0, 166, 3, 0, 167, 3, 0, 168, 3, 0, 169, 3, 0, 170, 3, 0, 171, 3, 0, 172, 3, 0, 173, 3, 0, 174, 3, 0, 175, 3, 0, 65575, 1, 131074, 65576, 1, 131072, 65577, 1, 196610, 65578, 1, 196611, 65579, 3, 0, 65580, 3, 0, 65581, 3, 0, 65582, 3, 0, 65583, 3, 0, 65584, 3, 0, 65585, 3, 0, 65586, 3, 0, 65587, 3, 0, 65588, 3, 0, 65589, 3, 0, 65590, 3, 0, 65591, 3, 0, 65592, 3, 0, 65593, 3, 0, 65594, 3, 0, 65595, 3, 0, 65596, 3, 0, 65597, 3, 0, 65598, 3, 0, 65599, 3, 0, 65600, 3, 0, 65601, 3, 0, 65602, 3, 0, 65603, 3, 0, 65604, 3, 0, 65605, 3, 0, 65606, 3, 0, 65607, 3, 0, 65608, 3, 0, 65609, 3, 0, 65610, 3, 0, 65611, 3, 0, 65612, 3, 0, 65613, 3, 0, 65614, 3, 0, 65615, 3, 0, 65616, 3, 0, 65617, 3, 0, 65618, 3, 0, 65619, 3, 0, 65620, 3, 0, 65621, 3, 0, 65622, 3, 0, 65623, 3, 0, 65624, 3, 0, 65625, 3, 0, 65626, 3, 0, 65627, 3, 0, 65628, 3, 0, 65629, 3, 0, 65630, 3, 0, 65631, 3, 0, 65632, 3, 0, 65633, 3, 0, 65634, 3, 0, 65635, 3, 0, 65636, 3, 0, 65637, 3, 0, 65638, 3, 0, 65639, 3, 0, 65640, 3, 0, 65641, 3, 0, 65642, 3, 0, 65643, 3, 0, 65644, 3, 0, 65645, 3, 0, 65646, 3, 0, 65647, 3, 0, 65648, 3, 0, 65649, 3, 0, 65650, 3, 0, 65651, 3, 0, 65652, 3, 0, 65653, 3, 0, 65654, 3, 0, 65655, 3, 0, 65656, 3, 0, 65657, 3, 0, 65658, 3, 0, 65659, 3, 0, 65660, 3, 0, 65661, 3, 0, 65662, 3, 0, 65663, 3, 0, 65664, 3, 0, 65665, 3, 0, 65666, 3, 0, 65667, 3, 0, 65668, 3, 0, 65669, 3, 0, 65670, 3, 0, 65671, 3, 0, 65672, 3, 0, 65673, 3, 0, 65674, 3, 0, 65675, 3, 0, 65676, 3, 0, 65677, 3, 0, 65678, 3, 0, 65679, 3, 0, 65680, 3, 0, 65681, 3, 0, 65682, 3, 0, 65683, 3, 0, 65684, 3, 0, 65685, 3, 0, 65686, 3, 0, 65687, 3, 0, 65688, 3, 0, 65689, 3, 0, 65690, 3, 0, 65691, 3, 0, 65692, 3, 0, 65693, 3, 0, 65694, 3, 0, 65695, 3, 0, 131109, 1, 131074, 131110, 1, 131072, 131111, 1, 196610, 131112, 1, 196611, 131113, 3, 0, 131114, 3, 0, 131115, 3, 0, 131116, 3, 0, 131117, 3, 0, 131118, 3, 0, 131119, 3, 0, 131120, 3, 0, 131121, 3, 0, 131122, 3, 0, 131123, 3, 0, 131124, 3, 0, 131125, 3, 0, 131126, 3, 0, 131127, 3, 0, 131128, 3, 0, 131129, 3, 0, 131130, 3, 0, 131131, 3, 0, 131132, 3, 0, 131133, 3, 0, 131134, 3, 0, 131135, 3, 0, 131136, 3, 0, 131137, 3, 0, 131138, 3, 0, 131139, 3, 0, 131140, 3, 0, 131141, 3, 0, 131142, 3, 0, 131143, 3, 0, 131144, 3, 0, 131145, 3, 0, 131146, 3, 0, 131147, 3, 0, 131148, 3, 0, 131149, 3, 0, 131150, 3, 0, 131151, 3, 0, 131152, 3, 0, 131153, 3, 0, 131154, 3, 0, 131155, 3, 0, 131156, 3, 0, 131157, 3, 0, 131158, 3, 0, 131159, 3, 0, 131160, 3, 0, 131161, 3, 0, 131162, 3, 0, 131163, 3, 0, 131164, 3, 0, 131165, 3, 0, 131166, 3, 0, 131167, 3, 0, 131168, 3, 0, 131169, 3, 0, 131170, 3, 0, 131171, 3, 0, 131172, 3, 0, 131173, 3, 0, 131174, 3, 0, 131175, 3, 0, 131176, 3, 0, 131177, 3, 0, 131178, 3, 0, 131179, 3, 0, 131180, 3, 0, 131181, 3, 0, 131182, 3, 0, 131183, 3, 0, 131184, 3, 0, 131185, 3, 0, 131186, 3, 0, 131187, 3, 0, 131188, 3, 0, 131189, 3, 0, 131190, 3, 0, 131191, 3, 0, 131192, 3, 0, 131193, 3, 0, 131194, 3, 0, 131195, 3, 0, 131196, 3, 0, 131197, 3, 0, 131198, 3, 0, 131199, 3, 0, 131200, 3, 0, 131201, 3, 0, 131202, 3, 0, 131203, 3, 0, 131204, 3, 0, 131205, 3, 0, 131206, 3, 0, 131207, 3, 0, 131208, 3, 0, 131209, 3, 0, 131210, 3, 0, 131211, 3, 0, 131212, 3, 0, 131213, 3, 0, 131214, 3, 0, 131215, 3, 0, 131216, 3, 0, 131217, 3, 0, 131218, 3, 0, 131219, 3, 0, 131220, 3, 0, 131221, 3, 0, 131222, 3, 0, 131223, 3, 0, 131224, 3, 0, 131225, 3, 0, 131226, 3, 0, 131227, 3, 0, 131228, 3, 0, 131229, 3, 0, 131230, 3, 0, 131231, 3, 0, 196643, 1, 131074, 196644, 1, 131072, 196645, 1, 196610, 196646, 1, 196611, 196647, 3, 0, 196648, 3, 0, 196649, 3, 0, 196650, 3, 0, 196651, 3, 0, 196652, 3, 0, 196653, 3, 0, 196654, 3, 0, 196655, 3, 0, 196656, 3, 0, 196657, 3, 0, 196658, 3, 0, 196659, 3, 0, 196660, 3, 0, 196661, 3, 0, 196662, 3, 0, 196663, 3, 0, 196664, 3, 0, 196665, 3, 0, 196666, 3, 0, 196667, 3, 0, 196668, 3, 0, 196669, 3, 0, 196670, 3, 0, 196671, 3, 0, 196672, 0, 131074, 196673, 3, 0, 196674, 3, 0, 196675, 3, 0, 196676, 3, 0, 196677, 3, 0, 196678, 3, 0, 196679, 3, 0, 196680, 3, 0, 196681, 3, 0, 196682, 3, 0, 196683, 3, 0, 196684, 3, 0, 196685, 3, 0, 196686, 3, 0, 196687, 3, 0, 196688, 3, 0, 196689, 3, 0, 196690, 3, 0, 196691, 3, 0, 196692, 3, 0, 196693, 3, 0, 196694, 3, 0, 196695, 3, 0, 196696, 0, 131074, 196697, 3, 0, 196698, 3, 0, 196699, 3, 0, 196700, 3, 0, 196701, 3, 0, 196702, 3, 0, 196703, 3, 0, 196704, 3, 0, 196705, 3, 0, 196706, 3, 0, 196707, 3, 0, 196708, 3, 0, 196709, 3, 0, 196710, 3, 0, 196711, 3, 0, 196712, 3, 0, 196713, 3, 0, 196714, 3, 0, 196715, 3, 0, 196716, 3, 0, 196717, 3, 0, 196718, 3, 0, 196719, 3, 0, 196720, 0, 131074, 196721, 3, 0, 196722, 3, 0, 196723, 3, 0, 196724, 3, 0, 196725, 3, 0, 196726, 3, 0, 196727, 3, 0, 196728, 3, 0, 196729, 3, 0, 196730, 3, 0, 196731, 3, 0, 196732, 3, 0, 196733, 3, 0, 196734, 3, 0, 196735, 3, 0, 196736, 3, 0, 196737, 3, 0, 196738, 3, 0, 196739, 3, 0, 196740, 3, 0, 196741, 3, 0, 196742, 3, 0, 196743, 3, 0, 196744, 0, 131074, 196745, 3, 0, 196746, 3, 0, 196747, 3, 0, 196748, 3, 0, 196749, 3, 0, 196750, 3, 0, 196751, 3, 0, 196752, 3, 0, 196753, 3, 0, 196754, 3, 0, 196755, 3, 0, 196756, 3, 0, 196757, 3, 0, 196758, 3, 0, 196759, 3, 0, 196760, 3, 0, 196761, 3, 0, 196762, 3, 0, 196763, 3, 0, 196764, 3, 0, 196765, 3, 0, 196766, 3, 0, 196767, 3, 0, 262177, 1, 131074, 262178, 1, 131072, 262179, 1, 196610, 262180, 1, 196611, 262181, 3, 0, 262182, 3, 0, 262183, 3, 0, 262184, 3, 0, 262185, 3, 0, 262186, 3, 0, 262187, 3, 0, 262188, 3, 0, 262189, 3, 0, 262190, 3, 0, 262191, 3, 0, 262192, 3, 0, 262193, 3, 0, 262194, 3, 0, 262195, 3, 0, 262196, 3, 0, 262197, 3, 0, 262198, 3, 0, 262199, 3, 0, 262200, 3, 0, 262201, 3, 0, 262202, 3, 0, 262203, 3, 0, 262204, 3, 0, 262205, 3, 0, 262206, 3, 0, 262207, 3, 0, 262208, 3, 0, 262209, 3, 0, 262210, 3, 0, 262211, 3, 0, 262212, 3, 0, 262213, 3, 0, 262214, 3, 0, 262215, 3, 0, 262216, 3, 0, 262217, 3, 0, 262218, 3, 0, 262219, 3, 0, 262220, 3, 0, 262221, 3, 0, 262222, 3, 0, 262223, 3, 0, 262224, 3, 0, 262225, 3, 0, 262226, 3, 0, 262227, 3, 0, 262228, 3, 0, 262229, 3, 0, 262230, 3, 0, 262231, 3, 0, 262232, 3, 0, 262233, 3, 0, 262234, 3, 0, 262235, 3, 0, 262236, 3, 0, 262237, 3, 0, 262238, 3, 0, 262239, 3, 0, 262240, 3, 0, 262241, 3, 0, 262242, 3, 0, 262243, 3, 0, 262244, 3, 0, 262245, 3, 0, 262246, 3, 0, 262247, 3, 0, 262248, 3, 0, 262249, 3, 0, 262250, 3, 0, 262251, 3, 0, 262252, 3, 0, 262253, 3, 0, 262254, 3, 0, 262255, 3, 0, 262256, 3, 0, 262257, 3, 0, 262258, 3, 0, 262259, 3, 0, 262260, 3, 0, 262261, 3, 0, 262262, 3, 0, 262263, 3, 0, 262264, 3, 0, 262265, 3, 0, 262266, 3, 0, 262267, 3, 0, 262268, 3, 0, 262269, 3, 0, 262270, 3, 0, 262271, 3, 0, 262272, 3, 0, 262273, 3, 0, 262274, 3, 0, 262275, 3, 0, 262276, 3, 0, 262277, 3, 0, 262278, 3, 0, 262279, 3, 0, 262280, 3, 0, 262281, 3, 0, 262282, 3, 0, 262283, 3, 0, 262284, 3, 0, 262285, 3, 0, 262286, 3, 0, 262287, 3, 0, 262288, 3, 0, 262289, 3, 0, 262290, 3, 0, 262291, 3, 0, 262292, 3, 0, 262293, 3, 0, 262294, 3, 0, 262295, 3, 0, 262296, 3, 0, 262297, 3, 0, 262298, 3, 0, 262299, 3, 0, 262300, 3, 0, 262301, 3, 0, 262302, 3, 0, 262303, 3, 0, 327711, 1, 131074, 327712, 1, 131072, 327713, 1, 196610, 327714, 1, 196611, 327715, 3, 0, 327716, 3, 0, 327717, 3, 0, 327718, 3, 0, 327719, 3, 0, 327720, 3, 0, 327721, 3, 0, 327722, 3, 0, 327723, 3, 0, 327724, 3, 0, 327725, 3, 0, 327726, 3, 0, 327727, 3, 0, 327728, 3, 0, 327729, 3, 0, 327730, 3, 0, 327731, 3, 0, 327732, 3, 0, 327733, 3, 0, 327734, 3, 0, 327735, 3, 0, 327736, 3, 0, 327737, 3, 0, 327738, 3, 0, 327739, 3, 0, 327740, 3, 0, 327741, 0, 131074, 327742, 0, 131074, 327743, 3, 0, 327744, 3, 0, 327745, 3, 0, 327746, 3, 0, 327747, 3, 0, 327748, 3, 0, 327749, 3, 0, 327750, 3, 0, 327751, 3, 0, 327752, 3, 0, 327753, 3, 0, 327754, 3, 0, 327755, 3, 0, 327756, 3, 0, 327757, 3, 0, 327758, 3, 0, 327759, 3, 0, 327760, 3, 0, 327761, 0, 131074, 327762, 0, 131074, 327763, 3, 0, 327764, 3, 0, 327765, 3, 0, 327766, 3, 0, 327767, 3, 0, 327768, 3, 0, 327769, 3, 0, 327770, 3, 0, 327771, 3, 0, 327772, 3, 0, 327773, 3, 0, 327774, 3, 0, 327775, 3, 0, 327776, 3, 0, 327777, 3, 0, 327778, 3, 0, 327779, 3, 0, 327780, 3, 0, 327781, 3, 0, 327782, 3, 0, 327783, 3, 0, 327784, 3, 0, 327785, 0, 131074, 327786, 0, 131074, 327787, 3, 0, 327788, 3, 0, 327789, 3, 0, 327790, 3, 0, 327791, 3, 0, 327792, 3, 0, 327793, 3, 0, 327794, 3, 0, 327795, 3, 0, 327796, 3, 0, 327797, 3, 0, 327798, 3, 0, 327799, 3, 0, 327800, 3, 0, 327801, 3, 0, 327802, 3, 0, 327803, 3, 0, 327804, 3, 0, 327805, 3, 0, 327806, 3, 0, 327807, 3, 0, 327808, 3, 0, 327809, 0, 131074, 327810, 0, 131074, 327811, 3, 0, 327812, 3, 0, 327813, 3, 0, 327814, 3, 0, 327815, 3, 0, 327816, 3, 0, 327817, 3, 0, 327818, 3, 0, 327819, 3, 0, 327820, 3, 0, 327821, 3, 0, 327822, 3, 0, 327823, 3, 0, 327824, 3, 0, 327825, 3, 0, 327826, 3, 0, 327827, 3, 0, 327828, 3, 0, 327829, 3, 0, 327830, 3, 0, 327831, 3, 0, 327832, 3, 0, 327833, 0, 131074, 327834, 0, 131074, 327835, 3, 0, 327836, 3, 0, 327837, 3, 0, 327838, 3, 0, 327839, 3, 0, 393245, 1, 131074, 393246, 1, 131072, 393247, 1, 196610, 393248, 1, 196611, 393249, 3, 0, 393250, 3, 0, 393251, 3, 0, 393252, 3, 0, 393253, 3, 0, 393254, 3, 0, 393255, 3, 0, 393256, 3, 0, 393257, 3, 0, 393258, 3, 0, 393259, 3, 0, 393260, 3, 0, 393261, 3, 0, 393262, 3, 0, 393263, 3, 0, 393264, 3, 0, 393265, 3, 0, 393266, 3, 0, 393267, 3, 0, 393268, 3, 0, 393269, 3, 0, 393270, 3, 0, 393271, 3, 0, 393272, 3, 0, 393273, 3, 0, 393274, 3, 0, 393275, 3, 0, 393276, 3, 0, 393277, 3, 0, 393278, 3, 0, 393279, 3, 0, 393280, 3, 0, 393281, 3, 0, 393282, 3, 0, 393283, 3, 0, 393284, 3, 0, 393285, 3, 0, 393286, 3, 0, 393287, 3, 0, 393288, 3, 0, 393289, 3, 0, 393290, 3, 0, 393291, 3, 0, 393292, 3, 0, 393293, 3, 0, 393294, 3, 0, 393295, 3, 0, 393296, 3, 0, 393297, 3, 0, 393298, 3, 0, 393299, 3, 0, 393300, 3, 0, 393301, 3, 0, 393302, 3, 0, 393303, 3, 0, 393304, 3, 0, 393305, 3, 0, 393306, 3, 0, 393307, 3, 0, 393308, 3, 0, 393309, 3, 0, 393310, 3, 0, 393311, 3, 0, 393312, 3, 0, 393313, 3, 0, 393314, 3, 0, 393315, 3, 0, 393316, 3, 0, 393317, 3, 0, 393318, 3, 0, 393319, 3, 0, 393320, 3, 0, 393321, 3, 0, 393322, 3, 0, 393323, 3, 0, 393324, 3, 0, 393325, 3, 0, 393326, 3, 0, 393327, 3, 0, 393328, 3, 0, 393329, 3, 0, 393330, 3, 0, 393331, 3, 0, 393332, 3, 0, 393333, 3, 0, 393334, 3, 0, 393335, 3, 0, 393336, 3, 0, 393337, 3, 0, 393338, 3, 0, 393339, 3, 0, 393340, 3, 0, 393341, 3, 0, 393342, 3, 0, 393343, 3, 0, 393344, 3, 0, 393345, 3, 0, 393346, 3, 0, 393347, 3, 0, 393348, 3, 0, 393349, 3, 0, 393350, 3, 0, 393351, 3, 0, 393352, 3, 0, 393353, 3, 0, 393354, 3, 0, 393355, 3, 0, 393356, 3, 0, 393357, 3, 0, 393358, 3, 0, 393359, 3, 0, 393360, 3, 0, 393361, 3, 0, 393362, 3, 0, 393363, 3, 0, 393364, 3, 0, 393365, 3, 0, 393366, 3, 0, 393367, 3, 0, 393368, 3, 0, 393369, 3, 0, 393370, 3, 0, 393371, 3, 0, 393372, 3, 0, 393373, 3, 0, 393374, 3, 0, 393375, 3, 0, 458779, 1, 131074, 458780, 1, 131072, 458781, 1, 196610, 458782, 1, 196611, 458783, 3, 0, 458784, 3, 0, 458785, 3, 0, 458786, 3, 0, 458787, 3, 0, 458788, 3, 0, 458789, 3, 0, 458790, 3, 0, 458791, 3, 0, 458792, 3, 0, 458793, 3, 0, 458794, 3, 0, 458795, 3, 0, 458796, 3, 0, 458797, 3, 0, 458798, 3, 0, 458799, 3, 0, 458800, 3, 0, 458801, 3, 0, 458802, 3, 0, 458803, 3, 0, 458804, 3, 0, 458805, 3, 0, 458806, 3, 0, 458807, 3, 0, 458808, 3, 0, 458809, 3, 0, 458810, 3, 0, 458811, 3, 0, 458812, 3, 0, 458813, 3, 0, 458814, 3, 0, 458815, 3, 0, 458816, 3, 0, 458817, 3, 0, 458818, 3, 0, 458819, 3, 0, 458820, 3, 0, 458821, 3, 0, 458822, 3, 0, 458823, 3, 0, 458824, 3, 0, 458825, 3, 0, 458826, 3, 0, 458827, 3, 0, 458828, 3, 0, 524313, 1, 131074, 524314, 1, 131072, 524315, 1, 196610, 524316, 1, 196611, 524317, 3, 0, 524318, 3, 0, 524319, 3, 0, 524320, 3, 0, 524321, 3, 0, 524322, 3, 0, 524323, 3, 0, 524324, 3, 0, 524325, 3, 0, 524326, 3, 0, 524327, 3, 0, 524328, 3, 0, 524329, 3, 0, 524330, 3, 0, 524331, 3, 0, 524332, 3, 0, 524333, 3, 0, 524334, 3, 0, 524335, 3, 0, 524336, 3, 0, 524337, 3, 0, 524338, 3, 0, 524339, 3, 0, 524340, 3, 0, 524341, 3, 0, 524342, 3, 0, 524343, 3, 0, 524344, 3, 0, 524345, 3, 0, 524346, 3, 0, 524347, 3, 0, 524348, 3, 0, 524349, 3, 0, 524350, 3, 0, 524351, 3, 0, 524352, 3, 0, 524353, 3, 0, 524354, 3, 0, 524355, 3, 0, 524356, 3, 0, 524357, 3, 0, 524358, 3, 0, 524359, 3, 0, 524360, 3, 0, 524361, 3, 0, 524362, 3, 0, 524363, 3, 0, 524364, 3, 0, 589847, 1, 131074, 589848, 1, 131072, 589849, 1, 196610, 589850, 1, 196611, 589851, 3, 0, 589852, 3, 0, 589853, 3, 0, 589854, 3, 0, 589855, 3, 0, 589856, 3, 0, 589857, 3, 0, 589858, 3, 0, 589859, 3, 0, 589860, 3, 0, 589861, 3, 0, 589862, 3, 0, 589863, 3, 0, 589864, 3, 0, 589865, 3, 0, 589866, 3, 0, 589867, 3, 0, 589868, 3, 0, 589869, 3, 0, 589870, 3, 0, 589871, 3, 0, 589872, 3, 0, 589873, 3, 0, 589874, 3, 0, 589875, 3, 0, 589876, 3, 0, 589877, 0, 131074, 589878, 3, 0, 589879, 3, 0, 589880, 3, 0, 589881, 3, 0, 589882, 3, 0, 589883, 3, 0, 589884, 3, 0, 589885, 3, 0, 589886, 3, 0, 589887, 3, 0, 589888, 3, 0, 589889, 3, 0, 589890, 3, 0, 589891, 3, 0, 589892, 3, 0, 589893, 3, 0, 589894, 3, 0, 589895, 3, 0, 589896, 3, 0, 589897, 3, 0, 589898, 3, 0, 589899, 3, 0, 589900, 3, 0, 655381, 1, 131074, 655382, 1, 131072, 655383, 1, 196610, 655384, 1, 196611, 655385, 3, 0, 655386, 3, 0, 655387, 3, 0, 655388, 3, 0, 655389, 3, 0, 655390, 3, 0, 655391, 3, 0, 655392, 3, 0, 655393, 3, 0, 655394, 3, 0, 655395, 3, 0, 655396, 3, 0, 655397, 3, 0, 655398, 3, 0, 655399, 3, 0, 655400, 3, 0, 655401, 3, 0, 655402, 3, 0, 655403, 3, 0, 655404, 3, 0, 655405, 3, 0, 655406, 3, 0, 655407, 3, 0, 655408, 3, 0, 655409, 3, 0, 655410, 3, 0, 655411, 3, 0, 655412, 3, 0, 655413, 3, 0, 655414, 3, 0, 655415, 3, 0, 655416, 3, 0, 655417, 3, 0, 655418, 3, 0, 655419, 3, 0, 655420, 3, 0, 655421, 3, 0, 655422, 3, 0, 655423, 3, 0, 655424, 3, 0, 655425, 3, 0, 655426, 3, 0, 655427, 3, 0, 655428, 3, 0, 655429, 3, 0, 655430, 3, 0, 655431, 3, 0, 655432, 3, 0, 655433, 3, 0, 655434, 3, 0, 655435, 3, 0, 655436, 3, 0, 720915, 1, 131074, 720916, 1, 131072, 720917, 1, 196610, 720918, 1, 196611, 720919, 3, 0, 720920, 3, 0, 720921, 3, 0, 720922, 3, 0, 720923, 3, 0, 720924, 3, 0, 720925, 3, 0, 720926, 3, 0, 720927, 3, 0, 720928, 3, 0, 720929, 3, 0, 720930, 3, 0, 720931, 3, 0, 720932, 3, 0, 720933, 3, 0, 720934, 3, 0, 720935, 3, 0, 720936, 3, 0, 720937, 3, 0, 720938, 3, 0, 720939, 3, 0, 720940, 3, 0, 720941, 3, 0, 720942, 3, 0, 720943, 0, 131074, 720944, 0, 131074, 720945, 3, 0, 720946, 3, 0, 720947, 3, 0, 720948, 3, 0, 720949, 3, 0, 720950, 3, 0, 720951, 3, 0, 720952, 3, 0, 720953, 3, 0, 720954, 3, 0, 720955, 3, 0, 720956, 3, 0, 720957, 3, 0, 720958, 3, 0, 720959, 3, 0, 720960, 3, 0, 720961, 3, 0, 720962, 3, 0, 720963, 3, 0, 720964, 3, 0, 720965, 3, 0, 720966, 0, 131074, 720967, 0, 131074, 720968, 3, 0, 720969, 3, 0, 720970, 3, 0, 720971, 3, 0, 720972, 3, 0, 786446, 1, 131074, 786447, 1, 131075, 786448, 0, 131075, 786449, 0, 131075, 786450, 1, 196609, 786451, 1, 196610, 786452, 1, 196611, 786453, 3, 0, 786454, 3, 0, 786455, 3, 0, 786456, 3, 0, 786457, 3, 0, 786458, 3, 0, 786459, 3, 0, 786460, 3, 0, 786461, 3, 0, 786462, 3, 0, 786463, 3, 0, 786464, 3, 0, 786465, 3, 0, 786466, 3, 0, 786467, 3, 0, 786468, 3, 0, 786469, 3, 0, 786470, 3, 0, 786471, 3, 0, 786472, 3, 0, 786473, 3, 0, 786474, 3, 0, 786475, 3, 0, 786476, 3, 0, 786477, 3, 0, 786478, 3, 0, 786479, 3, 0, 786480, 3, 0, 786481, 3, 0, 786482, 3, 0, 786483, 3, 0, 786484, 3, 0, 786485, 3, 0, 786486, 3, 0, 786487, 3, 0, 786488, 3, 0, 786489, 3, 0, 786490, 3, 0, 786491, 3, 0, 786492, 3, 0, 786493, 3, 0, 786494, 3, 0, 786495, 3, 0, 786496, 3, 0, 786497, 3, 0, 786498, 3, 0, 786499, 3, 0, 786500, 3, 0, 786501, 3, 0, 786502, 3, 0, 786503, 3, 0, 786504, 3, 0, 786505, 3, 0, 786506, 3, 0, 786507, 3, 0, 786508, 3, 0, 851980, 1, 131074, 851981, 1, 131072, 851982, 1, 196610, 851983, 1, 196611, 851984, 3, 0, 851985, 3, 0, 851986, 3, 0, 851987, 3, 0, 851988, 3, 0, 851989, 3, 0, 851990, 3, 0, 851991, 3, 0, 851992, 3, 0, 851993, 3, 0, 851994, 3, 0, 851995, 3, 0, 851996, 3, 0, 851997, 3, 0, 851998, 3, 0, 851999, 3, 0, 852000, 3, 0, 852001, 3, 0, 852002, 3, 0, 852003, 3, 0, 852004, 3, 0, 852005, 3, 0, 852006, 3, 0, 852007, 3, 0, 852008, 3, 0, 852009, 3, 0, 852010, 3, 0, 852011, 3, 0, 852012, 3, 0, 852013, 3, 0, 852014, 3, 0, 852015, 3, 0, 852016, 3, 0, 852017, 3, 0, 852018, 3, 0, 852019, 3, 0, 852020, 3, 0, 852021, 3, 0, 852022, 3, 0, 852023, 3, 0, 852024, 3, 0, 852025, 3, 0, 852026, 3, 0, 852027, 3, 0, 852028, 3, 0, 852029, 3, 0, 852030, 3, 0, 852031, 3, 0, 983039, 0, 0, 917504, 0, 131075, 917505, 0, 131075, 917506, 0, 131075, 917507, 0, 131075, 917508, 0, 131075, 917509, 0, 131075, 917510, 0, 131075, 917511, 0, 131075, 917512, 0, 131075, 917513, 0, 131075, 917514, 0, 131075, 917515, 1, 196609, 917516, 1, 196610, 917517, 1, 196611, 917518, 3, 0, 917519, 3, 0, 917520, 3, 0, 917521, 3, 0, 917522, 3, 0, 917523, 3, 0, 917524, 3, 0, 917525, 3, 0, 917526, 3, 0, 917527, 3, 0, 917528, 3, 0, 917529, 3, 0, 917530, 3, 0, 917531, 3, 0, 917532, 3, 0, 917533, 3, 0, 917534, 3, 0, 917535, 3, 0, 917536, 3, 0, 917537, 3, 0, 917538, 3, 0, 917539, 3, 0, 917540, 3, 0, 917541, 3, 0, 917542, 3, 0, 917543, 3, 0, 917544, 3, 0, 917545, 3, 0, 917546, 3, 0, 917547, 3, 0, 917548, 3, 0, 917549, 3, 0, 917550, 3, 0, 917551, 3, 0, 917552, 3, 0, 917553, 3, 0, 917554, 3, 0, 917555, 3, 0, 917556, 3, 0, 917557, 3, 0, 917558, 3, 0, 917559, 3, 0, 917560, 3, 0, 917561, 3, 0, 917562, 3, 0, 917563, 3, 0, 917564, 3, 0, 917565, 3, 0, 917566, 3, 0, 917567, 3, 0, 1048575, 0, 65538, 983040, 0, 131074, 983041, 0, 131074, 983042, 0, 131074, 983043, 0, 131074, 983044, 0, 131074, 983045, 0, 131074, 983046, 0, 131074, 983047, 0, 131074, 983048, 0, 131074, 983049, 0, 131074, 983050, 0, 131074, 983051, 0, 131074, 983052, 0, 131074, 983053, 0, 131074, 983054, 0, 131074, 983055, 3, 0, 983056, 0, 131074, 983057, 3, 0, 983058, 3, 0, 983059, 3, 0, 983060, 3, 0, 983061, 3, 0, 983062, 3, 0, 983063, 3, 0, 983064, 3, 0, 983065, 3, 0, 983066, 3, 0, 983067, 3, 0, 983068, 3, 0, 983069, 3, 0, 983070, 3, 0, 983071, 3, 0, 983072, 3, 0, 983073, 3, 0, 983074, 3, 0, 983075, 3, 0, 983076, 3, 0, 983077, 3, 0, 983078, 3, 0, 983079, 3, 0, 983080, 0, 131074, 983081, 3, 0, 983082, 3, 0, 983083, 3, 0, 983084, 3, 0, 983085, 3, 0, 983086, 3, 0, 983087, 3, 0, 983088, 3, 0, 983089, 3, 0, 983090, 3, 0, 983091, 3, 0, 983092, 3, 0, 983093, 3, 0, 983094, 3, 0, 983095, 3, 0, 983096, 3, 0, 983097, 3, 0, 983098, 3, 0, 983099, 3, 0, 983100, 3, 0, 983101, 3, 0, 983102, 3, 0, 983103, 3, 0, 1114111, 0, 65538, 1048576, 0, 131074, 1048577, 0, 131074, 1048578, 0, 131074, 1048579, 0, 131074, 1048580, 0, 131074, 1048581, 0, 131074, 1048582, 0, 131074, 1048583, 0, 131074, 1048584, 0, 131074, 1048585, 0, 131074, 1048586, 0, 131074, 1048587, 0, 131074, 1048588, 0, 131074, 1048589, 0, 131074, 1048590, 0, 131074, 1048591, 3, 0, 1048592, 3, 0, 1048593, 3, 0, 1048594, 3, 0, 1048595, 3, 0, 1048596, 3, 0, 1048597, 3, 0, 1048598, 3, 0, 1048599, 3, 0, 1048600, 3, 0, 1048601, 3, 0, 1048602, 3, 0, 1048603, 3, 0, 1048604, 3, 0, 1048605, 3, 0, 1048606, 3, 0, 1048607, 3, 0, 1048608, 3, 0, 1048609, 3, 0, 1048610, 3, 0, 1048611, 3, 0, 1048612, 3, 0, 1048613, 3, 0, 1048614, 3, 0, 1048615, 3, 0, 1048616, 3, 0, 1048617, 3, 0, 1048618, 3, 0, 1048619, 3, 0, 1048620, 3, 0, 1048621, 3, 0, 1048622, 3, 0, 1048623, 3, 0, 1048624, 3, 0, 1048625, 3, 0, 1048626, 3, 0, 1048627, 3, 0, 1048628, 3, 0, 1048629, 3, 0, 1048630, 3, 0, 1048631, 3, 0, 1048632, 3, 0, 1048633, 3, 0, 1048634, 3, 0, 1048635, 3, 0, 1048636, 3, 0, 1048637, 3, 0, 1048638, 3, 0, 1048639, 3, 0, 1179646, 0, 0, 1179647, 0, 196609, 1114112, 0, 131074, 1114113, 0, 131074, 1114114, 0, 131074, 1114115, 0, 131074, 1114116, 0, 131074, 1114117, 0, 131074, 1114118, 0, 131074, 1114119, 0, 131074, 1114120, 0, 131074, 1114121, 0, 131074, 1114122, 0, 131074, 1114123, 0, 131074, 1114124, 0, 131074, 1114125, 0, 131074, 1114126, 3, 0, 1114127, 3, 0, 1114128, 3, 0, 1114129, 3, 0, 1114130, 3, 0, 1114131, 3, 0, 1114132, 3, 0, 1114133, 3, 0, 1114134, 3, 0, 1114135, 3, 0, 1114136, 3, 0, 1114137, 3, 0, 1114138, 3, 0, 1114139, 3, 0, 1114140, 3, 0, 1114141, 3, 0, 1114142, 3, 0, 1114143, 3, 0, 1114144, 3, 0, 1114145, 0, 131074, 1114146, 0, 131074, 1114147, 3, 0, 1114148, 3, 0, 1114149, 3, 0, 1114150, 3, 0, 1114151, 3, 0, 1114152, 3, 0, 1114153, 3, 0, 1114154, 3, 0, 1114155, 3, 0, 1114156, 3, 0, 1114157, 3, 0, 1114158, 3, 0, 1114159, 3, 0, 1114160, 3, 0, 1114161, 3, 0, 1114162, 3, 0, 1114163, 3, 0, 1114164, 3, 0, 1114165, 3, 0, 1114166, 3, 0, 1114167, 3, 0, 1114168, 3, 0, 1114169, 0, 131074, 1114170, 0, 131074, 1114171, 3, 0, 1114172, 3, 0, 1114173, 3, 0, 1114174, 3, 0, 1114175, 3, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 196609, 1245183, 0, 131074, 1179648, 0, 131074, 1179649, 0, 131074, 1179650, 0, 131074, 1179651, 0, 131074, 1179652, 0, 131074, 1179653, 0, 131074, 1179654, 0, 131074, 1179655, 0, 131074, 1179656, 0, 131074, 1179657, 0, 131074, 1179658, 0, 131074, 1179659, 3, 0, 1179660, 3, 0, 1179661, 3, 0, 1179662, 3, 0, 1179663, 3, 0, 1179664, 3, 0, 1179665, 3, 0, 1179666, 3, 0, 1179667, 3, 0, 1179668, 3, 0, 1179669, 3, 0, 1179670, 3, 0, 1179671, 3, 0, 1179672, 3, 0, 1179673, 3, 0, 1179674, 3, 0, 1179675, 3, 0, 1179676, 3, 0, 1179677, 3, 0, 1179678, 3, 0, 1179679, 3, 0, 1179680, 3, 0, 1179681, 3, 0, 1179682, 3, 0, 1179683, 3, 0, 1179684, 3, 0, 1179685, 3, 0, 1179686, 3, 0, 1179687, 3, 0, 1179688, 3, 0, 1179689, 3, 0, 1179690, 3, 0, 1179691, 3, 0, 1179692, 3, 0, 1179693, 3, 0, 1179694, 3, 0, 1179695, 3, 0, 1179696, 3, 0, 1179697, 3, 0, 1179698, 3, 0, 1179699, 3, 0, 1179700, 3, 0, 1179701, 3, 0, 1179702, 3, 0, 1179703, 3, 0, 1179704, 3, 0, 1179705, 3, 0, 1179706, 3, 0, 1179707, 3, 0, 1179708, 3, 0, 1179709, 3, 0, 1179710, 3, 0, 1179711, 3, 0, 1310717, 0, 65536, 1310718, 0, 196610, 1310719, 0, 196610, 1245184, 0, 196610, 1245185, 0, 196610, 1245186, 0, 196610, 1245187, 0, 196610, 1245188, 0, 196610, 1245189, 0, 131073, 1245190, 0, 131074, 1245191, 0, 131074, 1245192, 0, 131074, 1245193, 0, 131074, 1245194, 0, 131074, 1245195, 0, 131074, 1245196, 0, 131074, 1245197, 3, 0, 1245198, 3, 0, 1245199, 3, 0, 1245200, 3, 0, 1245201, 3, 0, 1245202, 3, 0, 1245203, 3, 0, 1245204, 3, 0, 1245205, 3, 0, 1245206, 3, 0, 1245207, 3, 0, 1245208, 3, 0, 1245209, 3, 0, 1245210, 3, 0, 1245211, 3, 0, 1245212, 3, 0, 1245213, 3, 0, 1245214, 3, 0, 1245215, 3, 0, 1245216, 0, 196610, 1245217, 0, 196610, 1245218, 0, 196610, 1245219, 0, 196610, 1245220, 0, 196610, 1245221, 0, 65537, 1310725, 0, 65536, 1310726, 0, 196610, 1310727, 0, 196610, 1310728, 0, 196610, 1310729, 0, 196610, 1310730, 0, 196610, 1310731, 0, 196610, 1310732, 0, 196610, 1310733, 0, 196610, 1310734, 0, 196610, 1310735, 0, 196610, 1310736, 0, 196610, 1310737, 0, 196610, 1310738, 0, 196610, 1310739, 0, 196610, 1310740, 0, 196610, 1310741, 0, 196610, 1310742, 0, 196610, 1310743, 0, 65537 )
+script = ExtResource( 9 )
+other = ExtResource( 10 )
+
+[node name="shrine" type="Sprite" parent="." groups=[
+"Multiskin",
+]]
+position = Vector2( 1741, -164 )
+texture = ExtResource( 11 )
+script = ExtResource( 7 )
+other = SubResource( 80 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Book" parent="." groups=[
+"Multiskin",
+] instance=ExtResource( 19 )]
+position = Vector2( 1737, -112 )
+num = 4
+
+[node name="Player" parent="." instance=ExtResource( 20 )]
+position = Vector2( 73.2768, 233.005 )
+
+[node name="Camera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = -500
+limit_right = 2500
+limit_bottom = 300
+smoothing_enabled = true
+editor_draw_screen = false
+editor_draw_limits = true
+script = ExtResource( 21 )
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="rocks" type="Node2D" parent="Foreground"]
+editor/display_folded = true
+position = Vector2( 0, 293 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/rocks"]
+position = Vector2( 64, 4 )
+texture = SubResource( 70 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/rocks"]
+position = Vector2( 192, 4 )
+texture = SubResource( 70 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/rocks"]
+position = Vector2( 320, 4 )
+texture = SubResource( 70 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/rocks"]
+position = Vector2( 448, 4 )
+texture = SubResource( 70 )
+
+[node name="rocks2" type="Node2D" parent="Foreground"]
+editor/display_folded = true
+position = Vector2( 510, 293 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/rocks2"]
+position = Vector2( 64, 4 )
+texture = SubResource( 70 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/rocks2"]
+position = Vector2( 192, 4 )
+texture = SubResource( 70 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/rocks2"]
+position = Vector2( 320, 4 )
+texture = SubResource( 70 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/rocks2"]
+position = Vector2( 448, 4 )
+texture = SubResource( 70 )
+
+[node name="bamboo" type="Node2D" parent="Foreground"]
+editor/display_folded = true
+
+[node name="Node2D2" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 575.168, 115.759 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( -12, 8 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( 0, -23 )
+texture = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+texture = SubResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( 0, 38 )
+texture = SubResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( 0, 76 )
+texture = SubResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( 0, 114 )
+texture = SubResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( 0, 152 )
+texture = SubResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( 0, 190 )
+texture = SubResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D2"]
+position = Vector2( 0, 228 )
+texture = SubResource( 3 )
+
+[node name="Node2D" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 551.168, 181.759 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( 9, -3 )
+rotation = 3.14159
+texture = SubResource( 10 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( -11, 38 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/bamboo/Node2D"]
+texture = SubResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( 0, 38 )
+texture = SubResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( 0, 76 )
+texture = SubResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( 0, 114 )
+texture = SubResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( 0, 152 )
+texture = SubResource( 3 )
+
+[node name="Sprite13" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( -11, -43 )
+texture = SubResource( 8 )
+
+[node name="Sprite15" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( -16, -53 )
+texture = SubResource( 11 )
+
+[node name="Sprite14" type="Sprite" parent="Foreground/bamboo/Node2D"]
+position = Vector2( -3, -29 )
+texture = SubResource( 2 )
+
+[node name="Node2D4" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 48.7098, 329.817 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D4"]
+position = Vector2( -25, 24 )
+texture = SubResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D4"]
+position = Vector2( -19, 13 )
+texture = SubResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D4"]
+position = Vector2( -13, 2 )
+texture = SubResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D4"]
+position = Vector2( -7, -9 )
+texture = SubResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D4"]
+position = Vector2( 0, -22 )
+texture = SubResource( 9 )
+
+[node name="Node2D3" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 40.7098, 288.817 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( -5, 11 )
+rotation = -2.61799
+texture = SubResource( 10 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( -13, -18 )
+rotation = -0.523599
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( -33, 64 )
+scale = Vector2( -1, 1 )
+texture = SubResource( 3 )
+
+[node name="Sprite16" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( -30, 35 )
+scale = Vector2( -1, 1 )
+texture = SubResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( -15, 7 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = SubResource( 8 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( 0, -22 )
+texture = SubResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( -8, -7 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = SubResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D3"]
+position = Vector2( -22, 21 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = SubResource( 8 )
+
+[node name="Node2D6" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 972, 218 )
+
+[node name="Sprite12" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -5.13879, 9.24039 )
+rotation = -2.61799
+texture = SubResource( 10 )
+
+[node name="Sprite13" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -13.1388, -19.7596 )
+rotation = -0.523599
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite11" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -55, 79 )
+texture = SubResource( 7 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -49, 68 )
+texture = SubResource( 7 )
+
+[node name="Sprite10" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -43, 57 )
+texture = SubResource( 7 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -37, 46 )
+texture = SubResource( 7 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -31, 35 )
+texture = SubResource( 7 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -25, 24 )
+texture = SubResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -19, 13 )
+texture = SubResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -13, 2 )
+texture = SubResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( -7, -9 )
+texture = SubResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D6"]
+position = Vector2( 0, -22 )
+texture = SubResource( 9 )
+
+[node name="Node2D7" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 859.536, -63.1075 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( -12, 8 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( 0, -23 )
+texture = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+texture = SubResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( 0, 38 )
+texture = SubResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( 0, 76 )
+texture = SubResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( 0, 114 )
+texture = SubResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( 0, 152 )
+texture = SubResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( 0, 190 )
+texture = SubResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D7"]
+position = Vector2( 0, 228 )
+texture = SubResource( 3 )
+
+[node name="Node2D8" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 845.536, 39.8925 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( 9, -3 )
+rotation = 3.14159
+texture = SubResource( 10 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( -24, 24 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+texture = SubResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( 0, 38 )
+texture = SubResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( 0, 76 )
+texture = SubResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( 0, 114 )
+texture = SubResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( 0, 152 )
+texture = SubResource( 3 )
+
+[node name="Sprite13" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( -18, -57 )
+texture = SubResource( 8 )
+
+[node name="Sprite16" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( -11, -43 )
+texture = SubResource( 8 )
+
+[node name="Sprite15" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( -23, -67 )
+texture = SubResource( 11 )
+
+[node name="Sprite14" type="Sprite" parent="Foreground/bamboo/Node2D8"]
+position = Vector2( -3, -29 )
+texture = SubResource( 2 )
+
+[node name="Node2D5" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 299.882, 280.448 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D5"]
+position = Vector2( -25, 24 )
+texture = SubResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D5"]
+position = Vector2( -19, 13 )
+texture = SubResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D5"]
+position = Vector2( -13, 2 )
+texture = SubResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D5"]
+position = Vector2( -7, -9 )
+texture = SubResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D5"]
+position = Vector2( 0, -22 )
+texture = SubResource( 9 )
+
+[node name="Node2D9" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 257.882, 244.448 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( -5, 11 )
+rotation = -2.61799
+texture = SubResource( 10 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( -13, -18 )
+rotation = -0.523599
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( -33, 64 )
+scale = Vector2( -1, 1 )
+texture = SubResource( 3 )
+
+[node name="Sprite16" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( -30, 35 )
+scale = Vector2( -1, 1 )
+texture = SubResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( -15, 7 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = SubResource( 8 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( 0, -22 )
+texture = SubResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( -8, -7 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = SubResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D9"]
+position = Vector2( -22, 21 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = SubResource( 8 )
+
+[node name="Node2D10" type="Node2D" parent="Foreground/bamboo"]
+editor/display_folded = true
+position = Vector2( 817.583, -150.793 )
+
+[node name="Sprite8" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( -10.5, 12 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite16" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( -17.5, -11 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite18" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( -9.5, 109 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite17" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( -16.5, 86 )
+scale = Vector2( 1, -1 )
+texture = SubResource( 10 )
+
+[node name="Sprite6" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, -23 )
+texture = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+texture = SubResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 38 )
+texture = SubResource( 3 )
+
+[node name="Sprite15" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 266 )
+texture = SubResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 76 )
+texture = SubResource( 3 )
+
+[node name="Sprite10" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 304 )
+texture = SubResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 114 )
+texture = SubResource( 3 )
+
+[node name="Sprite11" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 342 )
+texture = SubResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 152 )
+texture = SubResource( 3 )
+
+[node name="Sprite12" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 380 )
+texture = SubResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 190 )
+texture = SubResource( 3 )
+
+[node name="Sprite13" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 418 )
+texture = SubResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 228 )
+texture = SubResource( 3 )
+
+[node name="Sprite14" type="Sprite" parent="Foreground/bamboo/Node2D10"]
+position = Vector2( 0, 456 )
+texture = SubResource( 3 )
+
+[node name="torii-front" type="Sprite" parent="Foreground" groups=[
+"Multiskin",
+]]
+position = Vector2( 1019, -136 )
+texture = SubResource( 77 )
+script = ExtResource( 2 )
+
+[node name="Special" type="Node2D" parent="."]
+
+[node name="Left" type="Area2D" parent="Special"]
+position = Vector2( -82, 127 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Special/Left"]
+shape = SubResource( 71 )
+
+[node name="Barrier" type="StaticBody2D" parent="Special"]
+position = Vector2( 2486, -241 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Special/Barrier"]
+shape = SubResource( 79 )
+
+[node name="right_entry" type="Node2D" parent="."]
+position = Vector2( 2421.37, -230.037 )
+
+[node name="Music" type="Node" parent="."]
+pause_mode = 2
+
+[node name="tween" type="AnimationPlayer" parent="Music"]
+pause_mode = 2
+anims/dark = SubResource( 72 )
+anims/dark_off = SubResource( 73 )
+anims/light = SubResource( 74 )
+anims/light_off = SubResource( 75 )
+
+[node name="Music1" type="AudioStreamPlayer" parent="Music"]
+pause_mode = 2
+stream = ExtResource( 23 )
+autoplay = true
+bus = "Music"
+
+[node name="Music2" type="AudioStreamPlayer" parent="Music"]
+pause_mode = 2
+stream = ExtResource( 24 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+[connection signal="body_entered" from="Assets/Coin4" to="Assets/Coin4" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="Special/Left" to="Player" method="_on_leaving_body_entered" binds= [ false ]]

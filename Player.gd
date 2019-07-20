@@ -331,7 +331,7 @@ func hurt():
 
 func knock(direction):
 	if iframes > 0 or dead: return
-	direction.y -= 1;
+	direction.y -= 1.1;
 	direction *= 300;
 	vel += direction;
 

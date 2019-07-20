@@ -10,7 +10,9 @@ func _on_Book_body_entered(body):
 		body.collect_book(num);
 
 func enter_state(state):
-	$AnimatedSprite.material.set_shader_param("enabled", state);
+	visible = state;
+	collision_layer = 2;
+	collision_mask = 2;
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "collect":
