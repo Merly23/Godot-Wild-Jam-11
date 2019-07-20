@@ -4513,7 +4513,7 @@ num = 4
 position = Vector2( 1737, -102 )
 frames = SubResource( 81 )
 animation = "idle"
-frame = 24
+frame = 11
 playing = true
 script = ExtResource( 54 )
 
