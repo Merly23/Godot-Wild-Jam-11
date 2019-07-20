@@ -167,6 +167,7 @@ script = ExtResource( 24 )
 
 [node name="orbs" type="Sprite" parent="."]
 pause_mode = 2
+editor/display_folded = true
 position = Vector2( 40.2215, 37.1702 )
 texture = ExtResource( 25 )
 

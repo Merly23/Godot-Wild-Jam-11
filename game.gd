@@ -26,9 +26,13 @@ func _process(delta):
 		if state:
 			$AltTo.play();
 			$"Level/Music/tween".play("dark")
+			AudioServer.set_bus_mute(2, true);
+			AudioServer.set_bus_mute(3, false);
 		else:
 			$AltFrom.play();
 			$"Level/Music/tween".play("light")
+			AudioServer.set_bus_mute(3, true);
+			AudioServer.set_bus_mute(2, false);
 		
 		get_tree().paused = true;
 
@@ -45,6 +49,8 @@ func save() -> void:
 	var save_game := SaveGame.new()
 	save_game.data = my_game_data
 	ResourceSaver.save("user://save_game.tres", save_game)
+	
+	update_orbs();
 
 func ld() -> void:
 	var save_game = load("user://save_game.tres")
@@ -67,6 +73,8 @@ func update_orbs():
 	$story.count = 0;
 	for i in my_game_data.books:
 		if i: $story.count += 1;
+
+var special_entry = false;
 
 func level_transition(val):
 	if $wipe/AnimationPlayer.is_playing(): return false
@@ -102,6 +110,10 @@ func swap_level():
 	if my_game_data.from_right:
 		$Level/Player.position = $Level/right_entry.position;
 		$Level/Player.vel.x = -10
+	if special_entry:
+		special_entry = false;
+		$Level/Player.position = $Level/right_entry2.position;
+		$Level/Player.vel = Vector2(-500, -200);
 	$Level/Player.checkpoint = $Level/Player.position;
 	
 	for node in get_tree().get_nodes_in_group("Book"):

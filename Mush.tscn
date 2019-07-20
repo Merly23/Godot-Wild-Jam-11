@@ -1,20 +1,20 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Mush.gd" type="Script" id=1]
-[ext_resource path="res://sprites/mush/walk03.png" type="Texture" id=2]
-[ext_resource path="res://sprites/mush/walk04.png" type="Texture" id=3]
-[ext_resource path="res://sprites/mush/walk05.png" type="Texture" id=4]
-[ext_resource path="res://sprites/mush/walk06.png" type="Texture" id=5]
-[ext_resource path="res://sprites/mush/walk07.png" type="Texture" id=6]
-[ext_resource path="res://sprites/mush/walk08.png" type="Texture" id=7]
-[ext_resource path="res://sprites/mush/walk09.png" type="Texture" id=8]
-[ext_resource path="res://sprites/mush/walk10.png" type="Texture" id=9]
-[ext_resource path="res://sprites/mush/walk11.png" type="Texture" id=10]
-[ext_resource path="res://sprites/mush/walk12.png" type="Texture" id=11]
-[ext_resource path="res://sprites/mush/walk13.png" type="Texture" id=12]
-[ext_resource path="res://sprites/mush/walk14.png" type="Texture" id=13]
-[ext_resource path="res://sprites/mush/walk02.png" type="Texture" id=14]
-[ext_resource path="res://sprites/mush/walk01.png" type="Texture" id=15]
+[ext_resource path="res://sprites/mush/walk02.png" type="Texture" id=2]
+[ext_resource path="res://sprites/mush/walk01.png" type="Texture" id=3]
+[ext_resource path="res://sprites/mush/walk03.png" type="Texture" id=4]
+[ext_resource path="res://sprites/mush/walk04.png" type="Texture" id=5]
+[ext_resource path="res://sprites/mush/walk05.png" type="Texture" id=6]
+[ext_resource path="res://sprites/mush/walk06.png" type="Texture" id=7]
+[ext_resource path="res://sprites/mush/walk07.png" type="Texture" id=8]
+[ext_resource path="res://sprites/mush/walk08.png" type="Texture" id=9]
+[ext_resource path="res://sprites/mush/walk09.png" type="Texture" id=10]
+[ext_resource path="res://sprites/mush/walk10.png" type="Texture" id=11]
+[ext_resource path="res://sprites/mush/walk11.png" type="Texture" id=12]
+[ext_resource path="res://sprites/mush/walk12.png" type="Texture" id=13]
+[ext_resource path="res://sprites/mush/walk13.png" type="Texture" id=14]
+[ext_resource path="res://sprites/mush/walk14.png" type="Texture" id=15]
 [ext_resource path="res://audio/MushroomMan/Footsteps_MushroomMan1.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -42,20 +42,20 @@ shader_param/enabled = false
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "turn",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "turn2",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
 } ]
 
 [node name="Mush" type="KinematicBody2D" groups=[
@@ -91,7 +91,6 @@ material = SubResource( 5 )
 position = Vector2( 0, -25 )
 frames = SubResource( 6 )
 animation = "walk"
-frame = 11
 playing = true
 offset = Vector2( -1, 0 )
 
@@ -100,7 +99,7 @@ stream = ExtResource( 16 )
 volume_db = 2.0
 max_distance = 400.0
 attenuation = 0.517633
-bus = "DePan"
+bus = "DePan2"
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]

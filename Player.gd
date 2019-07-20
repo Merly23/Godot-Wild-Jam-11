@@ -345,6 +345,13 @@ func _on_leaving_body_entered(body, to_right):
 	if not $"../..".level_transition(1 if to_right else -1): return;
 	stop_music();
 
+func _on_leaving_body_entered_special(body, to_right):
+	if not body == self: return;
+	if not $"../..".level_transition(1 if to_right else -1): return;
+	$"../..".special_entry = true;
+	stop_music();
+
+
 func stop_music():
 	if state == form.FOX:
 		$"../Music/tween".play("light_off");
@@ -353,7 +360,7 @@ func stop_music():
 
 func collect_book(num):
 	$"../..".my_game_data.books[num] = true;
-	$"../..".update_orbs();
+	$"../..".save();
 
 func _on_Dirt_body_entered(body):
 	if body == self:
@@ -365,3 +372,4 @@ func _on_Dirt_body_exited(body):
 
 func _on_Wallslide_finished():
 	was_on_wall = -1;
+
