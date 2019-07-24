@@ -1,7 +1,7 @@
 extends Node2D
 
 var select = 0;
-var count = 5;
+var count = 0;
 
 func _process(delta):
 	if not visible: return;

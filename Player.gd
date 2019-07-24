@@ -1,6 +1,16 @@
 extends KinematicBody2D
 class_name Player
 
+#Fundamental constants for player physics
+
+#They would normally be const and not var, but I
+#decided to change some of them when switching between forms
+
+#1000 on a force, despite being a large number is pretty typical
+#because we multiply by delta time. So a velocity of 1000 (px/s)
+#means you move 1000px in one second. An acceleration of gravity
+#of 1000 (px/s^2) means it takes one second to get to that speed
+#(but due to air friction you would never quite hit that high of a speed)
 var GRAVITY = 1000;
 var FRICTION = 0.1;
 var FRICTION_WALL = 0.3;
@@ -10,19 +20,38 @@ var FLY_FORCE = 300;
 var JUMP_FORCE = 15000;
 var RISE_FORCE = 2000;
 
+#velocity is stored between frames, whereas acceleration
+#is calculated fresh every frame based on the forces
+#acting upon the player at that moment
 var vel = Vector2.ZERO;
+
+#stores which keys we have pressed — gets reset every frame but
+#still useful for multiple functions
+var movement = Vector2.ZERO;
+
+#time spent in the air is tracked so the longer you hold
+#the jump button the less upwards acceleration you get
 var air_time = 0;
+
+#when you take damage the player starts flashing and
+#this variable counts down from 1.5 to zero;
+#-1 means the player shouldn't be flashing
 var iframes = -1;
+
+#at some point we say the player is falling fast enough to take damage
+#and we need to store it in a variable, because by the time the player
+#lands, his vertical velocity will have reset to zero
 var terminal_velocity = false;
+
+#depending on the environment we're in we play dirt footstep sounds instead
 var dirty = false;
 
 enum form {HUMAN, FOX, XFORM};
 var state = form.HUMAN;
 var dead = false;
 
+#stores our position to respawn at when falling off a cliff (not dying)
 var checkpoint : Vector2;
-
-var movement = Vector2.ZERO;
 
 func _physics_process(delta):
 	
@@ -31,6 +60,8 @@ func _physics_process(delta):
 	
 	movement = Vector2.ZERO;
 	if not dead:
+		#movement is like a second acceleration variable
+		#used for some special movement purposes
 		movement.x += 1 if Input.is_action_pressed("player_right") else 0;
 		movement.x += -1 if Input.is_action_pressed("player_left") else 0;
 		movement *= RUN_FORCE if is_on_floor() else FLY_FORCE;
@@ -48,6 +79,8 @@ func _physics_process(delta):
 				air_time = 0;
 				vel = Vector2.ZERO;
 		elif Input.is_action_pressed("player_jump"):
+			#give a little extra "boost" each frame we keep holding the jump button
+			#and we won't jump as high if we just tap the jump button
 			air_time += delta;
 			movement.y -= RISE_FORCE * pow(0.5, air_time * 7);
 	
@@ -289,8 +322,8 @@ func transform(switch, force):
 		FLY_FORCE = 600;
 		JUMP_FORCE = 20000;
 		RISE_FORCE = 100;
-		$Human.disabled = true;
 		$Fox.disabled = false;
+		$Human.disabled = true;
 		collision_layer = 1;
 		collision_mask = 1;
 		return true
@@ -304,8 +337,8 @@ func transform(switch, force):
 		FLY_FORCE = 300;
 		JUMP_FORCE = 15000;
 		RISE_FORCE = 2000;
-		$Fox.disabled = true;
 		$Human.disabled = false;
+		$Fox.disabled = true;
 		collision_layer = 2;
 		collision_mask = 2;
 		
@@ -338,6 +371,9 @@ func knock(direction):
 func iblink(on):
 	if iframes >= 0:
 		sprite.material.set_shader_param("enabled", on)
+
+func _ready():
+	sprite.material.set_shader_param("enabled", false)
 
 
 func _on_leaving_body_entered(body, to_right):
